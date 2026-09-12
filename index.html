@@ -1,0 +1,2137 @@
+<!doctype html>
+<html lang="es" data-tema="escaparate" data-texto="normal" data-fuente="legible" data-movimiento="normal">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  LA PASTELERÍA DE NICOLETA · proporcionalidad y porcentajes para 1.º y 2.º de ESO
+  Un solo archivo. Se abre en el navegador y no necesita nada más.
+
+  EL MODELO. Dos cantidades son proporcionales cuando al doblar una se
+  dobla la otra, y lo que no cambia es la razón: tres huevos por dos tazas
+  son huevo y medio por taza, se hagan las magdalenas que se hagan. Si al
+  doblar una la otra se parte por la mitad, es inversa, y lo que no cambia
+  es el producto. Un tanto por ciento es una razón con cien de
+  denominador; rebajar el d % es multiplicar por (100 − d) entre 100.
+
+  EL GESTO. Pasar por la unidad: cuánto cuesta un pastel, cuántos huevos
+  lleva una taza, cuánto vale el uno por ciento. La regla de tres son dos
+  pasos, no una cruz mágica.
+
+  LAS SALAS:
+    1. LA RECETA · la tabla de proporcionalidad y la razón; sumar como Nick
+    2. EL MOSTRADOR · pasar por la unidad; la regla de tres en dos pasos
+    3. EL HORNO · la inversa: el producto no cambia
+    4. EL ESCAPARATE · la tarta de cien cuadraditos; de cada cien, tantos
+    5. EL CARTEL DE LAS REBAJAS · descuentos y aumentos, encadenados, al revés
+    ·  FIBONACCI · sala oculta: la regla de tres del Liber Abaci, y el signo %
+
+  QUIÉN HABLA. Liz Stillo, de la ciudad, pide. Nicoleta, la pastelera,
+  contesta con la receta en la mano. Migas, el ratón del obrador, comenta
+  desde el borde. Nick asoma con la grapadora si el alumno se queda quieto.
+
+  EL KIT DE LA CALLE: nata y estraza, fresa del delantal, caramelo,
+  chocolate, pistacho y cereza; Bree Serif como la pizzería, Special Elite
+  como los expedientes de Liz, Lobster en el rótulo; el toldo a rayas;
+  etiqueta(); la receta como mando; la nota de encargo como albarán; los
+  oficios del obrador como rangos.
+
+  LO DE LA TERMINAL: arranque con la persiana y el toldo, las cajas
+  atadas en la cabecera, franja de oficio con etiqueta, guía, glosario,
+  ajustes, la nota de encargo, asomos, taller con hoja, deudas, índice,
+  diagnóstico, turno y modo aula.
+-->
+<meta name="author" content="Andrés Asensio">
+<meta name="description" content="Proporcionalidad y porcentajes para 1.º y 2.º de ESO: la receta que se escala, el mostrador donde se pasa por la unidad, el horno de la inversa, la tarta de cien cuadraditos y el cartel de las rebajas.">
+<meta name="theme-color" content="#F6EFE2">
+<title>La pastelería de Nicoleta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Special+Elite&family=Lobster&family=Space+Mono:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* DE ESCAPARATE: el mostrador a media mañana. Nata y papel de estraza,
+   la fresa del delantal de Nicoleta para el acento, caramelo para lo que
+   brilla, pistacho para lo que está bien, cereza para lo que no. Lo
+   dibujado va en --figura para que el cambio de tema lo invierta solo. */
+:root{
+  --fondo:#F6EFE2; --panel:#FFFDF6; --panel2:#F1E3D3; --linea:#DCCFB4;
+  --tinta:#3A2E22; --tenue:#7A6A58;
+  --fresa:#C97E8C; --fresaO:#9E5E6B; --caramelo:#C98A3E; --carameloO:#9A6A2A; --chocolate:#5A3A28; --pistacho:#7D8C3F; --pistachoO:#55622F;
+  --cereza:#B0392C; --escaparate:#2F6E8C; --nata:#FFFDF6; --estraza:#E0BFA0; --gris:#9A8A80;
+  --acento:var(--fresa); --acentoO:#9E5E6B; --acentoT:#FFFDF6; --mal:#B3341A; --bien:#5E6B2F;
+  --figura:#3A2E22; --figuraO:#7A6A58; --hueco:#F6EFE2;
+  --sombra:rgba(58,46,34,.18); --cuenta:#9A6A2A; --texto:15px;
+}
+[data-tema="obrador"]{
+  /* DE OBRADOR: la trastienda de madrugada, en chocolate, con las luces del horno. */
+  --fondo:#2A1E18; --panel:#362820; --panel2:#422F26; --linea:#5A463A;
+  --tinta:#F6EFE2; --tenue:#C9B6A4;
+  --fresa:#E3A0AC; --fresaO:#B77887; --caramelo:#E0A85C; --carameloO:#B0803A; --chocolate:#C9A98E; --pistacho:#A9B86F; --pistachoO:#7D8C3F;
+  --cereza:#E06A5A; --escaparate:#7FB3C9; --nata:#F6EFE2; --estraza:#E0BFA0; --gris:#B0A196;
+  --acentoO:#B77887; --acentoT:#2A1E18; --mal:#E8705A; --bien:#A9B86F;
+  --figura:#F6EFE2; --figuraO:#C9B6A4; --hueco:#2A1E18;
+  --sombra:rgba(0,0,0,.5); --cuenta:#E0A85C;
+}
+[data-texto="grande"]{--texto:17.5px}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{background:var(--fondo)}
+html,body{overflow-x:clip}
+body{margin:0;color:var(--tinta);background:var(--fondo);
+  font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:var(--texto);line-height:1.5;
+  max-width:820px;margin:0 auto;padding:0 14px 40px}
+[data-fuente="bree"] body{font-family:'Bree Serif','Atkinson Hyperlegible',serif;font-size:calc(var(--texto) + 1px)}
+[data-movimiento="menos"] *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+
+/* EL FRISO DEL ESCAPARATE: el toldo a rayas fresa y nata, con el borde en festón. */
+.toldo{height:26px;margin:0 -14px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='26'><rect x='0' y='0' width='24' height='18' fill='%23C97E8C'/><rect x='24' y='0' width='24' height='18' fill='%23FFFDF6'/><path d='M0 18 a12 8 0 0 0 24 0 Z' fill='%23C97E8C'/><path d='M24 18 a12 8 0 0 0 24 0 Z' fill='%23FFFDF6'/><path d='M0 18 a12 8 0 0 0 24 0 a12 8 0 0 0 24 0' fill='none' stroke='%233A2E22' stroke-width='1'/></svg>") repeat-x left top / 48px 26px}
+[data-tema="obrador"] .toldo{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='26'><rect x='0' y='0' width='24' height='18' fill='%23B77887'/><rect x='24' y='0' width='24' height='18' fill='%23E0D2C0'/><path d='M0 18 a12 8 0 0 0 24 0 Z' fill='%23B77887'/><path d='M24 18 a12 8 0 0 0 24 0 Z' fill='%23E0D2C0'/><path d='M0 18 a12 8 0 0 0 24 0 a12 8 0 0 0 24 0' fill='none' stroke='%232A1E18' stroke-width='1'/></svg>")}
+
+header .cabeza{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-top:14px}
+h1{font-family:'Lobster',cursive;font-weight:400;font-size:33px;letter-spacing:.2px;margin:0;color:var(--acento);line-height:1.05}
+header .sub{font-family:'Special Elite',monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--tenue);margin:4px 0 0}
+/* LAS CAJAS ATADAS: una caja de pastelería con su cordel por encargo servido. */
+.cajas{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:'Special Elite',monospace;font-size:12px;letter-spacing:1px;color:var(--tenue);
+  border:1px solid var(--linea);border-radius:20px;padding:4px 12px;transition:border-color .3s, box-shadow .3s}
+.cajas b{color:var(--acento);font-weight:400;font-variant-numeric:tabular-nums}
+.cajas svg{width:22px;height:18px}
+.cajas.brilla{border-color:var(--caramelo);box-shadow:0 0 18px var(--caramelo)}
+.barra{display:flex;gap:2px 14px;flex-wrap:wrap;margin:10px 0 0;font-family:'Bree Serif',serif;font-size:18px;letter-spacing:.3px}
+.barra a,.barra button{font:inherit;color:var(--tenue);background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:none}
+.barra a:hover,.barra button:hover,.barra button[aria-pressed="true"]{color:var(--acento)}
+.barra a:focus-visible,.barra button:focus-visible{outline:2px solid var(--caramelo);outline-offset:2px}
+/* LA FRANJA DEL OFICIO, con su etiqueta */
+.franja{margin:12px 0 0;padding:8px 12px;border:1px solid var(--linea);border-radius:10px;background:var(--panel);display:grid;grid-template-columns:40px 1fr;gap:6px 10px;align-items:center}
+.franja .etiqueta{grid-row:1/3;width:38px;height:44px}
+.franja .etiqueta svg{width:100%;height:100%;display:block}
+.franja .linea1{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.franja .rango{font-family:'Bree Serif',serif;font-size:19px;font-weight:400;color:var(--acento);letter-spacing:.2px}
+.franja .rango small{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--tenue);margin-left:8px;font-weight:400}
+.franja .cuenta{font-family:'Special Elite',monospace;font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--tenue)}
+.franja .barraR{height:6px;border-radius:3px;background:var(--fondo);overflow:hidden}
+.franja .barraR i{display:block;height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--acentoO),var(--acento));transition:width .5s ease}
+
+.panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--linea);border-radius:12px;
+  padding:14px 14px 12px;margin:10px 0;box-shadow:0 6px 18px var(--sombra);position:relative}
+.salaRot{margin:-2px 0 10px}
+.salaRot b{font-family:'Bree Serif',serif;font-weight:400;font-size:22px;letter-spacing:.2px;color:var(--acento)}
+.salaRot b::before{content:'';display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--acento);margin-right:8px;vertical-align:-1px}
+.salaRot span{font-family:'Bree Serif',serif;font-style:italic;font-size:16px;color:var(--tenue);margin-left:8px}
+.fila{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.etq{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--tenue);min-width:82px}
+button.n{font-family:'Space Mono',monospace;font-weight:700;font-size:14px;min-width:34px;min-height:34px;padding:5px 9px;border-radius:8px;
+  border:1px solid var(--linea);background:var(--panel);color:var(--tinta);cursor:pointer}
+button.n[aria-pressed="true"]{background:var(--acento);border-color:var(--acento);color:var(--acentoT)}
+button.n.v{font-family:'Bree Serif',serif;font-weight:400;font-size:15px;letter-spacing:.2px}
+button.n.t[aria-pressed="true"]{background:var(--cereza);border-color:var(--cereza);color:#fff}
+.cifra{display:inline-block;padding:5px 12px;font-family:'Space Mono',monospace;font-weight:700;font-size:14px;color:var(--caramelo);min-width:44px;text-align:center}
+button.b{font-family:'Bree Serif',serif;font-weight:400;font-size:16px;letter-spacing:.3px;min-height:36px;padding:5px 14px;border-radius:9px;
+  border:1px solid var(--linea);background:var(--panel);color:var(--tinta);cursor:pointer}
+button.b:hover{border-color:var(--acento)}
+button.b.ok{background:var(--acento);border-color:var(--acento);color:var(--acentoT)}
+button.b:disabled{opacity:.45;cursor:default}
+button.b[aria-pressed="true"]{border-color:var(--acento);color:var(--acento)}
+button.b.armado{border-color:var(--mal);color:var(--mal)}
+button:focus-visible{outline:2px solid var(--caramelo);outline-offset:2px}
+.escena{background:var(--fondo);border:1px solid var(--linea);border-radius:10px;padding:10px;margin-top:10px;overflow-x:auto;position:relative}
+.escena svg{display:block;width:100%;height:auto}
+.lectura{margin:10px 0 0;font-size:var(--texto);line-height:1.55}
+.lectura b{color:var(--acento)}
+.lectura .cuenta{font-family:'Space Mono',monospace;font-size:13.5px;color:var(--cuenta);display:block;margin:6px 0 0;overflow-x:auto;white-space:nowrap;padding-bottom:2px}
+.lectura .def{display:block;margin:0 0 6px;padding:6px 10px;border-left:3px solid var(--pistacho);font-family:'Bree Serif',serif;font-size:calc(var(--texto) + 2px);color:var(--tinta);line-height:1.4}
+.lectura .murmullo{display:block;margin-top:6px;font-family:'Bree Serif',serif;font-style:italic;font-size:15px;color:var(--tenue)}
+.lectura .trampa{color:var(--cereza);font-weight:700}
+textarea.propia{font-family:'Space Mono',monospace;font-size:13px;width:100%;min-height:54px;padding:8px 10px;border-radius:9px;border:1px solid var(--linea);background:var(--fondo);color:var(--tinta);resize:vertical}
+input.resp{font-family:'Space Mono',monospace;font-size:16px;padding:8px 10px;border-radius:9px;border:1px solid var(--linea);background:var(--fondo);color:var(--tinta);width:150px}
+
+/* EL ENCARGO Y EL INFORME */
+.encargo{padding-left:70px;min-height:82px}
+.cara{position:absolute;left:12px;top:11px;width:46px;height:48px}
+.cara svg{width:100%;height:100%;display:block}
+.cara.toca{cursor:pointer}
+/* Migas vive en el borde del informe, a la derecha, y comenta */
+.cara.raton{left:auto;right:10px;top:8px;width:40px;height:42px;transition:transform .35s ease}
+.cara.raton.salta{transform:translateY(-6px)}
+.informe .encTxt{padding-right:44px}
+.quien{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--escaparate);margin-bottom:4px}
+.informe .quien{color:var(--caramelo)}
+.informe{border-left:3px solid var(--caramelo)}
+.informe.mal{border-left-color:var(--mal)}
+.encTxt{margin:0;font-size:var(--texto);line-height:1.55}
+.encTxt b{color:var(--acento)}
+.encTxt .nota{display:block;margin-top:8px;padding:8px 10px;background:var(--nata);color:#3A2E22;font-family:'Special Elite',monospace;font-size:12.5px;letter-spacing:.6px;border-radius:4px;border:1px dashed var(--fresaO);transform:rotate(-.6deg)}
+.ops{display:grid;gap:6px;margin:10px 0 4px}
+.op{font-family:inherit;font-size:calc(var(--texto) - 1px);text-align:left;padding:10px 12px;border-radius:9px;border:1px solid var(--linea);
+  background:var(--panel);color:var(--tinta);cursor:pointer;line-height:1.4}
+.op[aria-pressed="true"]{border-color:var(--acento);background:var(--panel2)}
+.op.fallada{border-color:var(--mal);opacity:.65}
+.paso{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--tenue);margin-left:auto}
+
+/* LOS ASOMOS, el sistema de la casa */
+.asomo{position:absolute;pointer-events:none;z-index:4;opacity:0;overflow:hidden;
+  transition:transform .44s cubic-bezier(.34,1.56,.64,1), opacity .2s ease}
+.asomo svg{width:100%;height:auto;display:block;filter:drop-shadow(0 3px 8px rgba(0,0,0,.5))}
+.asomo.arriba{right:14px;top:0;width:62px;transform:translateY(20px)}
+.asomo.arriba.mira{opacity:1;transform:translateY(calc(-64% + 2px))}
+.asomo.arriba.mira.falla{transform:translateY(calc(-42% + 2px));transition:transform .5s ease-out, opacity .2s ease}
+.asomo.lado{right:0;top:18px;width:70px;transform:translateX(80px)}
+.asomo.lado.mira{opacity:1;transform:translateX(26px)}
+.asomo.entero{right:14px;top:-10px;width:76px;transform:translateY(-20px) scale(.6)}
+.asomo.entero.mira{opacity:1;transform:translateY(-70%) scale(1)}
+.globo{position:absolute;right:96px;top:22px;max-width:200px;background:var(--nata);color:#3A2E22;border-radius:12px;padding:8px 11px;
+  font-size:13px;line-height:1.35;z-index:5;opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease;pointer-events:none}
+.globo::after{content:'';position:absolute;right:-8px;top:14px;border:6px solid transparent;border-left-color:var(--nata)}
+.globo.mira{opacity:1;transform:none}
+/* LA VIDA DE LOS PERSONAJES: respiran, parpadean, y Migas menea la cola */
+.cara.vivo svg{animation:respira 3.4s ease-in-out infinite;transform-origin:50% 100%}
+.cara.vivo.raton svg{animation-delay:1.1s}
+@keyframes respira{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-.6px) scaleY(1.012)}}
+.parpados{opacity:0;animation:parpadea 4.6s linear infinite}
+@keyframes parpadea{0%,91%,100%{opacity:0}93%,97%{opacity:1}}
+.cola{transform-origin:39px 44px;animation:menea 2.8s ease-in-out infinite}
+@keyframes menea{0%,100%{transform:rotate(0)}30%{transform:rotate(-9deg)}70%{transform:rotate(7deg)}}
+.flash{position:absolute;left:8px;top:6px;width:54px;height:54px;border-radius:50%;background:#fff;pointer-events:none;z-index:6;animation:flash .5s ease-out forwards}
+@keyframes flash{from{opacity:.95;transform:scale(.6)}to{opacity:0;transform:scale(1.6)}}
+/* la cara que brilla, y la harina al llegar a maestra */
+.cara.brilla svg{filter:drop-shadow(0 0 6px var(--caramelo)) drop-shadow(0 0 14px var(--caramelo));transition:filter .3s}
+.harina{position:absolute;width:7px;height:7px;border-radius:50%;background:#FFFDF6;border:1px solid #DCCFB4;pointer-events:none;z-index:6;animation:cae linear forwards;opacity:.95}
+@keyframes cae{from{transform:translateY(-30px) rotate(0)}to{transform:translateY(420px) rotate(400deg);opacity:0}}
+/* el sello de la pastelería: un aro fresa que se estampa en la nota */
+.selloNota{position:absolute;width:14px;height:14px;border-radius:50%;border:3px solid var(--fresa);pointer-events:none;z-index:6;animation:estampa .7s ease-out forwards}
+@keyframes estampa{from{transform:scale(2.4);opacity:0}40%{transform:scale(1);opacity:1}to{transform:scale(1);opacity:0}}
+.cara.ajusta svg{animation:ajusta .5s ease-in-out 2 !important}
+@keyframes ajusta{0%,100%{transform:none}50%{transform:translateY(-3px) scaleY(1.04)}}
+
+/* EL ÍNDICE, EL GLOSARIO, LAS DEUDAS */
+.listaEnc{margin-top:8px;max-height:260px;overflow-y:auto;border:1px solid var(--linea);border-radius:9px;background:var(--fondo)}
+.listaEnc button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--linea);color:var(--tenue);cursor:pointer;
+  font-family:inherit;font-size:13px;padding:7px 10px;line-height:1.35}
+.listaEnc button:last-child{border-bottom:0}
+.listaEnc button:hover{background:var(--panel2);color:var(--tinta)}
+.listaEnc button b{color:var(--acento);font-family:'Space Mono',monospace;font-size:11px;margin-right:6px}
+.listaEnc button.hecho b{color:var(--bien)}
+.listaEnc button.actual{color:var(--tinta);background:var(--panel2)}
+#diag{font-family:'Space Mono',monospace;font-size:11.5px;line-height:1.5;margin-top:10px}
+#diag .ok{color:var(--bien)} #diag .ko{color:var(--mal)}
+.glosa{border-top:1px solid var(--linea);padding:9px 0;display:grid;grid-template-columns:130px 1fr;gap:4px 12px}
+.glosa:last-child{border-bottom:1px solid var(--linea)}
+.glosa b{font-family:'Bree Serif',serif;color:var(--acento);font-size:18px;font-weight:700}
+.glosa i{font-family:'Space Mono',monospace;font-style:normal;font-size:10px;color:var(--tenue);display:block;letter-spacing:1px}
+.glosa p{margin:0;font-size:14px;color:var(--tinta)}
+@media (max-width:460px){ .glosa{grid-template-columns:1fr} }
+.deuda{border:1px solid var(--linea);border-radius:10px;padding:10px 12px;margin-top:8px;background:var(--fondo)}
+.deuda summary{cursor:pointer;font-weight:700;color:var(--tinta);font-size:15px;list-style:none;display:flex;gap:10px;align-items:baseline}
+.deuda summary::before{content:'▸';color:var(--acento);font-size:13px}
+.deuda[open] summary::before{content:'▾'}
+.deuda p{font-size:14px;color:var(--tinta);margin:8px 0 0}
+.aviso{font-size:13px;color:var(--tenue);margin:8px 0 0}
+/* la sala oculta */
+.oculta .latin{font-family:'Bree Serif',serif;font-style:italic;font-size:21px;color:var(--caramelo);margin:6px 0 2px;line-height:1.3}
+.oculta .trad{font-style:italic;color:var(--tenue);margin:0 0 10px;font-size:14px}
+.oculta .cara{position:static;float:right;margin:0 0 6px 10px;width:56px;height:58px}
+
+/* EL TALLER */
+.tipos{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tipos button.b{font-size:15px;padding:5px 10px;min-height:34px}
+.ejer{font-size:17px;margin:14px 0 8px;line-height:1.5}
+.ejer b{color:var(--acento)}
+.veredicto{margin-top:9px;padding:9px 11px;border:1px solid var(--linea);border-radius:9px;font-size:14px;color:var(--tinta);background:var(--fondo)}
+.veredicto.bien{border-color:var(--caramelo)}
+.veredicto b{color:var(--acento)}
+.marcador{display:flex;gap:16px;margin-top:8px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--tenue)}
+.marcador b{color:var(--acento);font-size:13px;margin-left:4px}
+.hoja{display:none}
+body.imprimiendo .hoja{display:block;background:#fff;color:#222;padding:20px;font-family:Georgia,serif}
+body.imprimiendo > *:not(.hoja){display:none !important}
+.hoja h2{font-family:'Bree Serif',serif;font-size:22px;margin:0 0 4px}
+.hoja .cab{font-size:12px;color:#666;margin-bottom:14px}
+.hoja ol{padding-left:22px;font-size:15px;line-height:2.1}
+.hoja .clave{break-before:page;page-break-before:always;margin-top:30px;border-top:1px solid #999;padding-top:10px}
+.hoja .clave ol{line-height:1.7;font-size:13px}
+@media print{ .hoja{display:block} }
+
+/* LOS MODALES */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:50;padding:14px}
+.modal .caja{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--linea);border-radius:14px;padding:18px 18px 14px;
+  width:min(520px,100%);max-height:92vh;overflow:auto;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.modal h2{font-family:'Bree Serif',serif;font-weight:400;font-size:24px;color:var(--acento);margin:0 0 2px;letter-spacing:.2px}
+.modal .sub{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--tenue);margin:0 0 14px}
+.aj{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:center}
+.aj .etq{min-width:0}
+.aj .ops2{display:flex;flex-wrap:wrap;gap:6px}
+.aj .ops2 button{font-family:'Space Mono',monospace;font-size:11.5px;padding:6px 10px;border-radius:8px;border:1px solid var(--linea);background:var(--fondo);color:var(--tinta);cursor:pointer}
+.aj .ops2 button[aria-pressed="true"]{background:var(--acento);border-color:var(--acento);color:var(--acentoT)}
+.aj .ops2 button:disabled{opacity:.4;cursor:default}
+.nombre{font-family:inherit;font-size:15px;padding:8px 10px;border-radius:9px;border:1px solid var(--linea);background:var(--fondo);color:var(--tinta);width:100%;margin-bottom:10px}
+.albaran{font-family:'Special Elite',monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;background:var(--fondo);border:1px solid var(--linea);
+  border-radius:9px;padding:10px 12px;color:var(--tinta);word-break:break-all}
+.albaran .sello{color:var(--fresa)}
+/* LA GUÍA */
+.tourCapa{position:fixed;inset:0;z-index:80;cursor:pointer}
+.tourFoco{position:fixed;border-radius:12px;border:2px solid var(--caramelo);pointer-events:none;
+  box-shadow:0 0 0 9999px rgba(0,0,0,.66), 0 0 24px var(--caramelo);transition:all .35s ease}
+.tourGlobo{position:fixed;max-width:320px;background:var(--panel);color:var(--tinta);border:1px solid var(--linea);border-radius:12px;padding:12px 14px;
+  box-shadow:0 12px 30px rgba(0,0,0,.6);cursor:default;transition:top .35s ease,left .35s ease}
+.tourGlobo b{font-family:'Bree Serif',serif;font-size:19px;color:var(--acento);display:block;margin-bottom:4px;font-weight:700}
+.tourGlobo p{margin:0 0 10px;font-size:14px;line-height:1.45}
+.tourGlobo .pie{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.tourGlobo .num{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.4px;color:var(--tenue)}
+.tourGlobo button{font-family:'Bree Serif',serif;font-size:16px;padding:5px 12px;border-radius:8px;
+  border:1px solid var(--linea);background:var(--panel);color:var(--tinta);cursor:pointer}
+.tourGlobo button.pri{background:var(--acento);border-color:var(--acento);color:var(--acentoT)}
+
+/* EL ARRANQUE: la calle al amanecer. Sube la persiana, se despliega el
+   toldo, las tartas aparecen una a una en el escaparate y Nicoleta sale a
+   la puerta con la escoba. */
+.boot{position:fixed;inset:0;z-index:9999;background:#2A1E18;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  transition:opacity .5s ease;cursor:pointer}
+.boot.fuera{opacity:0;pointer-events:none}
+.boot .tit{font-family:'Lobster',cursive;font-weight:400;font-size:clamp(28px,7vw,44px);color:#E3A0AC;letter-spacing:.2px;text-align:center;padding:0 16px}
+.bootEscena{position:relative;width:300px;height:210px}
+.bootEscena svg{width:100%;height:100%;display:block}
+.bootEscena .llega{opacity:0;animation:llega .6s cubic-bezier(.34,1.56,.64,1) forwards}
+.bootEscena .persiana{transform-origin:center top;animation:sube 1.1s ease-in-out forwards}
+.bootEscena .toldoB{transform-origin:center top;transform:scaleY(0);animation:despliega .8s ease-out forwards}
+.bootEscena .tarta{opacity:0;animation:llega .5s ease-out forwards}
+.bootEscena .rotulo{opacity:0;animation:aclara .4s ease-out forwards}
+@keyframes llega{from{opacity:0;transform:translateY(10px) scale(.7)}to{opacity:1;transform:none}}
+@keyframes sube{from{transform:scaleY(1)}to{transform:scaleY(.12)}}
+@keyframes despliega{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes aclara{from{opacity:0}to{opacity:1}}
+.boot .lista{font-family:'Special Elite',monospace;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;color:#C9B6A4;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;padding:0 16px}
+.boot .lista span{opacity:0;animation:pasaLista .3s forwards}
+.boot .saltar{position:absolute;bottom:26px;font-family:'Special Elite',monospace;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:#C9B6A4;opacity:.8}
+@keyframes pasaLista{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+.nueva{animation:aparece .28s ease-out}
+@keyframes tiembla{0%,100%{transform:none}25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}
+.tiembla{animation:tiembla .35s ease-in-out 3;transform-origin:center}
+
+footer.pie{margin-top:26px;padding-top:12px;border-top:1px solid var(--linea);display:flex;justify-content:center;flex-direction:column;align-items:center;gap:6px}
+footer.pie a{display:inline-flex;align-items:center;gap:10px;color:var(--tenue);text-decoration:none;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase}
+footer.pie a:hover{color:var(--tinta)}
+footer.pie svg{width:100px;height:22px}
+footer.pie svg circle{fill:none;stroke:currentColor;stroke-width:1.6}
+footer.pie svg text{fill:currentColor;font-family:'Space Mono',monospace;font-size:9px;font-weight:700}
+footer.pie .calle{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--tenue);text-align:center}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  .asomo.arriba.mira,.asomo.arriba.mira.falla{transform:translateY(calc(-64% + 2px))}
+}
+@media (max-width:520px){ h1{font-size:27px} .encargo{padding-left:64px} .etq{min-width:70px} }
+
+/* ── EL MODO AULA ───────────────────────────────────────────────────────
+   Para la pizarra digital. Dos cosas, y ninguna más: todo un tercio más
+   grande, que es lo que se nota desde el fondo de la clase; y, si hay
+   sitio, el encargo a la izquierda y la sala a la derecha, para que se
+   vean a la vez y no haya que rodar con el dedo mientras se explica.
+   El zoom escala TODO a la vez —letra, botones, dibujos—, así que no hay
+   que tocar ni un tamaño suelto y nada se descoloca.                     */
+@media (min-width:900px){
+  body[data-aula="si"]{zoom:1.32;max-width:1430px}
+}
+@media (min-width:1100px){
+  body[data-aula="si"] .aulaRejilla{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);
+    gap:0 14px;align-items:start}
+  body[data-aula="si"] .colIzq,
+  body[data-aula="si"] .colDer{display:block;min-width:0}
+  body[data-aula="si"] .colIzq > .panel:first-child,
+  body[data-aula="si"] .colDer > .panel:first-child{margin-top:0}
+  body[data-aula="si"] .colIzq > footer.pie{margin-top:18px}
+}
+.aulaRejilla,.colIzq,.colDer{display:contents}
+.barra button.aula[aria-pressed="true"]{color:var(--acento)}
+</style>
+</head><body>
+
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="tit">La pastelería de Nicoleta</div>
+  <div class="bootEscena" id="bootEscena">
+    <svg viewBox="0 0 300 210" aria-hidden="true" id="bootCalle"></svg>
+  </div>
+  <div class="lista" id="bootLista"></div>
+  <div class="saltar">toca para saltar</div>
+</div>
+
+<header>
+  <div class="toldo" aria-hidden="true"></div>
+  <div class="cabeza">
+    <div>
+      <h1>La pastelería de Nicoleta</h1>
+      <p class="sub">Proporcionalidad y porcentajes · la calle</p>
+    </div>
+    <div class="cajas" id="cajas" aria-label="Cajas atadas"><svg viewBox="0 0 44 36" aria-hidden="true"><rect x="6" y="10" width="32" height="22" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 16 H38 M22 10 V32" stroke="currentColor" stroke-width="1.6"/><path d="M22 10 l-5 -6 M22 10 l5 -6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>cajas</span><b id="cajasT">0</b></div>
+  </div>
+  <nav class="barra" id="barra">
+    <a href="https://diazepamina-creator.github.io/linea.html">← Materiales</a>
+    <button id="bGuia">Guía</button>
+    <button id="bTaller" aria-pressed="false">Taller</button>
+    <button id="bIndice" aria-pressed="false">Salas</button>
+    <button id="bGlosario" aria-pressed="false">Glosario</button>
+    <button id="bDeudas" aria-pressed="false">Deudas</button>
+    <span style="flex:1"></span>
+    <button id="bAula" class="aula" aria-pressed="false">Aula</button>
+    <button id="bSello">La nota</button>
+    <button id="bAjustes">Ajustes</button>
+  </nav>
+  <div class="franja" id="franja">
+    <div class="etiqueta" id="rangoEtiqueta" aria-hidden="true"></div>
+    <div class="linea1">
+      <span class="rango"><span id="rangoNom">Pinche</span><small id="rangoSig"></small></span>
+      <span class="cuenta" id="rangoCuenta"></span>
+    </div>
+    <div class="barraR"><i id="rangoBarra"></i></div>
+  </div>
+</header>
+
+<div class="panel encargo" id="pEncargo">
+  <div class="asomo lado" id="asomoLado" aria-hidden="true"></div>
+  <div class="globo" id="globoLado" aria-hidden="true"></div>
+  <div class="asomo entero" id="asomoEntero" aria-hidden="true"></div>
+  <div class="cara vivo toca" id="caraLiz" title="Liz Stillo"></div>
+  <div class="quien">Liz Stillo, del periódico</div>
+  <p class="encTxt" id="encTxt"></p>
+  <div class="ops" id="ops" hidden></div>
+  <div class="fila">
+    <button class="b" id="atras" aria-label="Encargo anterior">◀</button>
+    <button class="b ok" id="comprobar">Comprobar</button>
+    <span class="paso" id="cual"></span>
+  </div>
+</div>
+<div class="panel informe encargo" id="informe" hidden>
+  <div class="asomo arriba" id="asomoArriba" aria-hidden="true"></div>
+  <div class="cara vivo toca" id="caraNicoleta" title="Nicoleta"></div>
+  <div class="cara vivo raton toca" id="caraMigas" title="Migas"></div>
+  <div class="quien">Nicoleta, la pastelera</div>
+  <p class="encTxt" id="infTxt"></p>
+</div>
+
+<!-- ═══ EL TALLER ═══ -->
+<div class="panel taller" id="pTaller" hidden>
+  <div class="salaRot"><b>El taller</b><span>práctica libre, y a la sala si hace falta</span></div>
+  <div class="tipos" id="tipos"></div>
+  <div class="ejer" id="ejer"></div>
+  <div class="fila" style="margin-top:6px" id="filaSiNo" hidden>
+    <button class="b" id="bSi">Directa</button><button class="b" id="bNo">Inversa</button>
+  </div>
+  <div class="fila" style="margin-top:6px" id="filaResp">
+    <input class="resp" id="resp" type="text" inputmode="decimal" autocomplete="off" placeholder="tu respuesta">
+    <button class="b ok" id="corrige">Corregir</button>
+  </div>
+  <div class="fila" style="margin-top:6px">
+    <button class="b" id="otro">Otro</button>
+    <button class="b" id="verlo" hidden>Verlo en la sala</button>
+  </div>
+  <div class="veredicto" id="verTaller" hidden></div>
+  <div class="marcador"><span>aciertos <b id="tAc">0</b></span><span>racha <b id="tRacha">0</b></span><span>mejor <b id="tMejor">0</b></span></div>
+  <div class="fila">
+    <button class="b" id="hojaDiez">Imprimir una hoja de diez</button>
+    <span class="etq" style="min-width:0">con la clave en hoja aparte</span>
+  </div>
+</div>
+<div class="hoja" id="hoja"></div>
+
+<!-- ═══ EL GLOSARIO ═══ -->
+<div class="panel" id="pGlosario" hidden>
+  <div class="salaRot"><b>El glosario</b><span>las palabras del obrador y de las cuentas</span></div>
+  <div id="glosas"></div>
+</div>
+
+<!-- ═══ LAS DEUDAS ═══ -->
+<div class="panel" id="pDeudas" hidden>
+  <div class="salaRot"><b>Las deudas</b><span>lo que se demuestra aquí, lo que se dice y lo que se demuestra en otro sitio</span></div>
+  <p class="aviso" style="margin:0 0 10px">Tres cosas de esta pastelería se dicen en las salas y se demuestran aquí, en pocas líneas. Y una cuarta que no se
+  demuestra porque no es matemática: es una advertencia.</p>
+  <details class="deuda">
+    <summary>Por qué funciona la regla de tres</summary>
+    <p>Porque no es una cruz: son dos pasos. Cinco pasteles cuestan tres pesetas; para saber ocho, primero <b>uno</b>: tres entre
+    cinco, sesenta céntimos. Luego <b>ocho</b>: sesenta por ocho, cuatro con ochenta. Las dos cuentas seguidas son «tres por ocho
+    entre cinco», y eso es la cruz. La cruz es un atajo de los dos pasos, y solo vale cuando la proporción es directa: si fuera
+    inversa, los pasos serían otros y la cruz saldría al revés. Por eso en el mostrador se enseñan los pasos antes que la cruz.</p>
+  </details>
+  <details class="deuda">
+    <summary>Por qué rebajar el 20 % es multiplicar por 0,8</summary>
+    <p>El precio entero es el 100 %. Se quita el 20 % y queda el 80 %. El 80 % de una cosa es la cosa por 80 entre 100, o sea por
+    0,8. Y subir el 20 % es llegar al 120 %: por 1,2. De ahí sale que dos rebajas seguidas <b>no se suman</b>: 10 → 8 → 9,60, porque
+    el segundo 20 % es de ocho, no de diez. Y de ahí sale que para volver al precio de antes se <b>divide</b> entre 0,8, no se suma
+    el 20 %: ocho entre 0,8 son diez; ocho más su 20 % son 9,60.</p>
+  </details>
+  <details class="deuda">
+    <summary>Por qué el 25 % de ocho es ocho por 25 entre 100</summary>
+    <p>El 25 % es 25 de cada 100: la fracción 25/100. La fracción de una cantidad es la cantidad por el numerador entre el
+    denominador, como en la ciudad de Liz: los tres cuartos de doce son doce por tres entre cuatro. Aquí el denominador es
+    siempre cien, y por eso el tanto por ciento es la fracción de cantidad con otro nombre. Y como 25/100 es un cuarto, el 25 %
+    de ocho es un cuarto de ocho: dos. Los atajos (la mitad, un cuarto, entre diez) son fracciones equivalentes.</p>
+  </details>
+  <details class="deuda">
+    <summary>Por qué nueve ayudantes no hacen el bizcocho nueve veces más deprisa</summary>
+    <p>La proporcionalidad inversa dice que si el trabajo se reparte de verdad, el doble de manos tarda la mitad. Pero el horno
+    tarda lo que tarda, y una masa reposa lo que reposa: hay partes del trabajo que no se reparten. La inversa es un
+    <b>modelo</b>, y antes de usarla hay que mirar si el trabajo se reparte. Eso no se demuestra: se dice, y en el horno se dice.</p>
+  </details>
+</div>
+
+<!-- ═══ FIBONACCI · oculta ═══ -->
+<div class="panel oculta" id="pFibonacci" hidden>
+  <div class="salaRot"><b>Fibonacci</b><span>lo que no está en el índice</span></div>
+  <p class="latin">«Si cien rollos valen cuarenta libras, ¿cuánto valen cinco rollos?»</p>
+  <p class="trad">Leonardo de Pisa, <i>Liber Abaci</i>, 1202. El capítulo de la regla de tres, para los mercaderes.</p>
+  <p><b>Leonardo de Pisa</b>, al que llaman Fibonacci, aprendió las cifras de los árabes en Bugía, donde su padre era aduanero, y
+  en 1202 escribió el libro que las trajo a Europa. En él está la <b>regla de tres</b> con su nombre, la <i>regola del tre</i>,
+  explicada para mercaderes que compraban paño en Pisa y lo vendían en Constantinopla: tres números que se conocen y uno que se
+  busca. Y de esos mismos mercaderes viene el «per cento», que se abrevió a «p c°», luego a una «p» con un rabo y dos ceros, y
+  de ahí el signo %. Nicoleta lo hace pasando por la unidad, como siempre; aquí se ve cómo lo hacía Leonardo.</p>
+  <div class="escena"><svg id="svgFibonacci" viewBox="0 0 540 320" role="img" aria-label="La regla de tres del Liber Abaci, como la escribía Leonardo y como la hace Nicoleta"></svg></div>
+  <p class="lectura" id="lecFibonacci"></p>
+  <p class="aviso">Esta sala se ha abierto porque alguien ha escrito «fibonacci», o ha tocado tres veces la etiqueta. No sale en el índice.</p>
+</div>
+
+<!-- ═══ EL ÍNDICE ═══ -->
+<div class="panel" id="pIndice" hidden>
+  <div class="salaRot"><b>Índice</b><span>las salas, sueltas</span></div>
+  <div class="fila"><span class="etq">salas</span><span id="ixSalas"></span></div>
+  <div class="fila">
+    <button class="b" id="ixCerrar">Volver al encargo</button>
+    <button class="b" id="ixTodo">Marcar todo hecho</button>
+    <button class="b" id="ixCero">Empezar de cero</button>
+  </div>
+  <div class="etq" style="margin-top:12px">los encargos</div>
+  <div class="listaEnc" id="ixLista"></div>
+  <div class="fila">
+    <button class="b" id="ixDiag">Autodiagnóstico</button>
+    <span class="etq" style="min-width:0">prueba cada cuenta contra sí misma</span>
+  </div>
+  <div id="diag" hidden></div>
+</div>
+
+<!-- ═══ SALA 1 · LA RECETA ═══ -->
+<div class="panel" id="pReceta">
+  <div class="fila" style="margin-top:0"><span class="etq">la receta</span><span id="rCual"></span></div>
+  <div class="fila"><span class="etq">cuántas</span><span id="rN"></span><span id="rAtajos"></span></div>
+  <div class="fila"><span class="etq">la trampa</span><button class="b" id="rNick" aria-pressed="false">Sumar como Nick</button></div>
+  <div class="escena"><svg id="svgReceta" viewBox="0 0 540 340" role="img" aria-label="La ficha de la receta con los ingredientes escalados, y la tabla de proporcionalidad con la razón"></svg></div>
+  <p class="lectura" id="lecReceta"></p>
+</div>
+
+<!-- ═══ SALA 2 · EL MOSTRADOR ═══ -->
+<div class="panel" id="pMostrador" hidden>
+  <div class="fila" style="margin-top:0"><span class="etq">la etiqueta</span><span id="mEtq"></span></div>
+  <div class="fila"><span class="etq">quiero</span><span id="mQuiero"></span></div>
+  <div class="fila"><span class="etq">el camino</span><span id="mCamino"></span></div>
+  <div class="escena"><svg id="svgMostrador" viewBox="0 0 540 330" role="img" aria-label="El mostrador con los pasteles y las monedas: de cinco a uno, y de uno a los que se piden"></svg></div>
+  <p class="lectura" id="lecMostrador"></p>
+</div>
+
+<!-- ═══ SALA 3 · EL HORNO ═══ -->
+<div class="panel" id="pHorno" hidden>
+  <div class="fila" style="margin-top:0"><span class="etq">el encargo</span><span id="hTrabajo"></span></div>
+  <div class="fila"><span class="etq">hornos</span><span id="hHornos"></span></div>
+  <div class="fila"><span class="etq">al lado</span><button class="b" id="hComparar" aria-pressed="false">Ver la receta al lado</button></div>
+  <div class="escena"><svg id="svgHorno" viewBox="0 0 540 330" role="img" aria-label="Los hornos en fila y el reloj: con el doble de hornos, la mitad de horas"></svg></div>
+  <p class="lectura" id="lecHorno"></p>
+</div>
+
+<!-- ═══ SALA 4 · EL ESCAPARATE ═══ -->
+<div class="panel" id="pEscaparate" hidden>
+  <div class="fila" style="margin-top:0"><span class="etq">tanto por ciento</span><span id="eAtajos"></span></div>
+  <div class="fila"><span class="etq">ajustar</span><span id="ePct"></span></div>
+  <div class="fila"><span class="etq">de qué</span><span id="eDe"></span></div>
+  <div class="escena"><svg id="svgEscaparate" viewBox="0 0 540 330" role="img" aria-label="La tarta de cien cuadraditos con los que toca pintados, y la cantidad partida igual"></svg></div>
+  <p class="lectura" id="lecEscaparate"></p>
+</div>
+
+<!-- ═══ SALA 5 · EL CARTEL DE LAS REBAJAS ═══ -->
+<div class="panel" id="pRebajas" hidden>
+  <div class="fila" style="margin-top:0"><span class="etq">la tarta vale</span><span id="bPrecio"></span></div>
+  <div class="fila"><span class="etq">el cartel</span><span id="bCartel1"></span></div>
+  <div class="fila"><span class="etq">y luego</span><span id="bCartel2"></span></div>
+  <div class="fila"><span class="etq">al revés</span><button class="b" id="bReves" aria-pressed="false">Ya rebajada: ¿cuánto valía?</button></div>
+  <div class="escena"><svg id="svgRebajas" viewBox="0 0 540 330" role="img" aria-label="El escaparate con la tarta, la etiqueta de antes tachada y la de ahora, y la barra del precio"></svg></div>
+  <p class="lectura" id="lecRebajas"></p>
+</div>
+
+<!-- ═══ LOS MODALES ═══ -->
+<div class="modal" id="mAjustes" hidden>
+  <div class="caja" role="dialog" aria-modal="true" aria-labelledby="ajTit">
+    <h2 id="ajTit">Ajustes</h2>
+    <p class="sub">Para el aula y para cada aparato</p>
+    <div class="aj" id="aj"></div>
+    <div class="fila" style="margin-top:14px">
+      <button class="b" id="ajCerrar">Cerrar</button>
+      <span class="etq" style="min-width:0">se guardan en este aparato</span>
+    </div>
+  </div>
+</div>
+<div class="modal" id="mSello" hidden>
+  <div class="caja" role="dialog" aria-modal="true" aria-labelledby="selloTit">
+    <h2 id="selloTit">La nota de encargo</h2>
+    <p class="sub">Lo hecho en esta sesión, a máquina, para llevárselo</p>
+    <input class="nombre" id="selloNombre" placeholder="Nombre del pinche" autocomplete="off" aria-label="Nombre">
+    <div class="albaran" id="selloTexto"></div>
+    <div class="fila" style="margin-top:12px">
+      <button class="b ok" id="selloCopiar">Copiar</button>
+      <button class="b" id="selloCerrar">Cerrar</button>
+      <span class="etq" id="selloAviso" style="min-width:0"></span>
+    </div>
+  </div>
+</div>
+<div class="tourCapa" id="tourCapa" hidden>
+  <div class="tourFoco" id="tourFoco"></div>
+  <div class="tourGlobo" id="tourGlobo" role="dialog" aria-modal="true">
+    <b id="tourTit"></b><p id="tourTxt"></p>
+    <div class="pie"><span class="num" id="tourNum"></span>
+      <span><button id="tourSalir">Salir</button> <button class="pri" id="tourSig">Siguiente</button></span></div>
+  </div>
+</div>
+
+<footer class="pie">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" aria-label="Licencia Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0">
+    <svg viewBox="0 0 100 22" aria-hidden="true">
+      <circle cx="11" cy="11" r="10"/><text x="11" y="14.5" text-anchor="middle">CC</text>
+      <circle cx="37" cy="11" r="10"/><text x="37" y="14.5" text-anchor="middle">BY</text>
+      <circle cx="63" cy="11" r="10"/><text x="63" y="14.5" text-anchor="middle">NC</text>
+      <circle cx="89" cy="11" r="10"/><text x="89" y="14.5" text-anchor="middle">SA</text>
+    </svg>
+    <span>© 2026 Andrés Asensio · CC BY-NC-SA 4.0</span>
+  </a>
+  <span class="calle">Dos portales más allá de la pizzería de Nick, en la ciudad de Liz y de Jeff</span>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const NS = 'http://www.w3.org/2000/svg';
+const redondo = (x, n = 2) => Math.round(x * 10**n) / 10**n;
+function cifra(x, n = 2){
+  const v = redondo(x, n); const neg = v < 0; const [ent, dec] = String(Math.abs(v)).split('.');
+  return (neg ? '−' : '') + ent.replace(/\B(?=(\d{3})+$)/g, '.') + (dec ? ',' + dec : '');
+}
+/* pesetas con céntimos: 4,80 · 0,60 · 6 · y las milésimas del gramo a granel */
+const ptas = x => { if(Math.abs(x) < .01 && x !== 0) return cifra(x, 3) + ' ptas'; const s = cifra(x, 2); return (s.includes(',') && s.split(',')[1].length === 1 ? s + '0' : s) + ' ptas'; };
+const al = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+const elige = arr => arr[al(0, arr.length - 1)];
+const el = (g, t, at, txt) => { const e = document.createElementNS(NS, t); for(const q in at) e.setAttribute(q, at[q]); if(txt !== undefined) e.textContent = txt; g.appendChild(e); return e; };
+const txt = (g, x, y, t, at = {}) => el(g, 'text', Object.assign({x, y, fill:'var(--tenue)', 'font-family':"'Space Mono',monospace", 'font-size':12.5}, at), t);
+const bree = (g, x, y, t, at = {}) => txt(g, x, y, t, Object.assign({'font-family':"'Bree Serif',serif", 'font-size':17, fill:'var(--acento)'}, at));
+const elite = (g, x, y, t, at = {}) => txt(g, x, y, t, Object.assign({'font-family':"'Special Elite',monospace", 'font-size':12, fill:'var(--tinta)'}, at));
+function parrafo(g, x, y, texto, ancho, at = {}, alto = 15){
+  const fs = at['font-size'] || 12, porLetra = fs * (at['font-family'] && /Bree/.test(at['font-family']) ? .52 : .6);
+  const lineas = [], palabras = texto.split(' '); let l = '';
+  palabras.forEach(p => { if((l + ' ' + p).trim().length * porLetra > ancho && l){ lineas.push(l); l = p; } else l = (l + ' ' + p).trim(); });
+  if(l) lineas.push(l);
+  lineas.forEach((t, i) => txt(g, x, y + i * alto, t, Object.assign({'font-size':fs}, at)));
+  return y + lineas.length * alto;
+}
+
+/* ── LOS RETRATOS. Nicoleta, Liz y Nick, copiados de la línea del tiempo
+   tal cual. Migas es nuevo. La vida se les pone al inyectarlos: párpados
+   a Nicoleta, la cola a Migas. ── */
+const CARA_NICOLETA_CRUDA = `<svg viewBox="0 0 46 48" aria-hidden="true">
+  <!-- NICOLETA · la pastelera, hermana de Nick. Misma especie y mismo
+       esqueleto; lo suyo son el pañuelo, el delantal rosa, las pestañas y
+       el pelo asomando, que en esta casa es la marca de ellas. -->
+  <path d="M6 46 Q6 33 16 29.5 L30 29.5 Q40 33 40 46 Z" fill="#F6EFE2" stroke="#3A2E22" stroke-width="1.3"/>
+  <path d="M13 33 L33 33 Q35 40 33.4 46 L12.6 46 Q11 40 13 33 Z" fill="#D98C9A" stroke="#3A2E22" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M13 33 Q23 36.6 33 33" stroke="#B96D7C" stroke-width="1.6" fill="none"/>
+  <g fill="#EFD9C6" opacity=".6"><circle cx="18" cy="39.5" r="1.7"/><circle cx="28" cy="42" r="1.3"/></g>
+  <path d="M31 32 Q39 28 39.6 21" stroke="#3A2E22" stroke-width="5.2" fill="none" stroke-linecap="round"/>
+  <path d="M31 32 Q39 28 39.6 21" stroke="#F6EFE2" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+  <path d="M36.8 20.6 L42.4 20.6 L40.4 12.6 Q39.6 11.2 38.8 12.6 Z" fill="#EFE7D6" stroke="#3A2E22" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M38.6 12.8 Q39.6 9.2 40.8 12" fill="none" stroke="#D98C9A" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- el pelo, a los lados y por detrás: fuera de la cara -->
+  <g fill="#B08A6A" stroke="#6B4A32" stroke-width="1.1" stroke-linejoin="round">
+    <path d="M12.4 16 Q8 21.6 10 28.4 Q13.8 29.2 15 25.4 Q11.4 22.2 13.8 16 Z"/>
+    <path d="M29.6 16 Q34 21.6 32 28 Q28.2 28.8 27 25.2 Q30.6 22.2 28.2 16 Z"/>
+  </g>
+  <ellipse cx="21" cy="18.6" rx="11.2" ry="10.2" fill="#D3AC88" stroke="#6B4A32" stroke-width="1.4"/>
+  <path d="M11 16.6 Q11.6 25.4 15.6 28.4 Q12.4 23.6 12 15.6 Z" fill="#B08A6A" opacity=".8"/>
+  <ellipse cx="12.8" cy="22" rx="2.8" ry="1.9" fill="#E39A88" opacity=".45"/>
+  <ellipse cx="29.2" cy="22" rx="2.8" ry="1.9" fill="#E39A88" opacity=".45"/>
+  <ellipse cx="16.9" cy="18.2" rx="3.1" ry="3.4" fill="#FBF7EE" stroke="#6B4A32" stroke-width="1.1"/>
+  <ellipse cx="25.1" cy="18.2" rx="3.1" ry="3.4" fill="#FBF7EE" stroke="#6B4A32" stroke-width="1.1"/>
+  <circle cx="17.4" cy="18.7" r="1.9" fill="#241C14"/><circle cx="25.6" cy="18.7" r="1.9" fill="#241C14"/>
+  <circle cx="16.6" cy="17.5" r=".8" fill="#fff"/><circle cx="24.8" cy="17.5" r=".8" fill="#fff"/>
+  <!-- las pestañas: tres por ojo, hacia arriba y hacia fuera -->
+  <g stroke="#3A2E22" stroke-width="1" stroke-linecap="round" fill="none">
+    <path d="M13.7 16.2 Q12.4 15 11.8 13.8"/><path d="M13.4 18 Q11.8 17.4 10.9 16.5"/>
+    <path d="M28.3 16.2 Q29.6 15 30.2 13.8"/><path d="M28.6 18 Q30.2 17.4 31.1 16.5"/>
+  </g>
+  <!-- el hocico, la nariz y dos colmillos, sin nada más encima -->
+  <path d="M16.4 23.6 Q16.2 28.4 18.9 28.8 Q21 29.1 21 27.4 Q21 29.1 23.1 28.8
+           Q25.8 28.4 25.6 23.6 Q23.5 22.2 21 22.3 Q18.5 22.2 16.4 23.6 Z"
+        fill="#EBD2B8" stroke="#6B4A32" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M19.3 22.8 Q21 22 22.7 22.8 Q22.4 24.9 21 25.6 Q19.6 24.9 19.3 22.8 Z"
+        fill="#E39A88" stroke="#B9705F" stroke-width=".7" stroke-linejoin="round"/>
+  <path d="M19 28.7 Q18.95 29.9 19.5 30.2 Q20.05 29.8 20 28.6 Z" fill="#F6EEDC" stroke="#6B4A32" stroke-width=".85" stroke-linejoin="round"/>
+  <path d="M23 28.7 Q23.05 29.9 22.5 30.2 Q21.95 29.8 22 28.6 Z" fill="#F6EEDC" stroke="#6B4A32" stroke-width=".85" stroke-linejoin="round"/>
+  <path d="M20.2 27.3 Q21 27.9 21.8 27.3" stroke="#8E5A44" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <!-- el pañuelo, con su nudo -->
+  <path d="M10.6 13.6 Q21 4.6 31.4 13.6 Q21 9.4 10.6 13.6 Z" fill="#D98C9A" stroke="#3A2E22" stroke-width="1.3" stroke-linejoin="round"/>
+  <path d="M10.6 13.6 Q21 9.4 31.4 13.6 L31 15.8 Q21 11.8 11 15.8 Z" fill="#C97E8C" stroke="#3A2E22" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M30.6 11 Q34.4 10.4 35.4 13 Q33.2 14.4 30.2 13.6 Z" fill="#D98C9A" stroke="#3A2E22" stroke-width="1.1" stroke-linejoin="round"/>
+  <g fill="#F6EFE2" opacity=".65"><circle cx="16.4" cy="10.6" r=".9"/><circle cx="23" cy="8.8" r=".9"/><circle cx="27.4" cy="11" r=".9"/></g>
+</svg>`;
+const CARA_LIZ = `<svg viewBox="0 0 60 62" class="cara">
+  <!-- LIZ STILLO · pájara azul, gorra de prensa con su tarjeta y cámara
+       de fuelle colgada. Mira hacia su texto. -->
+  <path d="M8 62 Q9 47 20 44 L40 44 Q51 47 52 62 Z" fill="#4E7E96" stroke="#141A16" stroke-width="1.6"/>
+  <g>
+  <circle cx="30" cy="29" r="13" fill="#5FA0BE" stroke="#141A16" stroke-width="1.7"/>
+  <!-- EL PELO. Asoma bajo el ala del sombrero, a los lados y por detrás: dos
+       ondas y un rizo suelto en la mejilla. Es un pájaro, sí, pero en este
+       mundo los pájaros llevan peinado —y a los trece años eso es justo lo
+       que hace que Liz se lea como Liz. -->
+  <g fill="#2F6E8C" stroke="#141A16" stroke-width="1.2" stroke-linejoin="round">
+    <path d="M17 27 Q13 33 15 39 Q19 41 21 37 Q18 32 20 27 Z"/>
+    <path d="M42 26 Q47 32 45 40 Q41 42 39 38 Q42 32 40 26 Z"/>
+    <path d="M36 38 Q40 42 38 46 Q35 47 34 44 Q36 41 34 38 Z"/>
+  </g>
+  <path d="M18 30 Q15 34 16.5 37" stroke="#7FC0DC" stroke-width="1.1" fill="none"/>
+  <path d="M43.5 30 Q46 34 44.5 38" stroke="#7FC0DC" stroke-width="1.1" fill="none"/>
+  <!-- El pico va ENTRE LOS OJOS y apuntando al frente, no de lado: con la
+       cara vista de frente, un pico lateral se lee como una nariz enorme. -->
+  <path d="M25.6 31.4 L34.4 31.4 L30 39.6 Z" fill="#D8A33F" stroke="#141A16"
+        stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M30 32.4 V38" stroke="#141A16" stroke-width=".9" opacity=".55"/>
+  <!-- EL SOMBRERO DE CAMPANA. La gorra de prensa era de repartidor de
+       periódicos, no de fotógrafa: el tocado de los años treinta es la
+       cloche —copa redonda calada hasta las cejas, ala corta vuelta y una
+       cinta ancha con su pliegue de lado—. Se queda el rojo de la familia
+       en la cinta, para que siga siendo la bisnieta de Listillón. -->
+  <path d="M15 22 Q16 6 30 5.5 Q44 6 45 22 Q30 26 15 22 Z" fill="#D8CFB8" stroke="#141A16" stroke-width="1.5"/>
+  <path d="M13.5 21 L46.5 21 Q48 26 44 27.5 L16 27.5 Q12 26 13.5 21 Z" fill="#A6452F" stroke="#141A16" stroke-width="1.4"/>
+  <path d="M13 26 Q8 27.5 9 30.5 Q20 30 30 29.6 Q44 29.4 50 28 Q49 25.6 46.6 25.4 Z"
+        fill="#C9BFA6" stroke="#141A16" stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M20 21 Q22 15 26 14 L27 21 Z" fill="#8E3A28" stroke="#141A16" stroke-width="1.2" stroke-linejoin="round"/>
+  <circle cx="24.5" cy="17.5" r="1.5" fill="#D8A33F" stroke="#141A16" stroke-width=".8"/>
+  <!-- ojos, mirando a su izquierda (hacia el texto) -->
+  <circle cx="24.5" cy="29" r="3.3" fill="#EDEAE0"/><circle cx="34" cy="29" r="3.3" fill="#EDEAE0"/>
+  <circle cx="23.4" cy="29.2" r="1.6" fill="#141A16"/><circle cx="32.9" cy="29.2" r="1.6" fill="#141A16"/>
+  <rect x="20.4" y="23.6" width="7" height="1.7" rx=".8" fill="#141A16" transform="rotate(9 23.9 24.4)"/>
+  <rect x="31.6" y="23.4" width="7" height="1.7" rx=".8" fill="#141A16" transform="rotate(-4 35.1 24.2)"/>
+  </g>
+  <!-- la cámara de fuelle -->
+  <g>
+  <rect x="30" y="47" width="17" height="12" rx="1.6" fill="#2C332A" stroke="#141A16" stroke-width="1.4"/>
+  <circle cx="38.5" cy="53" r="3.6" fill="#4E7E96" stroke="#141A16" stroke-width="1.3"/>
+  <circle cx="38.5" cy="53" r="1.5" fill="#EDEAE0" opacity=".8"/>
+  <rect x="33" y="44.6" width="5" height="3" rx="1" fill="#D8A33F" stroke="#141A16" stroke-width="1.1"/>
+  </g>
+  <path d="M22 50 Q27 49 30 51" stroke="#141A16" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M22 50 Q27 49 30 51" stroke="#5FA0BE" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>`;
+const CARA_NICK = `<svg viewBox="2 -12 76 78" class="cara"><!-- NICK, EL PIZZERO. Antes era un
+  monigote de frente, todo simetría: no decía nada. Ahora está EN ESCENA —de
+  tres cuartos, con la grapadora en alto y la otra mano en la cadera—, y lleva
+  lo que lleva un pizzero de verdad: gorro ladeado, bigote de manillar, cejas
+  espesas, delantal con la harina del día y el paño al hombro. Los volúmenes
+  van con dos tonos, como los edificios de la ciudad. -->
+  <ellipse cx="39" cy="92" rx="26" ry="3.6" fill="rgba(60,40,20,.22)"/>
+
+  <!-- cuerpo, de tres cuartos -->
+  <path d="M12 92 Q12 64 26 57.5 L52 57.5 Q66 64 66 92 Z" fill="#F6EFE2" stroke="#3A2E22" stroke-width="1.7" stroke-linejoin="round"/>
+  <path d="M52 57.5 Q66 64 66 92 L54 92 Q56 70 48 60 Z" fill="#DFD6C2" stroke="#3A2E22" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- delantal -->
+  <path d="M24 66 L54 66 Q56 82 53 92 L27 92 Q23 80 24 66 Z" fill="#C4462F" stroke="#3A2E22" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M24 66 Q39 71 54 66" stroke="#9E3423" stroke-width="2" fill="none"/>
+  <g fill="#E8B08F" opacity=".55"><circle cx="32" cy="78" r="2.4"/><circle cx="45" cy="84" r="1.8"/>
+    <circle cx="38" cy="88" r="1.4"/></g>
+  <!-- paño al hombro -->
+  <path d="M50 58 Q60 56 63 63 Q57 64 54 70 Z" fill="#EFE6D2" stroke="#3A2E22" stroke-width="1.4" stroke-linejoin="round"/>
+
+  <!-- brazo izquierdo en jarras -->
+  <path d="M24 66 Q14 72 16 84" stroke="#3A2E22" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+  <path d="M24 66 Q14 72 16 84" stroke="#F6EFE2" stroke-width="5.4" fill="none" stroke-linecap="round"/>
+  <circle cx="17" cy="85" r="4" fill="#C9A17C" stroke="#3A2E22" stroke-width="1.4"/>
+  <!-- brazo derecho, en alto con la grapadora (en grupo: es el que da el clac) -->
+  <g class="brazo">
+  <path d="M54 64 Q66 58 68 46" stroke="#3A2E22" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+  <path d="M54 64 Q66 58 68 46" stroke="#F6EFE2" stroke-width="5.4" fill="none" stroke-linecap="round"/>
+  <circle cx="68.5" cy="44" r="4.2" fill="#C9A17C" stroke="#3A2E22" stroke-width="1.4"/>
+  <g transform="translate(59 32) rotate(-18)">
+    <rect x="0" y="0" width="19" height="6.5" rx="2.2" fill="#9AA2AC" stroke="#3A2E22" stroke-width="1.3"/>
+    <rect x="1.5" y="6" width="16" height="4.4" rx="1.6" fill="#6E7680" stroke="#3A2E22" stroke-width="1.2"/>
+    <rect x="3" y="1.4" width="9" height="2" rx="1" fill="#C6CBD1"/>
+  </g>
+  </g>
+
+  <!-- cuello -->
+  <path d="M32.6 44 Q33.2 52 31.4 58.5 L45 58.5 Q43.2 52 43.8 44 Z"
+        fill="#C9A17C" stroke="#3A2E22" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M32.6 44 Q33.2 52 31.4 58.5 L36.6 58.5 Q35.8 52 36.2 44 Z" fill="#B08A6A"/>
+  <path d="M27.4 55 L38.2 65.5 L49 55 L52.4 57 L38.2 67.5 L24 57 Z"
+        fill="#FBF7EE" stroke="#3A2E22" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M38.2 65.5 L49 55 L52.4 57 L38.2 67.5 Z" fill="#E6DDC9"/>
+
+<g transform="translate(38 46) scale(1.18) translate(-38 -46)">  <!-- LA CABEZA. Lo que de verdad ablanda un dibujo no es ningún rasgo
+       suelto: es la PROPORCIÓN. Esta cabeza va un 18 % más grande sobre el
+       mismo cuerpo, y con eso sola la morsa pasa de adulta a cachorro. Lo
+       demás acompaña: trazo marrón cálido en vez de casi negro —la línea
+       dura es la mitad de la dureza—, colmillos reducidos a dos puntas
+       mínimas, hocico más estrecho y nariz rosa. Sigue siendo una morsa:
+       el mostacho ancho que ya identificaba a Nick son las vibrisas.
+       (El lienzo crece por arriba, a −12, o el gorro se salía.)
+  ANTIGUA NOTA. Nick es una morsa, y la primera salió con cara de portero
+       de discoteca: cejas gruesas cerradas hacia dentro, ojos pequeños y
+       colmillos largos. Lo que ablanda a un bicho dibujado son cuatro
+       cosas, y están todas aquí: OJOS GRANDES y altos —con su brillo—,
+       CEJAS levantadas en vez de fruncidas, HOCICO redondo y COLMILLOS
+       cortos y romos, más dientes de leche que armas. Más los mofletes
+       colorados y un pelaje un punto más claro. Sigue siendo morsa: el
+       mostacho ancho que ya identificaba a Nick son las vibrisas. -->
+  <ellipse cx="38" cy="34.5" rx="16.5" ry="15" fill="#D3AC88" stroke="#6B4A32" stroke-width="1.7"/>
+  <path d="M23.5 32 Q25 44 30.5 48.5 Q26.5 42 26 31 Z" fill="#B08A6A"/>
+  <!-- gorro, ladeado (el de siempre) -->
+  <g transform="rotate(-7 38 20) translate(0 -2.5)">
+    <path d="M22 24 Q20 6 38 6.5 Q56 6 54 24 Z" fill="#FBF7EE" stroke="#3A2E22" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M25 12 Q30 3 38 5 Q46 3 51 12 Q44 8 38 9.5 Q32 8 25 12 Z" fill="#FFFFFF" opacity=".8"/>
+    <rect x="21" y="22.5" width="34" height="6" rx="2.4" fill="#EDE6D6" stroke="#3A2E22" stroke-width="1.5"/>
+  </g>
+  <!-- mofletes -->
+  <ellipse cx="25" cy="39.5" rx="4.2" ry="2.8" fill="#E39A88" opacity=".5"/>
+  <ellipse cx="51" cy="39.5" rx="4.2" ry="2.8" fill="#E39A88" opacity=".5"/>
+  <!-- sin cejas: con el ala del gorro tan baja no había sitio, y apretadas
+       contra ella volvían a leerse como ceño fruncido. Un bicho dulce se
+       apaña con los ojos. -->
+  <!-- ojos grandes, con brillo -->
+  <ellipse cx="31.8" cy="34.4" rx="4.3" ry="4.6" fill="#FBF7EE" stroke="#6B4A32" stroke-width="1.3"/>
+  <ellipse cx="44.2" cy="34.4" rx="4.3" ry="4.6" fill="#FBF7EE" stroke="#6B4A32" stroke-width="1.3"/>
+  <circle class="ojo" cx="32.5" cy="35" r="2.7" fill="#241C14"/>
+  <circle class="ojo" cx="44.9" cy="35" r="2.7" fill="#241C14"/>
+  <circle cx="31.3" cy="33.6" r="1.15" fill="#fff"/><circle cx="43.7" cy="33.6" r="1.15" fill="#fff"/>
+  <circle cx="33.7" cy="36.4" r=".55" fill="#fff" opacity=".8"/>
+  <circle cx="46.1" cy="36.4" r=".55" fill="#fff" opacity=".8"/>
+  <!-- el hocico, redondo y en dos lóbulos -->
+  <path d="M29.6 42.4 Q29.2 49.6 34 50.2 Q38 50.6 38 48 Q38 50.6 42 50.2
+           Q46.8 49.6 46.4 42.4 Q42.6 40.2 38 40.4 Q33.4 40.2 29.6 42.4 Z"
+        fill="#EBD2B8" stroke="#6B4A32" stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M38 40 V51.3" stroke="#C39F7E" stroke-width="1.1" opacity=".8"/>
+  <!-- la nariz, rosa y redondeada: la pieza que más ablanda un hocico -->
+  <path d="M35.4 41 Q38 39.9 40.6 41 Q40.2 44.4 38 45.4 Q35.8 44.4 35.4 41 Z"
+        fill="#E39A88" stroke="#B9705F" stroke-width=".9" stroke-linejoin="round"/>
+  <ellipse cx="36.8" cy="41.6" rx=".6" ry=".45" fill="#fff" opacity=".7"/>
+  <!-- vibrisas: cortas y finas, que no hagan de bigote de villano -->
+  <g stroke="#F2E8D6" stroke-width=".9" stroke-linecap="round" opacity=".85">
+    <path d="M29.6 45 Q24.5 44.2 22.5 45.6"/><path d="M30.2 47.8 Q25.4 48.4 23.4 50"/>
+    <path d="M46.4 45 Q51.5 44.2 53.5 45.6"/><path d="M45.8 47.8 Q50.6 48.4 52.6 50"/>
+  </g>
+  <g fill="#B08A6A" opacity=".55">
+    <circle cx="31.4" cy="45.4" r=".7"/><circle cx="32.4" cy="48" r=".7"/>
+    <circle cx="44.6" cy="45.4" r=".7"/><circle cx="43.6" cy="48" r=".7"/>
+  </g>
+  <!-- colmillos cortos y romos: se ven, pero no muerden -->
+  <path d="M34.4 50.2 Q34.3 52 35.3 52.5 Q36.1 51.9 36 50 Z"
+        fill="#F6EEDC" stroke="#6B4A32" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M41.6 50.2 Q41.7 52 40.7 52.5 Q39.9 51.9 40 50 Z"
+        fill="#F6EEDC" stroke="#6B4A32" stroke-width="1" stroke-linejoin="round"/>
+  <!-- las dos bocas: la de diario y la del pedido redondo -->
+  <path class="boca" d="M36.2 48.4 Q38 49.6 39.8 48.4" stroke="#8E5A44" stroke-width="1.4"
+        fill="none" stroke-linecap="round"/>
+  <path class="boca-f" d="M35 47.4 Q38 52.2 41 47.4 Q38 49.2 35 47.4 Z"
+        fill="#8E5A44" stroke="#8E5A44" stroke-width="1.1" stroke-linejoin="round"/>
+</g></svg>`;
+const CARA_MIGAS_CRUDA = `<svg viewBox="0 0 46 48" aria-hidden="true">
+  <!-- MIGAS · el ratón del obrador, con su gorro de pastelero. Vive debajo
+       del mostrador y comenta desde el borde; es el que se come lo que sobra
+       de cada reparto, y por eso sabe de porcentajes. -->
+  <path d="M6 46 Q7 33 17 30 L29 30 Q39 33 40 46 Z" fill="#9A8A80" stroke="#3A2E22" stroke-width="1.3"/>
+  <path d="M15 33 L31 33 Q32.4 40 31 46 L15 46 Q13.6 40 15 33 Z" fill="#F6EFE2" stroke="#3A2E22" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M15 33 Q23 36 31 33" stroke="#DCCFB4" stroke-width="1.4" fill="none"/>
+  <!-- la cola, que asoma por un lado -->
+  <path d="M39 44 Q46 40 43 32" fill="none" stroke="#3A2E22" stroke-width="3" stroke-linecap="round"/>
+  <path d="M39 44 Q46 40 43 32" fill="none" stroke="#E8A9B4" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- las orejas, grandes y redondas -->
+  <g stroke="#3A2E22" stroke-width="1.2">
+    <circle cx="11" cy="13" r="6.2" fill="#9A8A80"/><circle cx="11" cy="13" r="3.4" fill="#E8A9B4" stroke="none"/>
+    <circle cx="35" cy="13" r="6.2" fill="#9A8A80"/><circle cx="35" cy="13" r="3.4" fill="#E8A9B4" stroke="none"/>
+  </g>
+  <!-- la cabeza, en pera hacia el hocico -->
+  <path d="M23 9 Q34 9 33.4 20 Q32.6 28 23 30.4 Q13.4 28 12.6 20 Q12 9 23 9 Z" fill="#B0A196" stroke="#3A2E22" stroke-width="1.3" stroke-linejoin="round"/>
+  <ellipse cx="23" cy="25.4" rx="5.4" ry="3.6" fill="#D9CDC2"/>
+  <circle cx="18.2" cy="18.6" r="2.4" fill="#241C14"/><circle cx="27.8" cy="18.6" r="2.4" fill="#241C14"/>
+  <circle cx="17.5" cy="17.8" r=".8" fill="#fff"/><circle cx="27.1" cy="17.8" r=".8" fill="#fff"/>
+  <ellipse cx="23" cy="26.8" rx="1.8" ry="1.3" fill="#E39A88" stroke="#B9705F" stroke-width=".6"/>
+  <g stroke="#3A2E22" stroke-width=".7" stroke-linecap="round" opacity=".7">
+    <path d="M16 25 L10.6 23.6"/><path d="M16 27 L10.6 27.6"/><path d="M30 25 L35.4 23.6"/><path d="M30 27 L35.4 27.6"/>
+  </g>
+  <!-- el gorro de pastelero -->
+  <path d="M14.2 10.2 Q23 6.4 31.8 10.2 L31.4 12.6 Q23 9.4 14.6 12.6 Z" fill="#F6EFE2" stroke="#3A2E22" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M15 10.4 Q13 2 21 2.4 Q23 -1 25 2.4 Q33 2 31 10.4 Q23 7 15 10.4 Z" fill="#FBF7EE" stroke="#3A2E22" stroke-width="1.2" stroke-linejoin="round"/>
+</svg>`;
+const CARA_MIGAS_MIGA = `<svg viewBox="0 0 46 48" aria-hidden="true">
+  <!-- MIGAS · con una miga de magdalena entre las manos, que es lo suyo. -->
+  <path d="M6 46 Q7 33 17 30 L29 30 Q39 33 40 46 Z" fill="#9A8A80" stroke="#3A2E22" stroke-width="1.3"/>
+  <path d="M15 33 L31 33 Q32.4 40 31 46 L15 46 Q13.6 40 15 33 Z" fill="#F6EFE2" stroke="#3A2E22" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M39 44 Q46 40 43 32" fill="none" stroke="#3A2E22" stroke-width="3" stroke-linecap="round"/>
+  <path d="M39 44 Q46 40 43 32" fill="none" stroke="#E8A9B4" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- la miga, y las dos manos que la sujetan -->
+  <path d="M19 36 Q21 32 25 33 Q29 34 28 38.4 Q26 41 22 40.6 Q18.6 39.6 19 36 Z" fill="#E0BFA0" stroke="#3A2E22" stroke-width="1.1" stroke-linejoin="round"/>
+  <g fill="#C98A3E" opacity=".7"><circle cx="22.4" cy="36" r=".9"/><circle cx="25.6" cy="37.6" r=".8"/></g>
+  <circle cx="18.4" cy="38.6" r="2.4" fill="#B0A196" stroke="#3A2E22" stroke-width="1"/>
+  <circle cx="28" cy="39.4" r="2.4" fill="#B0A196" stroke="#3A2E22" stroke-width="1"/>
+  <g stroke="#3A2E22" stroke-width="1.2">
+    <circle cx="11" cy="13" r="6.2" fill="#9A8A80"/><circle cx="11" cy="13" r="3.4" fill="#E8A9B4" stroke="none"/>
+    <circle cx="35" cy="13" r="6.2" fill="#9A8A80"/><circle cx="35" cy="13" r="3.4" fill="#E8A9B4" stroke="none"/>
+  </g>
+  <path d="M23 9 Q34 9 33.4 20 Q32.6 28 23 30.4 Q13.4 28 12.6 20 Q12 9 23 9 Z" fill="#B0A196" stroke="#3A2E22" stroke-width="1.3" stroke-linejoin="round"/>
+  <ellipse cx="23" cy="25.4" rx="5.4" ry="3.6" fill="#D9CDC2"/>
+  <circle cx="18.2" cy="18.6" r="2.4" fill="#241C14"/><circle cx="27.8" cy="18.6" r="2.4" fill="#241C14"/>
+  <circle cx="17.5" cy="17.8" r=".8" fill="#fff"/><circle cx="27.1" cy="17.8" r=".8" fill="#fff"/>
+  <ellipse cx="23" cy="26.8" rx="1.8" ry="1.3" fill="#E39A88" stroke="#B9705F" stroke-width=".6"/>
+  <g stroke="#3A2E22" stroke-width=".7" stroke-linecap="round" opacity=".7">
+    <path d="M16 25 L10.6 23.6"/><path d="M16 27 L10.6 27.6"/><path d="M30 25 L35.4 23.6"/><path d="M30 27 L35.4 27.6"/>
+  </g>
+  <!-- un pañuelo en la cabeza, como el de Nicoleta, en vez del gorro -->
+  <path d="M13.4 12 Q23 5.2 32.6 12 Q23 8.6 13.4 12 Z" fill="#D98C9A" stroke="#3A2E22" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M13.4 12 Q23 8.6 32.6 12 L32.2 14 Q23 10.6 13.8 14 Z" fill="#C97E8C" stroke="#3A2E22" stroke-width="1.1" stroke-linejoin="round"/>
+  <path d="M31.8 10.2 Q35 9.6 36 12 Q34 13.2 31.4 12.4 Z" fill="#D98C9A" stroke="#3A2E22" stroke-width="1" stroke-linejoin="round"/>
+</svg>`;
+const PARPADOS = '<g class="parpados"><ellipse cx="16.9" cy="18.2" rx="3.3" ry="3.5" fill="#D3AC88" stroke="#6B4A32" stroke-width=".9"/><ellipse cx="25.1" cy="18.2" rx="3.3" ry="3.5" fill="#D3AC88" stroke="#6B4A32" stroke-width=".9"/></g>';
+const CARA_NICOLETA = CARA_NICOLETA_CRUDA.replace(/<\/svg>\s*$/, PARPADOS + '</svg>');
+const COLA = /(<path d="M39 44 Q46 40 43 32"[^>]*\/>\s*<path d="M39 44 Q46 40 43 32"[^>]*\/>)/;
+const CARA_MIGAS = CARA_MIGAS_CRUDA.replace(COLA, '<g class="cola">$1</g>');
+$('caraLiz').innerHTML = CARA_LIZ;
+$('caraNicoleta').innerHTML = CARA_NICOLETA;
+$('caraMigas').innerHTML = CARA_MIGAS;
+
+/* ── EL SONIDO: la campanilla de la puerta, el batidor, el timbre del
+   horno, el papel de estraza, y lo de siempre. ── */
+const Ruido = (() => {
+  let ctx = null;
+  const ac = () => { try{ if(!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)(); return ctx; }catch(e){ return null; } };
+  const on = () => AJ.sonido === 'si';
+  const tono = (f, dur, vol = .08, tipo = 'sine', t0 = 0, f2) => {
+    const c = ac(); if(!c || !on()) return;
+    const o = c.createOscillator(), g = c.createGain();
+    o.type = tipo; o.frequency.setValueAtTime(f, c.currentTime + t0);
+    if(f2) o.frequency.exponentialRampToValueAtTime(f2, c.currentTime + t0 + dur);
+    g.gain.setValueAtTime(0, c.currentTime + t0);
+    g.gain.linearRampToValueAtTime(vol, c.currentTime + t0 + .01);
+    g.gain.exponentialRampToValueAtTime(.0001, c.currentTime + t0 + dur);
+    o.connect(g); g.connect(c.destination); o.start(c.currentTime + t0); o.stop(c.currentTime + t0 + dur + .02);
+  };
+  return {
+    despierta(){ const c = ac(); if(c && c.state === 'suspended') c.resume(); },
+    campanilla(){ tono(2400, .7, .05, 'sine'); tono(3600, .5, .025, 'sine', .02); tono(2400, .6, .03, 'sine', .22); },
+    batidor(k = 3){ for(let i = 0; i < Math.min(k, 8); i++) tono(1100 + Math.random() * 600, .025, .035, 'triangle', i * .045); },
+    timbre(){ tono(880, .35, .06, 'square'); tono(880, .35, .06, 'square', .45); },
+    estraza(){ for(let i = 0; i < 5; i++) tono(300 + Math.random() * 900, .02, .03, 'square', i * .03); },
+    bien(){ this.campanilla(); tono(784, .18, .04, 'triangle', .1); },
+    mal(){ tono(150, .22, .1, 'square'); },
+    asciende(){ this.timbre(); tono(660, .5, .05, 'sine', .9); tono(880, .6, .04, 'sine', 1.05); }
+  };
+})();
+
+/* ── LOS AJUSTES. El tema es de escaparate o de obrador; la vista, normal o de aula. ── */
+const AJ = {vista:'normal', tema:'escaparate', texto:'normal', fuente:'legible', movimiento:'normal', sonido:'si', lang:'es'};
+const AJ_OPS = {
+  vista:     {etq:'vista',       ops:[['normal','normal'], ['aula','aula · pizarra']]},
+  tema:      {etq:'tema',        ops:[['escaparate','de escaparate'], ['obrador','de obrador · oscuro']]},
+  texto:     {etq:'texto',       ops:[['normal','normal'], ['grande','grande']]},
+  fuente:    {etq:'tipografía',  ops:[['legible','legible'], ['bree','de rótulo']]},
+  movimiento:{etq:'movimiento',  ops:[['normal','normal'], ['menos','menos']]},
+  sonido:    {etq:'sonido',      ops:[['si','sí'], ['no','no']]},
+  lang:      {etq:'idioma',      ops:[['es','castellano'], ['va','valencià · pronto']]}
+};
+function aplicaAjustes(){
+  const r = document.documentElement;
+  document.body.dataset.aula = AJ.vista === 'aula' ? 'si' : 'no';
+  if(window.pintaAula) pintaAula();
+  r.dataset.tema = AJ.tema; r.dataset.texto = AJ.texto; r.dataset.fuente = AJ.fuente; r.dataset.movimiento = AJ.movimiento;
+  document.querySelectorAll('#aj button').forEach(b => b.setAttribute('aria-pressed', String(AJ[b.dataset.k] === b.dataset.v)));
+}
+function pintaAjustes(){
+  const c = $('aj'); c.innerHTML = '';
+  Object.entries(AJ_OPS).forEach(([k, o]) => {
+    const e = document.createElement('span'); e.className = 'etq'; e.textContent = o.etq; c.appendChild(e);
+    const w = document.createElement('div'); w.className = 'ops2';
+    o.ops.forEach(([v, t]) => {
+      const b = document.createElement('button'); b.textContent = t; b.dataset.k = k; b.dataset.v = v;
+      if(k === 'lang' && v === 'va') b.disabled = true;
+      b.addEventListener('click', () => { AJ[k] = v; aplicaAjustes(); Ruido.despierta(); guardaTurno(); });
+      w.appendChild(b);
+    });
+    c.appendChild(w);
+  });
+  aplicaAjustes();
+}
+function tira(donde, valores, lee, pon, rotula = v => typeof v === 'number' ? cifra(v, 2) : v, clase = 'n'){
+  const c = $(donde); c.innerHTML = '';
+  valores.forEach(v => {
+    const b = document.createElement('button'); b.className = clase; b.textContent = rotula(v);
+    b.setAttribute('aria-pressed', String(lee() === v));
+    b.addEventListener('click', () => pon(v));
+    c.appendChild(b);
+  });
+}
+function masMenos(donde, lee, pon, min, max, paso = 1, rotula = v => String(v)){
+  const c = $(donde); c.innerHTML = '';
+  const b1 = document.createElement('button'); b1.className = 'n'; b1.textContent = '−'; b1.setAttribute('aria-label', 'menos');
+  const s = document.createElement('span'); s.className = 'cifra'; s.textContent = rotula(lee());
+  const b2 = document.createElement('button'); b2.className = 'n'; b2.textContent = '+'; b2.setAttribute('aria-label', 'más');
+  b1.disabled = lee() <= min; b2.disabled = lee() >= max;
+  b1.addEventListener('click', () => { if(lee() > min) pon(Math.max(min, redondo(lee() - paso, 3))); });
+  b2.addEventListener('click', () => { if(lee() < max) pon(Math.min(max, redondo(lee() + paso, 3))); });
+  repite(b1, () => b1.click()); repite(b2, () => b2.click());
+  c.appendChild(b1); c.appendChild(s); c.appendChild(b2);
+}
+function repite(boton, f){
+  let r = null, t = null;
+  const para = () => { clearTimeout(t); clearInterval(r); };
+  boton.addEventListener('pointerdown', () => { para(); t = setTimeout(() => { r = setInterval(() => { if(boton.disabled) para(); else f(); }, 110); }, 420); });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => boton.addEventListener(ev, para));
+}
+
+/* ═══ LA ETIQUETA, la pieza del kit de la calle: la etiqueta de cartón con
+   su cordel, la figura del oficio en el centro. Los oficios del obrador:
+   la cuchara del pinche, el batidor del aprendiz, la manga del oficial, la
+   tarta del repostero, el gorro del maestro y el rodillo de la que lleva
+   el obrador. ═════════════════════════════════════════════════════════ */
+function etiqueta(g, x, y, w, figura, extra = {}){
+  const s = w / 40;
+  const gg = el(g, 'g', Object.assign({transform:'translate(' + x + ' ' + y + ') scale(' + s + ')'}, extra));
+  const tinta = extra.tinta || 'var(--figura)', carton = extra.oro ? 'var(--caramelo)' : 'var(--estraza)';
+  el(gg, 'path', {d:'M20 2 Q24 6 26 10', fill:'none', stroke:tinta, 'stroke-width':1.2});
+  el(gg, 'path', {d:'M6 12 L20 8 L34 12 L34 44 L6 44 Z', fill:carton, stroke:tinta, 'stroke-width':1.6, 'stroke-linejoin':'round'});
+  el(gg, 'circle', {cx:20, cy:13, r:2, fill:'var(--hueco)', stroke:tinta, 'stroke-width':1.2});
+  const f = el(gg, 'g', {fill:tinta, stroke:'none'});
+  if(figura === 'cuchara'){ el(f, 'ellipse', {cx:20, cy:24, rx:5, ry:6.5}); el(gg, 'path', {d:'M20 30 V40', stroke:tinta, 'stroke-width':2.6, 'stroke-linecap':'round'}); }
+  else if(figura === 'batidor'){ el(gg, 'path', {d:'M20 40 V30', stroke:tinta, 'stroke-width':2.6, 'stroke-linecap':'round'}); el(gg, 'path', {d:'M20 30 Q11 26 14 19 Q20 15 26 19 Q29 26 20 30 M20 30 Q17 24 20 18 M20 30 Q23 24 20 18', fill:'none', stroke:tinta, 'stroke-width':1.5}); }
+  else if(figura === 'manga'){ el(f, 'path', {d:'M12 20 L28 20 L21 38 L19 38 Z'}); el(gg, 'path', {d:'M12 20 Q20 15 28 20', fill:'none', stroke:tinta, 'stroke-width':1.6}); el(f, 'path', {d:'M17 38 h6 l-3 4 z'}); }
+  else if(figura === 'tarta'){ el(f, 'path', {d:'M9 30 h22 v9 h-22 z'}); el(gg, 'path', {d:'M9 30 Q20 24 31 30', fill:'var(--fresa)', stroke:tinta, 'stroke-width':1.2}); el(gg, 'path', {d:'M20 24 V19', stroke:tinta, 'stroke-width':1.6}); el(gg, 'circle', {cx:20, cy:18, r:2, fill:'var(--cereza)'}); }
+  else if(figura === 'gorro'){ el(gg, 'path', {d:'M12 38 h16 v-6 h-16 z', fill:tinta}); el(gg, 'path', {d:'M12 32 Q8 22 15 21 Q17 16 20 18 Q23 16 25 21 Q32 22 28 32 Z', fill:'var(--hueco)', stroke:tinta, 'stroke-width':1.5}); }
+  else if(figura === 'rodillo'){ el(gg, 'rect', {x:11, y:23, width:18, height:9, rx:3, fill:tinta}); el(gg, 'path', {d:'M5 27.5 H11 M29 27.5 H35', stroke:tinta, 'stroke-width':3, 'stroke-linecap':'round'}); }
+  if(extra.borde) el(gg, 'path', {d:'M6 12 L20 8 L34 12 L34 44 L6 44 Z', fill:'none', stroke:extra.borde, 'stroke-width':2.4, 'stroke-linejoin':'round'});
+  return gg;
+}
+
+/* ═══ LOS DIBUJOS DE LA PASTELERÍA: el huevo, la taza, la cucharada, el
+   vaso, el pastel, la moneda, el horno, la tarta. ══════════════════════ */
+const DIBUJO = {
+  huevo(g, x, y, k = 1){ if(k >= 1) el(g, 'ellipse', {cx:x, cy:y, rx:6, ry:7.6, fill:'var(--nata)', stroke:'var(--figura)', 'stroke-width':1});
+    else { el(g, 'path', {d:'M' + (x - 6) + ' ' + y + ' A6 7.6 0 0 1 ' + (x + 6) + ' ' + y + ' Z', fill:'var(--nata)', stroke:'var(--figura)', 'stroke-width':1}); el(g, 'circle', {cx:x, cy:y - 2.4, r:2.2, fill:'var(--caramelo)'}); } },
+  taza(g, x, y, k = 1){ el(g, 'path', {d:'M' + (x - 8) + ' ' + (y - 8) + ' h16 l-2 16 h-12 Z', fill:'var(--estraza)', stroke:'var(--figura)', 'stroke-width':1}); if(k < 1) el(g, 'path', {d:'M' + (x - 7) + ' ' + y + ' h14 l-1 8 h-12 Z', fill:'var(--caramelo)', 'fill-opacity':.5}); el(g, 'path', {d:'M' + (x + 8) + ' ' + (y - 4) + ' q7 0 6 5 q-1 4 -6 4', fill:'none', stroke:'var(--figura)', 'stroke-width':1}); },
+  cucharada(g, x, y, k = 1){ el(g, 'ellipse', {cx:x - 2, cy:y, rx:5, ry:3.4, fill:'var(--gris)', stroke:'var(--figura)', 'stroke-width':.9}); el(g, 'path', {d:'M' + (x + 3) + ' ' + y + ' h9', stroke:'var(--figura)', 'stroke-width':1.6, 'stroke-linecap':'round'}); if(k >= 1) el(g, 'ellipse', {cx:x - 2, cy:y - 2, rx:3.4, ry:2, fill:'var(--nata)'}); else el(g, 'ellipse', {cx:x - 2, cy:y - 1, rx:2, ry:1.2, fill:'var(--nata)'}); },
+  vaso(g, x, y, k = 1){ el(g, 'path', {d:'M' + (x - 6) + ' ' + (y - 9) + ' h12 l-1.5 18 h-9 Z', fill:'var(--escaparate)', 'fill-opacity':.25, stroke:'var(--figura)', 'stroke-width':1}); el(g, 'path', {d:'M' + (x - 5) + ' ' + (y - 9 + 18 * (1 - Math.min(k, 1)) + 1) + ' h10 l-1 ' + (17 * Math.min(k, 1) - 1) + ' h-8 Z', fill:'var(--nata)'}); },
+  pastel(g, x, y, s = 1, color = 'var(--fresa)'){ const gg = el(g, 'g', {transform:'translate(' + x + ' ' + y + ') scale(' + s + ')'}); el(gg, 'path', {d:'M-9 2 h18 v8 q-9 3 -18 0 z', fill:'var(--estraza)', stroke:'var(--figura)', 'stroke-width':1}); el(gg, 'path', {d:'M-9 2 Q0 -6 9 2 Z', fill:color, stroke:'var(--figura)', 'stroke-width':1}); el(gg, 'circle', {cx:0, cy:-3, r:2, fill:'var(--cereza)'}); return gg; },
+  moneda(g, x, y, t){ el(g, 'circle', {cx:x, cy:y, r:7, fill:'var(--caramelo)', stroke:'var(--figura)', 'stroke-width':1}); el(g, 'circle', {cx:x, cy:y, r:4.5, fill:'none', stroke:'var(--figura)', 'stroke-width':.6, 'stroke-opacity':.5}); if(t) txt(g, x, y + 3, t, {'text-anchor':'middle', 'font-size':7, fill:'var(--figura)'}); },
+  horno(g, x, y, encendido){ el(g, 'rect', {x, y, width:44, height:40, rx:4, fill:'var(--gris)', stroke:'var(--figura)', 'stroke-width':1.2}); el(g, 'rect', {x:x + 6, y:y + 10, width:32, height:22, rx:3, fill:encendido ? 'var(--caramelo)' : 'var(--hueco)', stroke:'var(--figura)', 'stroke-width':1}); el(g, 'circle', {cx:x + 10, cy:y + 5, r:1.6, fill:'var(--figura)'}); el(g, 'circle', {cx:x + 17, cy:y + 5, r:1.6, fill:'var(--figura)'}); if(encendido){ el(g, 'path', {d:'M' + (x + 14) + ' ' + (y + 28) + ' q4 -10 8 0 q4 -12 8 0', fill:'var(--cereza)', 'fill-opacity':.7}); } },
+  tarta(g, x, y, s = 1){ const gg = el(g, 'g', {transform:'translate(' + x + ' ' + y + ') scale(' + s + ')'}); el(gg, 'path', {d:'M-30 0 h60 v22 q-30 8 -60 0 z', fill:'var(--estraza)', stroke:'var(--figura)', 'stroke-width':1.3}); el(gg, 'path', {d:'M-30 0 Q0 -12 30 0 Q0 10 -30 0 Z', fill:'var(--fresa)', stroke:'var(--figura)', 'stroke-width':1.3}); [-14, 0, 14].forEach(cx => el(gg, 'circle', {cx, cy:-2, r:3, fill:'var(--cereza)'})); return gg; }
+};
+
+/* ═══ LAS RECETAS. Cada una para tantas unidades, con tres ingredientes.
+   Se escalan multiplicando por n entre la base; la razón entre los dos
+   primeros ingredientes no cambia. ═══════════════════════════════════ */
+const RECETAS = {
+  magdalenas:{n:'las magdalenas', base:12, uds:'magdalenas', ing:[['huevos', 3, 'huevo'], ['tazas de harina', 2, 'taza'], ['cucharadas de azúcar', 6, 'cucharada']]},
+  bizcocho:  {n:'el bizcocho', base:8, uds:'raciones', ing:[['huevos', 4, 'huevo'], ['tazas de harina', 2, 'taza'], ['cucharadas de azúcar', 8, 'cucharada']]},
+  galletas:  {n:'las galletas', base:20, uds:'galletas', ing:[['huevos', 1, 'huevo'], ['tazas de harina', 2, 'taza'], ['cucharadas de azúcar', 4, 'cucharada']]},
+  natillas:  {n:'las natillas', base:4, uds:'raciones', ing:[['huevos', 2, 'huevo'], ['vasos de leche', 2, 'vaso'], ['cucharadas de azúcar', 4, 'cucharada']]}
+};
+const RECETA_ORDEN = ['magdalenas', 'bizcocho', 'galletas', 'natillas'];
+const escala = (R, n) => n / R.base;
+const cantidades = (R, n, nick = false) => R.ing.map(([nom, c]) => nick ? c + (n - R.base) : c * escala(R, n));
+const razon = (R, cant) => cant[1] ? cant[0] / cant[1] : NaN;
+
+/* ═══ SALA 1 · LA RECETA ═══════════════════════════════════════════════
+   La ficha con los ingredientes que se escalan a la vista, y la tabla de
+   proporcionalidad con la fila de la razón. Y el botón de la trampa:
+   sumar como Nick. ═════════════════════════════════════════════════════ */
+const receta = {cual:'magdalenas', n:12, nick:false};
+function pintaReceta(){
+  const g = $('svgReceta'); g.innerHTML = '';
+  const R = RECETAS[receta.cual], n = receta.n, k = escala(R, n), c = cantidades(R, n, receta.nick), c0 = R.ing.map(i => i[1]), r0 = razon(R, c0), r = razon(R, c);
+  bree(g, 12, 24, R.n + ' · para ' + n + ' ' + R.uds + ' · ' + (receta.nick ? 'sumando ' + cifra(n - R.base, 0) + ' a todo' : k === 1 ? 'la receta tal cual' : 'todo por ' + cifra(k, 2)));
+  /* la ficha */
+  el(g, 'rect', {x:14, y:40, width:250, height:284, rx:8, fill:'var(--nata)', stroke:'var(--linea)', 'stroke-width':1});
+  el(g, 'path', {d:'M14 66 H264', stroke:'var(--linea)', 'stroke-width':.8});
+  elite(g, 139, 58, R.n.toUpperCase() + ' · ' + n + ' ' + R.uds.toUpperCase(), {'text-anchor':'middle', 'font-size':11, fill:'var(--fresa)'});
+  R.ing.forEach(([nom, c1, ud], i) => {
+    const y = 96 + i * 84, v = c[i], dib = DIBUJO[ud];
+    elite(g, 26, y - 16, nom, {'font-size':11, fill:'var(--tenue)'});
+    const ent = Math.floor(v + 1e-9), medio = v - ent > 1e-9, paso = ud === 'taza' ? 28 : ud === 'cucharada' ? 24 : ud === 'vaso' ? 18 : 15, porFila = Math.floor(226 / paso);
+    if(ent <= 2 * porFila){ for(let j = 0; j < ent; j++) dib(g, 32 + (j % porFila) * paso, y + 4 + Math.floor(j / porFila) * 22, 1); if(medio) dib(g, 32 + (ent % porFila) * paso, y + 4 + Math.floor(ent / porFila) * 22, v - ent); }
+    else { dib(g, 32, y + 4, 1); txt(g, 46, y + 8, '× ' + cifra(v, 2), {'font-size':12, fill:'var(--tinta)'}); }
+    txt(g, 26, y + 50, cifra(v, 2) + ' ' + (v === 1 ? ud : nom.split(' ')[0]), {'font-size':11.5, fill:receta.nick && Math.abs(v - c1 * k) > 1e-9 ? 'var(--cereza)' : 'var(--tinta)', 'font-weight':700});
+  });
+  /* la tabla de proporcionalidad */
+  const tx = 290, cols = [R.uds].concat(R.ing.map(i => i[0].split(' ')[0])), xs = [0, 78, 134, 190];
+  cols.forEach((cn, i) => elite(g, tx + xs[i], 60, cn, {'font-size':10, fill:'var(--tenue)'}));
+  el(g, 'path', {d:'M' + tx + ' 66 H' + (tx + 240), stroke:'var(--linea)', 'stroke-width':.8});
+  const fila = (y, vals, col) => vals.forEach((v, i) => txt(g, tx + xs[i], y, cifra(v, 2), {'font-size':12.5, fill:col, 'font-weight':i ? 400 : 700}));
+  fila(88, [R.base].concat(c0), 'var(--tinta)');
+  fila(114, [n].concat(c), receta.nick ? 'var(--cereza)' : 'var(--tinta)');
+  /* las flechas: × k entre las dos filas */
+  el(g, 'path', {d:'M' + (tx - 16) + ' 82 Q' + (tx - 30) + ' 101 ' + (tx - 16) + ' 120', fill:'none', stroke:receta.nick ? 'var(--cereza)' : 'var(--pistacho)', 'stroke-width':1.4});
+  txt(g, tx - 26, 104, receta.nick ? '+' + cifra(n - R.base, 0) : '×' + cifra(k, 2), {'text-anchor':'end', 'font-size':11, fill:receta.nick ? 'var(--cereza)' : 'var(--pistacho)', 'font-weight':700});
+  /* la fila de la razón */
+  el(g, 'path', {d:'M' + tx + ' 128 H' + (tx + 240), stroke:'var(--linea)', 'stroke-width':.8, 'stroke-dasharray':'3 3'});
+  elite(g, tx, 150, 'la razón: ' + cols[1] + ' ÷ ' + cols[2], {'font-size':10.5, fill:'var(--tenue)'});
+  txt(g, tx, 172, cifra(c0[0], 2) + ' ÷ ' + cifra(c0[1], 2) + ' = ' + cifra(r0, 2), {'font-size':12, fill:'var(--tinta)'});
+  txt(g, tx, 192, cifra(c[0], 2) + ' ÷ ' + cifra(c[1], 2) + ' = ' + cifra(r, 3) + (Math.abs(r - r0) < 1e-9 ? '  ✓ igual' : '  ✗ distinta'), {'font-size':12, fill:Math.abs(r - r0) < 1e-9 ? 'var(--pistacho)' : 'var(--cereza)', 'font-weight':700});
+  parrafo(g, tx, 220, receta.nick ? 'Sumar lo mismo a todo rompe la razón: ' + cifra(c[0], 2) + ' ' + cols[1] + ' para ' + cifra(c[1], 2) + ' ' + cols[2] + ' no es la misma masa. Migas dice que así salen de piedra.' : 'Al multiplicar todo por el mismo número, la razón no cambia: ' + cifra(r0, 2) + ' ' + cols[1] + ' por cada ' + (cols[2].endsWith('s') ? cols[2].slice(0, -1) : cols[2]) + ', se hagan las que se hagan.', 236, {'font-size':11, fill:'var(--tinta)'}, 14);
+  txt(g, 528, 332, 'al doblar una, se dobla la otra; la razón no cambia', {'text-anchor':'end', 'font-size':9.5});
+}
+function leeReceta(){
+  const R = RECETAS[receta.cual], n = receta.n, k = escala(R, n), c = cantidades(R, n, receta.nick), c0 = R.ing.map(i => i[1]), r0 = razon(R, c0);
+  const ing1 = R.ing[0][0], ing2 = R.ing[1][0], ud2 = R.ing[1][2];
+  $('lecReceta').innerHTML =
+    '<span class="def">Dos cantidades son <b>directamente proporcionales</b> cuando al multiplicar una por un número la otra queda multiplicada por el mismo número. Su cociente no cambia: es la <b>razón</b>. Una receta es una tabla de proporcionalidad: la fila de arriba es la receta, y cada fila de abajo es la receta por un número.</span>'
+    + 'La receta de ' + R.n + ' es para <b>' + R.base + '</b> ' + R.uds + ': ' + R.ing.map(([nom, c1]) => cifra(c1, 2) + ' ' + nom).join(', ') + '. Para <b>' + n + '</b>, ' + (k === 1 ? 'la receta tal cual. ' : 'se multiplica todo por ' + cifra(k, 2) + ': ' + R.ing.map(([nom, c1], i) => cifra(c1 * k, 2) + ' ' + nom).join(', ') + '. ')
+    + (receta.nick ? '<span class="trampa">Sumando como Nick</span>, ' + cifra(n - R.base, 0) + ' a cada cosa, salen ' + c.map((v, i) => cifra(v, 2) + ' ' + R.ing[i][0]).join(', ') + ': la razón ' + ing1 + ' entre ' + ing2 + ' pasa de ' + cifra(r0, 2) + ' a ' + cifra(razon(R, c), 3) + ', y eso ya no es la misma masa. Doblar no es sumar: es multiplicar por dos. '
+       : 'Lo que no cambia es la razón: <b>' + cifra(r0, 2) + ' ' + ing1 + ' por cada ' + ud2 + '</b>, en la receta y en cualquier múltiplo de la receta. Esa razón es lo que se multiplica por las ' + ing2.split(' ')[0] + ' para saber los ' + ing1 + '. ')
+    + (n === 13 && receta.cual === 'magdalenas' ? '<span class="murmullo">Nicoleta, contando: «Trece. La docena del panadero: los panaderos de Londres ponían trece por docena para que nadie les acusara de quedarse cortos. Aquí la trece es para Migas».</span>' : '')
+    + '<span class="cuenta">' + R.base + ' → ' + n + ' es ×' + cifra(k, 2) + '   |   ' + R.ing.map(([nom, c1], i) => cifra(c1, 2) + ' × ' + cifra(k, 2) + ' = ' + cifra(c1 * k, 2)).join('   |   ') + '   |   razón ' + cifra(r0, 2) + '</span>';
+}
+function mandosReceta(){
+  const R = RECETAS[receta.cual];
+  tira('rCual', RECETA_ORDEN, () => receta.cual, v => { receta.cual = v; receta.n = RECETAS[v].base; receta.nick = false; Ruido.batidor(); pintaReceta2(); }, v => RECETAS[v].n, 'n v');
+  masMenos('rN', () => receta.n, v => { receta.n = v; Ruido.batidor(1); pintaReceta2(); }, 1, 60);
+  tira('rAtajos', [.5, 1.5, 2, 3], () => null, k => { receta.n = Math.max(1, Math.min(60, redondo(receta.n * k, 0))); Ruido.batidor(2); pintaReceta2(); }, k => '×' + cifra(k, 1).replace(',0', ''), 'n');
+  const b = $('rNick'); b.setAttribute('aria-pressed', String(receta.nick)); b.disabled = receta.n === R.base;
+}
+function pintaReceta2(){ mandosReceta(); pintaReceta(); leeReceta(); revisa(); if(receta.n === 13 && receta.cual === 'magdalenas') huevo('docena'); if(receta.nick) huevo('nick'); }
+$('rNick').addEventListener('click', () => { receta.nick = !receta.nick; Ruido.despierta(); Ruido.estraza(); pintaReceta2(); if(receta.nick) migasDice('Sumar seis a todo. Así salen de piedra. Yo me las como igual, pero de piedra.'); });
+
+/* ═══ SALA 2 · EL MOSTRADOR ════════════════════════════════════════════
+   Cinco pasteles, tres pesetas; para ocho, se pasa por uno. La regla de
+   tres son esos dos pasos, y la cruz es el atajo. ═════════════════════ */
+const ETIQUETAS = {
+  pasteles:  {n:'5 pasteles, 3 ptas', q:5, p:3, ud:'pastel', uds:'pasteles', max:20},
+  magdalenas:{n:'6 magdalenas, 1,50 ptas', q:6, p:1.5, ud:'magdalena', uds:'magdalenas', max:24},
+  tartas:    {n:'2 tartas, 7 ptas', q:2, p:7, ud:'tarta', uds:'tartas', max:10},
+  galletas:  {n:'200 g de galletas, 1,20 ptas', q:200, p:1.2, ud:'gramo', uds:'gramos', granel:true, paso:100, max:1000, min:100}
+};
+const ETQ_ORDEN = ['pasteles', 'magdalenas', 'tartas', 'galletas'];
+const mostrador = {etq:'pasteles', quiero:8, camino:'unidad'};
+function cuentaMostrador(){ const E = ETIQUETAS[mostrador.etq], u = E.p / E.q, total = u * mostrador.quiero; return {E, u, total, kilo:E.granel ? u * 1000 : null}; }
+function pintaMostrador(){
+  const g = $('svgMostrador'); g.innerHTML = '';
+  const {E, u, total, kilo} = cuentaMostrador(), q = mostrador.quiero, cruz = mostrador.camino === 'cruz';
+  bree(g, 12, 24, E.n + ' · ' + q + ' ' + E.uds + ' → ' + ptas(total));
+  /* el mostrador de madera */
+  const filaDe = (y, n, precio, rot, color, destaca) => {
+    if(destaca) el(g, 'rect', {x:20, y:y - 26, width:500, height:40, rx:6, fill:'var(--panel2)', 'fill-opacity':.6});
+    elite(g, 28, y + 4, rot, {'font-size':11, fill:color});
+    if(E.granel){ el(g, 'path', {d:'M150 ' + (y - 8) + ' h' + Math.max(6, n / 6) + ' v16 h-' + Math.max(6, n / 6) + ' z', fill:'var(--estraza)', stroke:'var(--figura)', 'stroke-width':1}); txt(g, 156 + Math.max(6, n / 6), y + 4, cifra(n, 0) + ' g', {'font-size':11, fill:'var(--tinta)'}); }
+    else { const m = Math.min(n, 12); for(let i = 0; i < m; i++) DIBUJO.pastel(g, 158 + i * 18, y - 2, .8, mostrador.etq === 'tartas' ? 'var(--caramelo)' : 'var(--fresa)'); if(n > 12) txt(g, 158 + 12 * 18, y + 4, '… ' + n, {'font-size':11, fill:'var(--tinta)'}); if(n < 1) DIBUJO.pastel(g, 158, y - 2, .8 * n); }
+    const monedas = Math.min(Math.floor(precio), 6); for(let i = 0; i < monedas; i++) DIBUJO.moneda(g, 400 + i * 12, y, '');
+    txt(g, 520, y + 4, ptas(precio), {'text-anchor':'end', 'font-size':12.5, fill:color, 'font-weight':700});
+  };
+  if(!cruz){
+    filaDe(80, E.q, E.p, 'la etiqueta', 'var(--tinta)');
+    el(g, 'path', {d:'M60 96 V126', stroke:'var(--pistacho)', 'stroke-width':1.4, 'marker-end':'none'}); txt(g, 68, 114, '÷ ' + E.q, {'font-size':11, fill:'var(--pistacho)', 'font-weight':700});
+    filaDe(144, 1, u, 'uno solo', 'var(--pistacho)', true);
+    el(g, 'path', {d:'M60 160 V190', stroke:'var(--pistacho)', 'stroke-width':1.4}); txt(g, 68, 178, '× ' + q, {'font-size':11, fill:'var(--pistacho)', 'font-weight':700});
+    filaDe(208, q, total, 'lo que quiero', 'var(--acento)');
+    if(E.granel){ txt(g, 28, 258, 'y el kilo: ' + ptas(u) + ' × 1.000 = ' + ptas(kilo), {'font-size':12, fill:'var(--caramelo)', 'font-weight':700}); }
+    else txt(g, 28, 258, 'cada ' + E.ud + ' vale ' + ptas(u) + ': la razón pesetas entre ' + E.uds, {'font-size':11, fill:'var(--tenue)'});
+  }else{
+    /* la cruz, y debajo lo que esconde */
+    filaDe(80, E.q, E.p, 'la etiqueta', 'var(--tinta)');
+    filaDe(144, q, total, 'lo que quiero', 'var(--acento)');
+    const cx = 120, cy = 210;
+    txt(g, cx - 40, cy, cifra(E.q, 0) + ' ' + E.uds, {'text-anchor':'end', 'font-size':12, fill:'var(--tinta)'}); txt(g, cx + 40, cy, ptas(E.p), {'font-size':12, fill:'var(--tinta)'});
+    txt(g, cx - 40, cy + 30, cifra(q, 0) + ' ' + E.uds, {'text-anchor':'end', 'font-size':12, fill:'var(--tinta)'}); txt(g, cx + 40, cy + 30, 'x', {'font-size':12, fill:'var(--acento)', 'font-weight':700});
+    el(g, 'path', {d:'M' + (cx - 30) + ' ' + (cy + 24) + ' L' + (cx + 30) + ' ' + (cy - 4), stroke:'var(--caramelo)', 'stroke-width':1.6}); el(g, 'path', {d:'M' + (cx - 30) + ' ' + (cy - 4) + ' L' + (cx + 30) + ' ' + (cy + 24), stroke:'var(--caramelo)', 'stroke-width':1.6, 'stroke-dasharray':'4 3'});
+    txt(g, 270, cy, 'x = ' + ptas(E.p) + ' × ' + q + ' ÷ ' + E.q + ' = ' + ptas(total), {'font-size':11.5, fill:'var(--tinta)'});
+    txt(g, 270, cy + 20, 'que es lo mismo que ÷ ' + E.q + ' y luego × ' + q + ':', {'font-size':10.5});
+    txt(g, 270, cy + 38, ptas(E.p) + ' ÷ ' + E.q + ' = ' + ptas(u) + ' · × ' + q + ' = ' + ptas(total), {'font-size':10.5, fill:'var(--pistacho)'});
+    txt(g, 28, 270, 'la cruz es el atajo de los dos pasos: la unidad está escondida en medio', {'font-size':10.5, fill:'var(--tenue)'});
+  }
+  txt(g, 528, 322, 'para pasar de ' + E.q + ' a ' + q + ', se pasa por uno', {'text-anchor':'end', 'font-size':9.5});
+}
+function leeMostrador(){
+  const {E, u, total, kilo} = cuentaMostrador(), q = mostrador.quiero, cruz = mostrador.camino === 'cruz';
+  $('lecMostrador').innerHTML =
+    '<span class="def"><b>Reducir a la unidad</b> es averiguar cuánto vale uno: el precio de la etiqueta entre los que van en ella. Con la unidad se sabe cualquier cantidad: por los que se quieren. La <b>regla de tres</b> son esos dos pasos, dividir y multiplicar, escritos seguidos.</span>'
+    + 'La etiqueta dice ' + E.q + ' ' + E.uds + ' por ' + ptas(E.p) + '. <b>Uno</b> vale ' + ptas(E.p) + ' entre ' + E.q + ': <b>' + ptas(u) + '</b>. Y ' + q + ' valen ' + ptas(u) + ' por ' + q + ': <b>' + ptas(total) + '</b>. '
+    + (cruz ? 'Escrito en cruz, ' + ptas(E.p) + ' por ' + q + ' entre ' + E.q + ' da lo mismo, y no es magia: multiplicar y dividir se pueden hacer en el orden que se quiera, así que la cruz es ÷' + E.q + ' y ×' + q + ' con la unidad escondida en medio. Vale solo cuando la proporción es directa. ' : 'Se puede escribir en cruz, y sale lo mismo, pero conviene ver primero los dos pasos: la cruz sola se olvida; la unidad, no. ')
+    + (E.granel ? 'A granel la unidad es el gramo, ' + ptas(u) + ', que no vale nada; por eso las etiquetas dicen el precio del <b>kilo</b>: ' + ptas(kilo) + '. Es la misma cuenta por mil. ' : 'La razón pesetas entre ' + E.uds + ' es ' + ptas(u) + ' en la etiqueta y en lo que se compre: más ' + E.uds + ', más pesetas, y la razón, igual. ')
+    + '<span class="cuenta">' + E.q + ' → ' + ptas(E.p) + '   |   1 → ' + ptas(u) + '   |   ' + q + ' → ' + ptas(total) + (E.granel ? '   |   1.000 g → ' + ptas(kilo) : '') + '</span>';
+}
+function mandosMostrador(){
+  const E = ETIQUETAS[mostrador.etq];
+  tira('mEtq', ETQ_ORDEN, () => mostrador.etq, v => { mostrador.etq = v; const F = ETIQUETAS[v]; mostrador.quiero = F.granel ? 500 : Math.min(F.max, F.q + 3); Ruido.estraza(); pintaMostrador2(); }, v => ETIQUETAS[v].n, 'n v');
+  masMenos('mQuiero', () => mostrador.quiero, v => { mostrador.quiero = v; Ruido.batidor(1); pintaMostrador2(); }, E.min || 1, E.max, E.paso || 1, v => cifra(v, 0) + ' ' + (v === 1 ? E.ud : E.uds));
+  tira('mCamino', ['unidad', 'cruz'], () => mostrador.camino, v => { mostrador.camino = v; Ruido.estraza(); pintaMostrador2(); }, v => v === 'unidad' ? 'pasar por la unidad' : 'la regla de tres en cruz', 'n v');
+}
+function pintaMostrador2(){ mandosMostrador(); pintaMostrador(); leeMostrador(); revisa(); }
+
+/* ═══ SALA 3 · EL HORNO ════════════════════════════════════════════════
+   Con un horno, seis horas; con dos, tres; con tres, dos. El producto no
+   cambia: inversa. Y al lado, la receta, que es directa, para comparar. ═ */
+const horno = {trabajo:6, hornos:1, comparar:false};
+const TRABAJOS = [6, 12, 24];
+const horasDe = (t, h) => t / h;
+function pintaHorno(){
+  const g = $('svgHorno'); g.innerHTML = '';
+  const {trabajo, hornos} = horno, horas = horasDe(trabajo, hornos);
+  bree(g, 12, 24, trabajo + ' horas de horno · con ' + hornos + (hornos === 1 ? ' horno' : ' hornos') + ', ' + cifra(horas, 2) + (horas === 1 ? ' hora' : ' horas'));
+  /* los hornos en fila */
+  for(let i = 0; i < hornos; i++) DIBUJO.horno(g, 20 + i * 52, 48, true);
+  /* el reloj */
+  const cx = 476, cy = 80, r = 34;
+  el(g, 'circle', {cx, cy, r, fill:'var(--nata)', stroke:'var(--figura)', 'stroke-width':1.4});
+  for(let i = 0; i < 12; i++){ const a = i * Math.PI / 6; el(g, 'path', {d:'M' + (cx + (r - 5) * Math.sin(a)) + ' ' + (cy - (r - 5) * Math.cos(a)) + ' L' + (cx + r * Math.sin(a)) + ' ' + (cy - r * Math.cos(a)), stroke:'var(--figura)', 'stroke-width':i % 3 ? .8 : 1.6}); }
+  const a = Math.min(horas, 12) / 12 * 2 * Math.PI;
+  el(g, 'path', {d:'M' + cx + ' ' + cy + ' L' + cx + ' ' + (cy - r + 8) + ' A' + (r - 8) + ' ' + (r - 8) + ' 0 ' + (a > Math.PI ? 1 : 0) + ' 1 ' + (cx + (r - 8) * Math.sin(a)) + ' ' + (cy - (r - 8) * Math.cos(a)) + ' Z', fill:'var(--caramelo)', 'fill-opacity':.45, class:'nueva'});
+  el(g, 'path', {d:'M' + cx + ' ' + cy + ' L' + (cx + (r - 10) * Math.sin(a)) + ' ' + (cy - (r - 10) * Math.cos(a)), stroke:'var(--figura)', 'stroke-width':2, 'stroke-linecap':'round'});
+  el(g, 'circle', {cx, cy, r:2.2, fill:'var(--figura)'});
+  txt(g, cx, cy + r + 16, cifra(horas, 2) + ' h', {'text-anchor':'middle', 'font-size':12, fill:'var(--tinta)', 'font-weight':700});
+  if(horas > 12) txt(g, cx, cy + r + 30, 'más de una vuelta', {'text-anchor':'middle', 'font-size':9.5});
+  /* la tabla del horno: hornos, horas, producto */
+  const tx = 20, ty = 150, cw = 64;
+  ['hornos', 'horas', 'hornos × horas'].forEach((h, i) => elite(g, tx + i * cw, ty, h, {'font-size':10, fill:'var(--tenue)'}));
+  el(g, 'path', {d:'M' + tx + ' ' + (ty + 6) + ' H' + (tx + 3 * cw + 30), stroke:'var(--linea)', 'stroke-width':.8});
+  for(let h = 1; h <= 6; h++){ const y = ty + 24 + (h - 1) * 20, es = h === hornos;
+    if(es) el(g, 'rect', {x:tx - 6, y:y - 13, width:3 * cw + 40, height:18, rx:3, fill:'var(--panel2)'});
+    [h, horasDe(trabajo, h), trabajo].forEach((v, i) => txt(g, tx + i * cw, y, cifra(v, 2), {'font-size':11.5, fill:i === 2 ? 'var(--pistacho)' : 'var(--tinta)', 'font-weight':es || i === 2 ? 700 : 400})); }
+  el(g, 'path', {d:'M' + (tx - 14) + ' ' + (ty + 18) + ' Q' + (tx - 26) + ' ' + (ty + 28) + ' ' + (tx - 14) + ' ' + (ty + 38), fill:'none', stroke:'var(--cereza)', 'stroke-width':1.2}); txt(g, tx - 30, ty + 32, '×2', {'text-anchor':'end', 'font-size':9.5, fill:'var(--cereza)'});
+  el(g, 'path', {d:'M' + (tx + cw - 14) + ' ' + (ty + 18) + ' Q' + (tx + cw - 26) + ' ' + (ty + 28) + ' ' + (tx + cw - 14) + ' ' + (ty + 38), fill:'none', stroke:'var(--cereza)', 'stroke-width':1.2}); txt(g, tx + cw - 30, ty + 32, '÷2', {'text-anchor':'end', 'font-size':9.5, fill:'var(--cereza)'});
+  txt(g, tx, ty + 150, 'inversa: el producto no cambia', {'font-size':10.5, fill:'var(--pistacho)', 'font-weight':700});
+  if(horno.comparar){
+    const R = RECETAS.magdalenas, rx = 310, cols = ['magdalenas', 'huevos', 'huevos ÷ magd.'], cx2 = [0, 84, 140];
+    cols.forEach((h, i) => elite(g, rx + cx2[i], ty, h, {'font-size':10, fill:'var(--tenue)'}));
+    el(g, 'path', {d:'M' + rx + ' ' + (ty + 6) + ' H' + (rx + 220), stroke:'var(--linea)', 'stroke-width':.8});
+    [1, 2, 3, 4, 5, 6].forEach((k, j) => { const y = ty + 24 + j * 20, n = R.base * k / 2, hu = R.ing[0][1] * k / 2; [n, hu, hu / n].forEach((v, i) => txt(g, rx + cx2[i], y, cifra(v, 2), {'font-size':11.5, fill:i === 2 ? 'var(--pistacho)' : 'var(--tinta)', 'font-weight':i === 2 ? 700 : 400})); });
+    el(g, 'path', {d:'M' + (rx - 14) + ' ' + (ty + 18) + ' Q' + (rx - 26) + ' ' + (ty + 28) + ' ' + (rx - 14) + ' ' + (ty + 38), fill:'none', stroke:'var(--pistacho)', 'stroke-width':1.2}); txt(g, rx - 30, ty + 32, '×2', {'text-anchor':'end', 'font-size':9.5, fill:'var(--pistacho)'});
+    el(g, 'path', {d:'M' + (rx + 70) + ' ' + (ty + 18) + ' Q' + (rx + 58) + ' ' + (ty + 28) + ' ' + (rx + 70) + ' ' + (ty + 38), fill:'none', stroke:'var(--pistacho)', 'stroke-width':1.2}); txt(g, rx + 84 - 30, ty + 32, '×2', {'text-anchor':'end', 'font-size':9.5, fill:'var(--pistacho)'});
+    txt(g, rx, ty + 150, 'directa: el cociente no cambia', {'font-size':10.5, fill:'var(--pistacho)', 'font-weight':700});
+  }
+  txt(g, 528, 322, 'al doblar una, la otra se parte por la mitad', {'text-anchor':'end', 'font-size':9.5});
+}
+function leeHorno(){
+  const {trabajo, hornos} = horno, horas = horasDe(trabajo, hornos);
+  $('lecHorno').innerHTML =
+    '<span class="def">Dos cantidades son <b>inversamente proporcionales</b> cuando al multiplicar una por un número la otra queda dividida por el mismo número. Su producto no cambia. Más hornos, menos horas; y hornos por horas, siempre lo mismo.</span>'
+    + 'El encargo son <b>' + trabajo + ' horas de horno</b>. Con un horno, ' + trabajo + ' horas; con ' + hornos + ', ' + cifra(horas, 2) + ': el trabajo se reparte, y ' + hornos + ' × ' + cifra(horas, 2) + ' = ' + trabajo + ', como en todas las filas de la tabla. Eso es lo que no cambia. '
+    + 'Para saber cuál es cuál se pregunta: si pongo el doble, ¿la otra sube o baja? Más magdalenas, <b>más</b> huevos: directa, y se mira el cociente. Más hornos, <b>menos</b> horas: inversa, y se mira el producto. '
+    + (hornos >= 5 ? '<span class="trampa">Un aviso de Nicoleta:</span> nueve hornos no hacen el bizcocho nueve veces más deprisa, porque la masa reposa lo que reposa y el horno tarda lo que tarda. La inversa vale cuando el trabajo se reparte de verdad. Es un modelo, y antes de usarlo hay que mirar si el trabajo se reparte. ' : '')
+    + (horno.comparar ? 'Al lado, la receta: la fila se dobla y el cociente sigue en 0,25 huevos por magdalena. Aquí la fila se dobla y las horas se parten por la mitad. Dos tablas, dos gestos. ' : '')
+    + '<span class="cuenta">' + [1, 2, 3, 4, 6].map(h => h + ' × ' + cifra(horasDe(trabajo, h), 2) + ' = ' + trabajo).join('   |   ') + '</span>';
+}
+function mandosHorno(){
+  tira('hTrabajo', TRABAJOS, () => horno.trabajo, v => { horno.trabajo = v; Ruido.timbre(); pintaHorno2(); }, v => v + ' horas de horno', 'n v');
+  masMenos('hHornos', () => horno.hornos, v => { horno.hornos = v; Ruido.batidor(1); pintaHorno2(); }, 1, 6);
+  $('hComparar').setAttribute('aria-pressed', String(horno.comparar));
+}
+function pintaHorno2(){ mandosHorno(); pintaHorno(); leeHorno(); revisa(); }
+$('hComparar').addEventListener('click', () => { horno.comparar = !horno.comparar; Ruido.despierta(); Ruido.estraza(); pintaHorno2(); });
+
+/* ═══ SALA 4 · EL ESCAPARATE ═══════════════════════════════════════════
+   La tarta de cien cuadraditos: tanto por ciento es de cada cien. Al lado
+   la cantidad partida igual, y el porcentaje como fracción y decimal. ═══ */
+const escaparate = {pct:25, de:'tarta'};
+const DE = {
+  tarta:     {n:'una tarta de 8 ptas', v:8, ud:'ptas', tipo:'dinero'},
+  magdalenas:{n:'40 magdalenas', v:40, ud:'magdalenas', tipo:'cuenta'},
+  fresas:    {n:'250 g de fresas', v:250, ud:'g', tipo:'peso'},
+  clase:     {n:'una clase de 30', v:30, ud:'alumnos', tipo:'cuenta'}
+};
+const DE_ORDEN = ['tarta', 'magdalenas', 'fresas', 'clase'];
+const ATAJOS = [10, 20, 25, 50, 75, 100];
+const mcd = (a, b) => b ? mcd(b, a % b) : a;
+const fraccionDe = p => { const d = mcd(p, 100); return [p / d, 100 / d]; };
+const porcentajeDe = (p, v) => v * p / 100;
+function pintaEscaparate(){
+  const g = $('svgEscaparate'); g.innerHTML = '';
+  const {pct, de} = escaparate, D = DE[de], val = porcentajeDe(pct, D.v), [num, den] = fraccionDe(pct);
+  bree(g, 12, 24, pct + ' % de ' + D.n + ' · ' + cifra(val, 2) + ' ' + D.ud);
+  /* la tarta de cien */
+  const x0 = 20, y0 = 48, c = 19;
+  for(let i = 0; i < 100; i++){ const fila = Math.floor(i / 10), col = i % 10, pinta = i < pct;
+    el(g, 'rect', {x:x0 + col * c, y:y0 + fila * c, width:c - 1, height:c - 1, fill:pinta ? 'var(--fresa)' : 'var(--nata)', stroke:'var(--figura)', 'stroke-width':.4, class:pinta && i >= pct - 10 ? 'nueva' : ''}); }
+  el(g, 'rect', {x:x0 - 1, y:y0 - 1, width:10 * c + 1, height:10 * c + 1, fill:'none', stroke:'var(--figura)', 'stroke-width':1.2});
+  txt(g, x0, y0 + 10 * c + 16, pct + ' de cada 100 cuadraditos', {'font-size':10.5, fill:'var(--tinta)'});
+  /* la cantidad, partida igual */
+  const rx = 250, rw = 270, ry = 60;
+  elite(g, rx, ry - 6, D.n, {'font-size':11, fill:'var(--tenue)'});
+  if(D.tipo === 'cuenta' && D.v <= 40){ const por = 10, s = 24; for(let i = 0; i < D.v; i++){ const fx = rx + (i % por) * s, fy = ry + 14 + Math.floor(i / por) * 22, dentro = i < val; if(de === 'clase') el(g, 'circle', {cx:fx + 8, cy:fy + 8, r:7, fill:dentro ? 'var(--fresa)' : 'var(--nata)', stroke:'var(--figura)', 'stroke-width':.9}); else DIBUJO.pastel(g, fx + 9, fy + 6, .75, dentro ? 'var(--fresa)' : 'var(--estraza)'); }
+    txt(g, rx, ry + 14 + Math.ceil(D.v / por) * 22 + 14, cifra(val, 2) + ' de ' + D.v + ' ' + D.ud, {'font-size':11, fill:'var(--tinta)', 'font-weight':700}); }
+  else { el(g, 'rect', {x:rx, y:ry + 10, width:rw, height:26, rx:4, fill:'var(--nata)', stroke:'var(--figura)', 'stroke-width':1}); el(g, 'rect', {x:rx, y:ry + 10, width:rw * pct / 100, height:26, rx:4, fill:'var(--fresa)', class:'nueva'});
+    for(let i = 1; i < 4; i++) el(g, 'path', {d:'M' + (rx + rw * i / 4) + ' ' + (ry + 10) + ' V' + (ry + 36), stroke:'var(--figura)', 'stroke-width':.6, 'stroke-dasharray':'2 2'});
+    txt(g, rx, ry + 52, cifra(val, 2) + ' ' + D.ud + ' de ' + cifra(D.v, 2), {'font-size':11, fill:'var(--tinta)', 'font-weight':700}); txt(g, rx + rw, ry + 52, cifra(D.v, 2) + ' ' + D.ud, {'text-anchor':'end', 'font-size':10}); }
+  /* el porcentaje, de tres maneras */
+  const py = 170;
+  elite(g, rx, py, 'el mismo número, de tres maneras', {'font-size':10.5, fill:'var(--tenue)'});
+  bree(g, rx, py + 30, pct + ' %', {'font-size':22, fill:'var(--fresa)'});
+  txt(g, rx + 70, py + 30, '= ' + pct + '/100' + (den !== 100 ? ' = ' + num + '/' + den : ''), {'font-size':13, fill:'var(--tinta)'});
+  txt(g, rx + 70, py + 50, '= ' + cifra(pct / 100, 2), {'font-size':13, fill:'var(--tinta)'});
+  txt(g, rx, py + 84, 'el ' + pct + ' % de ' + cifra(D.v, 2) + ' = ' + cifra(D.v, 2) + ' × ' + pct + ' ÷ 100 = ' + cifra(val, 2), {'font-size':11.5, fill:'var(--tinta)'});
+  const atajo = pct === 50 ? 'la mitad' : pct === 25 ? 'un cuarto' : pct === 75 ? 'tres cuartos' : pct === 10 ? 'entre diez' : pct === 20 ? 'un quinto' : pct === 100 ? 'todo' : pct === 1 ? 'entre cien' : null;
+  if(atajo) txt(g, rx, py + 104, 'el atajo: ' + atajo + ' de ' + cifra(D.v, 2) + ' es ' + cifra(val, 2), {'font-size':11, fill:'var(--pistacho)', 'font-weight':700});
+  txt(g, 528, 322, 'de cada cien, tantos', {'text-anchor':'end', 'font-size':9.5});
+}
+function leeEscaparate(){
+  const {pct, de} = escaparate, D = DE[de], val = porcentajeDe(pct, D.v), [num, den] = fraccionDe(pct);
+  $('lecEscaparate').innerHTML =
+    '<span class="def">Un <b>tanto por ciento</b> es una razón con cien de denominador: el ' + pct + ' % es ' + pct + ' de cada 100, la fracción ' + pct + '/100, el decimal ' + cifra(pct / 100, 2) + '. El ' + pct + ' % de una cantidad es la cantidad por ' + pct + ' entre 100.</span>'
+    + 'En la tarta de cien cuadraditos se pintan ' + pct + '. De ' + D.n + ', el ' + pct + ' % son ' + cifra(D.v, 2) + ' × ' + pct + ' ÷ 100 = <b>' + cifra(val, 2) + ' ' + D.ud + '</b>. '
+    + (den !== 100 ? 'Como ' + pct + '/100 es ' + num + '/' + den + ', es lo mismo que ' + (num === 1 ? 'partir entre ' + den : 'tomar ' + num + ' de cada ' + den) + ': es la fracción de cantidad de la ciudad de Liz, con otro nombre. ' : '')
+    + 'Los atajos son fracciones que se saben: el 50 % es la mitad, el 25 % un cuarto, el 75 % tres cuartos, el 10 % entre diez, el 1 % entre cien. Y al revés: para saber qué tanto por ciento es una parte, se divide la parte entre el total y se multiplica por cien. ' + (de === 'magdalenas' ? '10 de 40 es 10 ÷ 40 = 0,25, el 25 %. ' : '')
+    + '<span class="cuenta">' + pct + ' % = ' + pct + '/100 = ' + cifra(pct / 100, 2) + '   |   ' + pct + ' % de ' + cifra(D.v, 2) + ' = ' + cifra(val, 2) + '</span>';
+}
+function mandosEscaparate(){
+  tira('eAtajos', ATAJOS, () => escaparate.pct, v => { escaparate.pct = v; Ruido.batidor(2); pintaEscaparate2(); }, v => v + ' %');
+  masMenos('ePct', () => escaparate.pct, v => { escaparate.pct = v; Ruido.batidor(1); pintaEscaparate2(); }, 1, 100, 1, v => v + ' %');
+  tira('eDe', DE_ORDEN, () => escaparate.de, v => { escaparate.de = v; Ruido.estraza(); pintaEscaparate2(); }, v => DE[v].n, 'n v');
+}
+function pintaEscaparate2(){ mandosEscaparate(); pintaEscaparate(); leeEscaparate(); revisa(); }
+
+/* ═══ SALA 5 · EL CARTEL DE LAS REBAJAS ════════════════════════════════
+   Rebajar el 20 % es multiplicar por 0,8; subirlo, por 1,2. Encadenar es
+   multiplicar dos veces. Y al revés: el precio de antes se divide. ═════ */
+const rebajas = {precio:10, c1:{t:'rebaja', p:20}, c2:{t:'nada', p:20}, reves:false};
+const PRECIOS = [5, 8, 10, 12, 20, 25];
+const PCTS = [5, 10, 20, 25, 50, 75, 100];
+const factor = c => c.t === 'nada' ? 1 : c.t === 'rebaja' ? 1 - c.p / 100 : 1 + c.p / 100;
+function cadena(){ const p0 = rebajas.precio, f1 = factor(rebajas.c1), f2 = factor(rebajas.c2); return {p0, f1, f2, p1:p0 * f1, p2:p0 * f1 * f2}; }
+const cartelDice = c => c.t === 'nada' ? 'sin cartel' : (c.t === 'rebaja' ? '−' : '+') + c.p + ' %';
+function pintaRebajas(){
+  const g = $('svgRebajas'); g.innerHTML = '';
+  const {p0, f1, f2, p1, p2} = cadena(), c1 = rebajas.c1, c2 = rebajas.c2, reves = rebajas.reves;
+  bree(g, 12, 24, reves ? 'ahora vale ' + ptas(p1) + ' con el cartel puesto · valía ' + ptas(p0) : ptas(p0) + ' · ' + cartelDice(c1) + (c2.t !== 'nada' ? ' · ' + cartelDice(c2) : '') + ' → ' + ptas(p2));
+  /* el escaparate: marco, tarta, carteles */
+  el(g, 'rect', {x:14, y:40, width:200, height:150, rx:6, fill:'var(--escaparate)', 'fill-opacity':.12, stroke:'var(--figura)', 'stroke-width':1.2});
+  el(g, 'path', {d:'M14 150 H214', stroke:'var(--chocolate)', 'stroke-width':4});
+  DIBUJO.tarta(g, 114, 120, 1.1);
+  const etq = (x, y, t, tach, color) => { el(g, 'path', {d:'M' + x + ' ' + (y - 14) + ' l10 -6 h44 v22 h-44 z', fill:'var(--estraza)', stroke:'var(--figura)', 'stroke-width':1}); elite(g, x + 36, y - 2, t, {'text-anchor':'middle', 'font-size':11, fill:color}); if(tach) el(g, 'path', {d:'M' + (x + 12) + ' ' + (y - 4) + ' L' + (x + 60) + ' ' + (y - 4), stroke:'var(--cereza)', 'stroke-width':1.6}); };
+  if(reves){ etq(30, 70, ptas(p1), false, 'var(--fresa)'); etq(110, 70, '¿antes?', false, 'var(--tinta)'); el(g, 'rect', {x:120, y:84, width:70, height:18, rx:3, fill:'var(--cereza)'}); elite(g, 155, 97, cartelDice(c1) + ' ya hecho', {'text-anchor':'middle', 'font-size':9, fill:'#fff'}); }
+  else { etq(30, 70, ptas(p0), c1.t !== 'nada', 'var(--tinta)'); if(c1.t !== 'nada'){ el(g, 'rect', {x:110, y:50, width:90, height:20, rx:3, fill:c1.t === 'rebaja' ? 'var(--cereza)' : 'var(--pistacho)'}); elite(g, 155, 64, cartelDice(c1), {'text-anchor':'middle', 'font-size':11, fill:'#fff'}); etq(30, 100, ptas(p1), c2.t !== 'nada', c2.t === 'nada' ? 'var(--fresa)' : 'var(--tinta)'); }
+    if(c2.t !== 'nada'){ el(g, 'rect', {x:110, y:80, width:90, height:20, rx:3, fill:c2.t === 'rebaja' ? 'var(--cereza)' : 'var(--pistacho)'}); elite(g, 155, 94, cartelDice(c2), {'text-anchor':'middle', 'font-size':11, fill:'#fff'}); etq(30, 130, ptas(p2), false, 'var(--fresa)'); } }
+  /* las barras del precio */
+  const bx = 240, bw = 280, esc = v => bw * v / Math.max(p0, p1, p2, 1) * .92;
+  const barra = (y, v, rot, color, nota) => { el(g, 'rect', {x:bx, y, width:bw, height:18, rx:3, fill:'none', stroke:'var(--linea)', 'stroke-width':.8}); el(g, 'rect', {x:bx, y, width:esc(v), height:18, rx:3, fill:color, 'fill-opacity':.85, class:'nueva'}); elite(g, bx, y - 5, rot, {'font-size':10, fill:'var(--tenue)'}); txt(g, bx + bw, y + 13, ptas(v), {'text-anchor':'end', 'font-size':11, fill:'var(--tinta)', 'font-weight':700}); if(nota) txt(g, bx, y + 32, nota, {'font-size':10, fill:'var(--tinta)'}); };
+  if(!reves){
+    barra(60, p0, 'el precio · 100 %', 'var(--caramelo)');
+    if(c1.t !== 'nada') barra(116, p1, cartelDice(c1) + ' → queda el ' + cifra(f1 * 100, 0) + ' %', c1.t === 'rebaja' ? 'var(--fresa)' : 'var(--pistacho)', ptas(p0) + ' × ' + cifra(f1, 2) + ' = ' + ptas(p1));
+    if(c2.t !== 'nada') barra(172, p2, cartelDice(c2) + ' del nuevo → ' + cifra(f2 * 100, 0) + ' % de ' + ptas(p1), c2.t === 'rebaja' ? 'var(--fresa)' : 'var(--pistacho)', ptas(p1) + ' × ' + cifra(f2, 2) + ' = ' + ptas(p2));
+    if(c2.t !== 'nada') txt(g, bx, 228, 'los dos seguidos: × ' + cifra(f1, 2) + ' × ' + cifra(f2, 2) + ' = × ' + cifra(f1 * f2, 3), {'font-size':10.5, fill:'var(--cereza)', 'font-weight':700}); if(Math.abs(f1 * f2 - 1) > 1e-9) txt(g, bx, 244, 'no vuelve al precio de antes', {'font-size':10.5, fill:'var(--cereza)'});
+  }else{
+    barra(60, p1, 'lo que vale ahora · el ' + cifra(f1 * 100, 0) + ' % de antes', 'var(--fresa)');
+    barra(116, p0, 'lo que valía · el 100 %', 'var(--caramelo)', ptas(p1) + ' ÷ ' + cifra(f1, 2) + ' = ' + ptas(p0));
+    txt(g, bx, 172, 'la trampa: ' + ptas(p1) + ' ' + (c1.t === 'rebaja' ? '+' : '−') + ' ' + c1.p + ' % = ' + ptas(p1 * (c1.t === 'rebaja' ? 1 + c1.p / 100 : 1 - c1.p / 100)) + ': no', {'font-size':10.5, fill:'var(--cereza)', 'font-weight':700});
+    txt(g, bx, 190, 'el ' + c1.p + ' % de ahora no es el ' + c1.p + ' % de antes', {'font-size':10.5, fill:'var(--tenue)'});
+  }
+  if(c1.t === 'rebaja' && c1.p === 100 && !reves) txt(g, 114, 176, 'GRATIS · Nicoleta baja la persiana', {'text-anchor':'middle', 'font-size':10.5, fill:'var(--cereza)', 'font-weight':700});
+  txt(g, 528, 322, 'rebajar el d % es multiplicar por (100 − d) entre 100', {'text-anchor':'end', 'font-size':9.5});
+}
+function leeRebajas(){
+  const {p0, f1, f2, p1, p2} = cadena(), c1 = rebajas.c1, c2 = rebajas.c2, reves = rebajas.reves;
+  $('lecRebajas').innerHTML =
+    '<span class="def">Un descuento del d % deja el (100 − d) % del precio: se multiplica por (100 − d) entre 100. Un aumento del a % lleva al (100 + a) %: por (100 + a) entre 100. Encadenar dos carteles es multiplicar dos veces, y el segundo tanto por ciento es del precio nuevo, no del de antes.</span>'
+    + (reves ? 'Ahora la tarta vale ' + ptas(p1) + ' con el cartel de ' + cartelDice(c1) + ' ya aplicado: eso es el ' + cifra(f1 * 100, 0) + ' % de lo que valía. Para volver al precio de antes se <b>divide</b> entre ' + cifra(f1, 2) + ': <b>' + ptas(p0) + '</b>. La trampa es ' + (c1.t === 'rebaja' ? 'sumarle' : 'quitarle') + ' su ' + c1.p + ' %: da ' + ptas(p1 * (c1.t === 'rebaja' ? 1 + c1.p / 100 : 1 - c1.p / 100)) + ', porque el ' + c1.p + ' % de ' + ptas(p1) + ' no es el ' + c1.p + ' % de ' + ptas(p0) + '. '
+       : 'La tarta vale ' + ptas(p0) + '. ' + (c1.t === 'nada' ? 'Sin cartel, vale lo que vale. Pon uno. ' : 'Con ' + cartelDice(c1) + ' queda el ' + cifra(f1 * 100, 0) + ' %: ' + ptas(p0) + ' × ' + cifra(f1, 2) + ' = <b>' + ptas(p1) + '</b>. ')
+         + (c2.t !== 'nada' ? 'El segundo cartel, ' + cartelDice(c2) + ', es sobre ' + ptas(p1) + ': × ' + cifra(f2, 2) + ' = <b>' + ptas(p2) + '</b>. Los dos seguidos son × ' + cifra(f1 * f2, 3) + (Math.abs(f1 * f2 - 1) < 1e-9 ? ', que aquí sí vuelve' : ', y por eso ' + (c1.t !== c2.t && c1.p === c2.p ? 'bajar y subir lo mismo no vuelve al precio: el ' + c2.p + ' % de una cosa más ' + (c1.t === 'rebaja' ? 'pequeña' : 'grande') + ' es ' + (c1.t === 'rebaja' ? 'menos' : 'más') : 'no se suman los porcentajes')) + '. ' : ''))
+    + '<span class="murmullo">Migas, desde el borde: «El 20 % de qué. Siempre hay que preguntar de qué».</span>'
+    + '<span class="cuenta">' + ptas(p0) + ' × ' + cifra(f1, 2) + ' = ' + ptas(p1) + (c2.t !== 'nada' ? '   |   ' + ptas(p1) + ' × ' + cifra(f2, 2) + ' = ' + ptas(p2) : '') + (reves ? '   |   ' + ptas(p1) + ' ÷ ' + cifra(f1, 2) + ' = ' + ptas(p0) : '') + '</span>';
+}
+function mandosRebajas(){
+  tira('bPrecio', PRECIOS, () => rebajas.precio, v => { rebajas.precio = v; Ruido.estraza(); pintaRebajas2(); }, v => ptas(v));
+  const c = $('bCartel1'); c.innerHTML = '';
+  [['t1', 'rebaja', 'rebaja'], ['t1', 'subida', 'subida']].forEach(([k, v, t]) => { const b = document.createElement('button'); b.className = 'n v'; b.textContent = t; b.setAttribute('aria-pressed', String(rebajas.c1.t === v)); b.addEventListener('click', () => { rebajas.c1.t = v; Ruido.estraza(); pintaRebajas2(); }); c.appendChild(b); });
+  PCTS.forEach(p => { const b = document.createElement('button'); b.className = 'n'; b.textContent = p + ' %'; b.setAttribute('aria-pressed', String(rebajas.c1.p === p)); b.addEventListener('click', () => { rebajas.c1.p = p; Ruido.batidor(1); pintaRebajas2(); }); c.appendChild(b); });
+  const d = $('bCartel2'); d.innerHTML = '';
+  [['nada', 'nada'], ['rebaja', 'rebaja'], ['subida', 'subida']].forEach(([v, t]) => { const b = document.createElement('button'); b.className = 'n v'; b.textContent = t; b.setAttribute('aria-pressed', String(rebajas.c2.t === v)); b.disabled = rebajas.reves; b.addEventListener('click', () => { rebajas.c2.t = v; Ruido.estraza(); pintaRebajas2(); }); d.appendChild(b); });
+  PCTS.forEach(p => { const b = document.createElement('button'); b.className = 'n'; b.textContent = p + ' %'; b.setAttribute('aria-pressed', String(rebajas.c2.p === p)); b.disabled = rebajas.reves || rebajas.c2.t === 'nada'; b.addEventListener('click', () => { rebajas.c2.p = p; Ruido.batidor(1); pintaRebajas2(); }); d.appendChild(b); });
+  $('bReves').setAttribute('aria-pressed', String(rebajas.reves));
+}
+function pintaRebajas2(){ mandosRebajas(); pintaRebajas(); leeRebajas(); revisa(); if(rebajas.c1.t === 'rebaja' && rebajas.c1.p === 100 && !rebajas.reves) huevo('gratis'); }
+$('bReves').addEventListener('click', () => { rebajas.reves = !rebajas.reves; if(rebajas.reves) rebajas.c2.t = 'nada'; Ruido.despierta(); Ruido.estraza(); pintaRebajas2(); });
+
+/* ═══ FIBONACCI · sala oculta ═══════════════════════════════════════════
+   La regla de tres del Liber Abaci, tal como la escribía Leonardo, y como
+   la hace Nicoleta pasando por la unidad. Y de dónde sale el signo %. ═══ */
+function pintaFibonacci(){
+  const g = $('svgFibonacci'); g.innerHTML = '';
+  bree(g, 12, 24, 'cien rollos, cuarenta libras · cinco rollos, ¿cuánto?');
+  /* como Leonardo: los tres números en fila y el que se busca */
+  elite(g, 20, 56, 'COMO LEONARDO, 1202', {'font-size':10.5, fill:'var(--tenue)'});
+  el(g, 'rect', {x:20, y:66, width:240, height:110, rx:6, fill:'var(--estraza)', 'fill-opacity':.5, stroke:'var(--figura)', 'stroke-width':1});
+  bree(g, 60, 110, '40', {'font-size':26, fill:'var(--tinta)'}); bree(g, 140, 110, '100', {'font-size':26, fill:'var(--tinta)'}); bree(g, 200, 150, '5', {'font-size':26, fill:'var(--tinta)'}); bree(g, 60, 150, '?', {'font-size':26, fill:'var(--fresa)'});
+  txt(g, 60, 128, 'libras', {'font-size':9.5}); txt(g, 140, 128, 'rollos', {'font-size':9.5}); txt(g, 200, 168, 'rollos', {'font-size':9.5}); txt(g, 60, 168, 'libras', {'font-size':9.5});
+  el(g, 'path', {d:'M78 104 L196 142', stroke:'var(--caramelo)', 'stroke-width':1.6}); el(g, 'path', {d:'M158 104 L76 142', stroke:'var(--caramelo)', 'stroke-width':1.6, 'stroke-dasharray':'4 3'});
+  parrafo(g, 20, 196, '«Multiplica el número que está enfrente por el del extremo, y divide por el que queda»: 40 por 5, entre 100. Dos libras.', 240, {'font-size':11, fill:'var(--tinta)'}, 14);
+  /* como Nicoleta */
+  elite(g, 290, 56, 'COMO NICOLETA', {'font-size':10.5, fill:'var(--tenue)'});
+  el(g, 'rect', {x:290, y:66, width:230, height:110, rx:6, fill:'var(--nata)', stroke:'var(--linea)', 'stroke-width':1});
+  txt(g, 304, 92, '100 rollos → 40 libras', {'font-size':12, fill:'var(--tinta)'});
+  txt(g, 304, 120, '1 rollo → 0,4 libras', {'font-size':12, fill:'var(--pistacho)', 'font-weight':700}); txt(g, 470, 106, '÷ 100', {'font-size':10, fill:'var(--pistacho)'});
+  txt(g, 304, 148, '5 rollos → 2 libras', {'font-size':12, fill:'var(--fresa)', 'font-weight':700}); txt(g, 470, 134, '× 5', {'font-size':10, fill:'var(--pistacho)'});
+  parrafo(g, 290, 196, 'La misma cuenta: 40 × 5 ÷ 100 es ÷ 100 y × 5 en el orden que se quiera. Leonardo la escribía en cruz porque ahorraba tinta; Nicoleta pasa por la unidad porque no se olvida.', 230, {'font-size':11, fill:'var(--tinta)'}, 14);
+  /* el signo % */
+  elite(g, 20, 262, 'DE DÓNDE SALE EL SIGNO', {'font-size':10.5, fill:'var(--tenue)'});
+  bree(g, 30, 296, 'per cento', {'font-size':18, fill:'var(--tinta)', 'font-style':'italic'}); txt(g, 130, 296, '→', {'font-size':14});
+  bree(g, 160, 296, 'p c°', {'font-size':18, fill:'var(--tinta)'}); txt(g, 210, 296, '→', {'font-size':14});
+  bree(g, 240, 296, 'p ⁰⁄₀', {'font-size':18, fill:'var(--tinta)'}); txt(g, 300, 296, '→', {'font-size':14});
+  bree(g, 330, 296, '%', {'font-size':26, fill:'var(--fresa)'});
+  txt(g, 380, 296, 'siglos XV al XVII', {'font-size':10});
+  txt(g, 528, 314, 'la regola del tre, para mercaderes', {'text-anchor':'end', 'font-size':9.5});
+}
+function leeFibonacci(){
+  $('lecFibonacci').innerHTML =
+    '<span class="def">La regla de tres: tres números que se conocen y uno que se busca, en una proporción directa. El que se busca es el producto de los dos que están en cruz, dividido entre el que queda. Es el atajo de pasar por la unidad, y solo vale cuando la proporción es directa.</span>'
+    + 'Leonardo de Pisa aprendió las cifras indoarábigas en Bugía, en la costa de Argelia, donde su padre era aduanero de los mercaderes pisanos. Su libro de 1202 tiene un capítulo entero de compras y ventas para mercaderes, y ahí está la regla de tres, que él llamaba <i>regola del tre</i> y que venía de la India por los árabes. El «por ciento» es de los mismos mercaderes italianos: <i>per cento</i>, escrito deprisa, se convirtió en el signo %.'
+    + '<span class="murmullo">Nicoleta: «En el obrador nadie escribe cruces. Se pregunta cuánto vale uno, y ya».</span>';
+}
+function pintaFibonacci2(){ pintaFibonacci(); leeFibonacci(); }
+
+const SALAS = {receta:'pReceta', mostrador:'pMostrador', horno:'pHorno', escaparate:'pEscaparate', rebajas:'pRebajas'};
+const LEMAS = {
+  receta:    ['La receta', 'al doblar una, se dobla la otra; la razón no cambia'],
+  mostrador: ['El mostrador', 'para pasar de cinco a ocho, se pasa por uno'],
+  horno:     ['El horno', 'al doblar una, la otra se parte por la mitad; el producto no cambia'],
+  escaparate:['El escaparate', 'de cada cien, tantos'],
+  rebajas:   ['El cartel de las rebajas', 'rebajar el 20 % es multiplicar por 0,8']
+};
+const PINTA = {receta:pintaReceta2, mostrador:pintaMostrador2, horno:pintaHorno2, escaparate:pintaEscaparate2, rebajas:pintaRebajas2};
+function muestraSala(cual){ for(const k in SALAS) $(SALAS[k]).hidden = (k !== cual); PINTA[cual](); }
+
+/* ═══ LOS ENCARGOS ════════════════════════════════════════════════════
+   Quince. Liz pregunta lo que preguntaría cualquiera en una pastelería, con
+   la libreta abierta. Nicoleta contesta con la receta en la mano y explica
+   dos veces: como en el obrador y como en la pizarra.                    */
+const ENCARGOS = [
+  /* 1 · la receta: doblar */
+  {sala:'receta', pre(){ Object.assign(receta, {cual:'magdalenas', n:12, nick:false}); },
+   t:'Nicoleta, para el reportaje: la receta de las magdalenas es para <b>doce</b>, y hoy hay que hacer <b>veinticuatro</b>. <b>Escálala</b> y dime cuántos huevos.',
+   ok: () => receta.cual === 'magdalenas' && receta.n === 24 && !receta.nick,
+   bien:'<b>Seis huevos</b>, Liz: el doble de magdalenas, el doble de todo. Seis huevos, cuatro tazas, doce cucharadas. Y mira la razón: tres entre dos, uno y medio; seis entre cuatro, uno y medio. Huevo y medio por taza, se hagan las que se hagan. Eso es lo que no cambia, y por eso se llama <b>proporcional</b>.',
+   mal(){ if(receta.cual !== 'magdalenas') return 'Las magdalenas, Liz, que es la receta del reportaje.'; if(receta.nick) return 'Eso es sumar, Liz, que es lo que haría mi hermano. Quita la trampa: doblar es multiplicar por dos.'; return 'Tienes ' + receta.n + ' magdalenas. Pon veinticuatro: el doble de doce.'; }},
+  /* 2 · la receta: por uno y medio */
+  {sala:'receta', pre(){ Object.assign(receta, {cual:'magdalenas', n:12, nick:false}); },
+   t:'¿Y para <b>dieciocho</b>? Son seis más que doce, así que… ¿seis huevos más?',
+   ops:[
+     {t:'Nueve: tres más seis.', ok:false, r:'Eso es lo que haría Nick, Liz, y las magdalenas saldrían de piedra. Dieciocho no es doce más seis: es doce <b>por uno y medio</b>. Tres huevos por uno y medio, <b>cuatro y medio</b>. Y dos tazas por uno y medio, tres: sigue siendo huevo y medio por taza.'},
+     {t:'Cuatro y medio: tres por uno y medio.', ok:true, r:'<b>Cuatro y medio</b>, Liz. Dieciocho es doce por uno y medio, así que todo por uno y medio: cuatro huevos y medio, tres tazas, nueve cucharadas. Escalar una receta es <b>multiplicar</b>, nunca sumar: si sumas seis a todo, la razón se rompe y la masa es otra.'},
+     {t:'Seis: uno por cada dos magdalenas.', ok:false, r:'Uno por cada dos sería medio huevo por magdalena, Liz, y la receta dice un cuarto: tres huevos para doce. Dieciocho magdalenas son doce por uno y medio, y los huevos igual: <b>cuatro y medio</b>.'}
+   ]},
+  /* 3 · la receta: la razón */
+  {sala:'receta', pre(){ Object.assign(receta, {cual:'magdalenas', n:24, nick:false}); },
+   t:'Para el titular: al escalar la receta, ¿qué es <b>lo que no cambia</b>?',
+   ops:[
+     {t:'Los huevos: siempre son tres.', ok:false, r:'Los huevos cambian con las magdalenas, Liz: tres, seis, cuatro y medio. Lo que no cambia es <b>huevo y medio por taza</b>: los huevos entre las tazas. Esa es la razón, y es lo que hace que la masa sea la misma masa.'},
+     {t:'La razón: huevo y medio por cada taza.', ok:true, r:'Eso es, Liz: <b>la razón</b>. Tres entre dos, seis entre cuatro, cuatro y medio entre tres: siempre uno y medio. Dos cantidades son proporcionales cuando su cociente no cambia, y ese cociente es la constante de proporcionalidad. Multiplica las tazas por ella y tienes los huevos.'},
+     {t:'El número de magdalenas.', ok:false, r:'Las magdalenas son justo lo que cambia, Liz: doce, veinticuatro, dieciocho. Lo que se queda quieto es el cociente entre dos ingredientes: <b>huevo y medio por taza</b>. La razón.'}
+   ]},
+  /* 4 · el mostrador: la unidad */
+  {sala:'mostrador', pre(){ Object.assign(mostrador, {etq:'pasteles', quiero:5, camino:'unidad'}); },
+   t:'La etiqueta dice <b>cinco pasteles, tres pesetas</b>. Yo quiero <b>ocho</b>. Pásalo por la unidad y dime cuánto.',
+   ok: () => mostrador.etq === 'pasteles' && mostrador.quiero === 8 && mostrador.camino === 'unidad',
+   bien:'<b>Cuatro con ochenta</b>, Liz. Primero uno: tres pesetas entre cinco, sesenta céntimos. Luego ocho: sesenta por ocho, cuatro con ochenta. Para pasar de cinco a ocho se pasa por uno, siempre; y sesenta céntimos por pastel es la razón, la de la etiqueta y la de tu compra.',
+   mal(){ if(mostrador.etq !== 'pasteles') return 'La etiqueta de los pasteles, Liz.'; if(mostrador.camino !== 'unidad') return 'Por la unidad, Liz, que la cruz la vemos después.'; return 'Tienes ' + mostrador.quiero + ' pasteles puestos. Querías ocho.'; }},
+  /* 5 · el mostrador: el kilo */
+  {sala:'mostrador', pre(){ Object.assign(mostrador, {etq:'galletas', quiero:500, camino:'unidad'}); },
+   t:'Las galletas a granel: <b>doscientos gramos, una veinte</b>. ¿A cuánto sale <b>el kilo</b>?',
+   ops:[
+     {t:'Seis pesetas: un kilo son cinco veces doscientos gramos.', ok:true, r:'<b>Seis pesetas</b>, Liz. Mil gramos son cinco veces doscientos, así que cinco veces una veinte. O por la unidad: un gramo vale una veinte entre doscientos, seis milésimas, que no es nada; por eso las etiquetas dicen el kilo y no el gramo. Es la misma cuenta por mil.'},
+     {t:'Una veinte: el precio es el precio.', ok:false, r:'Una veinte son doscientos gramos, Liz, no un kilo. Un kilo son mil gramos, cinco veces más, y cinco veces una veinte son <b>seis pesetas</b>. Más gramos, más pesetas: directa.'},
+     {t:'Doce pesetas: el doble.', ok:false, r:'El doble serían cuatrocientos gramos, Liz. Un kilo son mil, que es cinco veces doscientos: cinco veces una veinte, <b>seis pesetas</b>.'}
+   ]},
+  /* 6 · el mostrador: la cruz */
+  {sala:'mostrador', pre(){ Object.assign(mostrador, {etq:'pasteles', quiero:8, camino:'cruz'}); },
+   t:'En el colegio me enseñaron la <b>regla de tres en cruz</b>: tres por ocho entre cinco. Sale lo mismo, pero ¿<b>por qué</b> funciona?',
+   ops:[
+     {t:'Porque es dividir entre cinco y multiplicar por ocho, con la unidad escondida en medio.', ok:true, r:'Eso es, Liz. Tres por ocho entre cinco es lo mismo que tres entre cinco y luego por ocho: la unidad, sesenta céntimos, está escondida en medio de la cruz. La cruz es el atajo de los dos pasos, y vale mientras la proporción sea directa. Si fuera inversa, saldría al revés.'},
+     {t:'Porque las cruces siempre funcionan.', ok:false, r:'No siempre, Liz: con el horno saldría al revés. Funciona aquí porque es <b>dividir entre cinco y multiplicar por ocho</b>, los dos pasos de la unidad, escritos seguidos. La cruz es un atajo, no un truco.'},
+     {t:'Porque tres, ocho y cinco son números pequeños.', ok:false, r:'Con tres mil, ocho mil y cinco mil funciona igual, Liz. Funciona porque es <b>÷5 y ×8</b>: pasar por la unidad, con la unidad escondida en medio de la cruz.'}
+   ]},
+  /* 7 · el horno: inversa */
+  {sala:'horno', pre(){ Object.assign(horno, {trabajo:6, hornos:1, comparar:false}); },
+   t:'El encargo de la boda son <b>seis horas de horno</b>. Con un horno, seis horas. <b>Pon dos hornos</b> y dime cuánto tarda.',
+   ok: () => horno.trabajo === 6 && horno.hornos === 2,
+   bien:'<b>Tres horas</b>, Liz. El doble de hornos, la mitad de tiempo: el trabajo se reparte. Fíjate en la tabla: uno por seis, dos por tres, tres por dos, seis. El <b>producto</b> no cambia. Esto es proporcionalidad <b>inversa</b>: cuando una dobla, la otra se parte por la mitad.',
+   mal(){ if(horno.trabajo !== 6) return 'El encargo era de seis horas de horno, Liz.'; return 'Tienes ' + horno.hornos + (horno.hornos === 1 ? ' horno' : ' hornos') + '. Pon dos.'; }},
+  /* 8 · el horno: con tres */
+  {sala:'horno', pre(){ Object.assign(horno, {trabajo:6, hornos:2, comparar:false}); },
+   t:'¿Y con <b>tres hornos</b>?',
+   ops:[
+     {t:'Dos horas: tres por dos son seis.', ok:true, r:'<b>Dos horas</b>, Liz: tres hornos por dos horas, seis, que es el encargo entero. En la inversa se mira el producto, no el cociente: hornos por horas, siempre seis. Y con seis hornos, una hora. Con sesenta, no seis minutos: eso lo dice la deuda.'},
+     {t:'Una hora y media: tres menos que cuatro y medio.', ok:false, r:'Ahí se está restando, Liz, y esto no se resta: se reparte. Seis horas de trabajo entre tres hornos, <b>dos horas</b>. Tres por dos, seis: el producto no cambia.'},
+     {t:'Nueve horas: más hornos, más horas.', ok:false, r:'Más hornos, <b>menos</b> horas, Liz: el trabajo se reparte. Seis entre tres, dos horas. Si fuera más hornos más horas sería directa, y nadie pondría dos hornos.'}
+   ]},
+  /* 9 · el horno: cuál es cuál */
+  {sala:'horno', pre(){ Object.assign(horno, {trabajo:6, hornos:2, comparar:true}); },
+   t:'Para no confundirme: magdalenas y huevos, hornos y horas. ¿Cuál es <b>directa</b> y cuál <b>inversa</b>?',
+   ops:[
+     {t:'Magdalenas y huevos, directa; hornos y horas, inversa.', ok:true, r:'Eso es, Liz. Más magdalenas, más huevos: <b>directa</b>, y el cociente no cambia. Más hornos, menos horas: <b>inversa</b>, y el producto no cambia. La pregunta que lo decide siempre es la misma: si pongo el doble de una, ¿la otra sube o baja?'},
+     {t:'Las dos directas: en las dos se multiplica.', ok:false, r:'En la receta se multiplican las dos por lo mismo, Liz; en el horno, una se multiplica y la otra se divide. Magdalenas y huevos, <b>directa</b>; hornos y horas, <b>inversa</b>. Mira las dos tablas juntas.'},
+     {t:'Magdalenas y huevos, inversa; hornos y horas, directa.', ok:false, r:'Al revés, Liz. Más magdalenas, más huevos: eso es <b>directa</b>. Más hornos, menos horas: <b>inversa</b>. Si pongo el doble, ¿la otra sube o baja? Esa es la pregunta.'}
+   ]},
+  /* 10 · el escaparate: el 25 % */
+  {sala:'escaparate', pre(){ Object.assign(escaparate, {pct:10, de:'magdalenas'}); },
+   t:'El cartel dice <b>25 %</b> de una <b>tarta de ocho pesetas</b>. Pinta la tarta de cien y dime cuánto es.',
+   ok: () => escaparate.pct === 25 && escaparate.de === 'tarta',
+   bien:'<b>Dos pesetas</b>, Liz. El 25 % es 25 de cada 100 cuadraditos, un cuarto de la tarta; y un cuarto de ocho pesetas son dos. Con la cuenta: ocho por 25 entre 100, dos. Tanto por ciento es <b>de cada cien</b>, y de ahí sale todo lo demás.',
+   mal(){ if(escaparate.de !== 'tarta') return 'De la tarta de ocho pesetas, Liz.'; return 'Tienes el ' + escaparate.pct + ' %. El cartel decía 25.'; }},
+  /* 11 · el escaparate: qué tanto por ciento */
+  {sala:'escaparate', pre(){ Object.assign(escaparate, {pct:25, de:'magdalenas'}); },
+   t:'De cuarenta magdalenas, diez son de chocolate. ¿<b>Qué tanto por ciento</b> es?',
+   ops:[
+     {t:'El 25 %: diez de cuarenta es lo mismo que veinticinco de cien.', ok:true, r:'<b>El 25 %</b>, Liz. Diez entre cuarenta es 0,25, y 0,25 por cien es 25. O con fracciones: diez de cuarenta es un cuarto, y un cuarto de cien es veinticinco. Para saber qué tanto por ciento es una parte, se divide la parte entre el total y se multiplica por cien.'},
+     {t:'El 10 %: son diez.', ok:false, r:'Diez es la parte, Liz, no el tanto por ciento. El tanto por ciento dice cuántas de cada cien: diez de cuarenta es lo mismo que <b>veinticinco de cien</b>. Se divide la parte entre el total: diez entre cuarenta, 0,25.'},
+     {t:'El 40 %: son cuarenta.', ok:false, r:'Cuarenta es el total, Liz. De cada cuarenta, diez de chocolate; de cada cien, <b>veinticinco</b>. El 25 %.'}
+   ]},
+  /* 12 · el escaparate: el 10 % */
+  {sala:'escaparate', pre(){ Object.assign(escaparate, {pct:25, de:'fresas'}); },
+   t:'Y el <b>10 %</b> de doscientos cincuenta gramos de fresas, para el adorno, ¿cuánto es?',
+   ops:[
+     {t:'Veinticinco gramos: entre diez.', ok:true, r:'<b>Veinticinco gramos</b>, Liz: el 10 % es diez de cada cien, la décima parte, y doscientos cincuenta entre diez son veinticinco. El atajo del 10 % es entre diez; el del 1 %, entre cien; el del 50 %, la mitad. Son fracciones que se saben de memoria.'},
+     {t:'Diez gramos: el diez es diez.', ok:false, r:'El 10 % no son diez gramos, Liz: son diez de cada cien gramos. De doscientos cincuenta, <b>veinticinco</b>: entre diez.'},
+     {t:'Dos gramos y medio: entre cien.', ok:false, r:'Entre cien sería el 1 %, Liz: dos gramos y medio. El 10 % es diez veces más: entre diez, <b>veinticinco gramos</b>.'}
+   ]},
+  /* 13 · las rebajas: el cartel */
+  {sala:'rebajas', pre(){ Object.assign(rebajas, {precio:10, reves:false}); rebajas.c1 = {t:'rebaja', p:10}; rebajas.c2 = {t:'nada', p:20}; },
+   t:'La tarta grande vale <b>diez pesetas</b>. Pon el cartel del <b>20 % de rebaja</b> y dime el precio.',
+   ok: () => rebajas.precio === 10 && rebajas.c1.t === 'rebaja' && rebajas.c1.p === 20 && rebajas.c2.t === 'nada' && !rebajas.reves,
+   bien:'<b>Ocho pesetas</b>, Liz. El 20 % de diez son dos, y diez menos dos, ocho. O de golpe: quitar el 20 % es quedarse con el 80 %, y el 80 % de diez es diez por 0,8, ocho. Con la barra se ve: la de antes entera, la de ahora al 80 %.',
+   mal(){ if(rebajas.precio !== 10) return 'La tarta de diez pesetas, Liz.'; if(rebajas.reves) return 'Ahora no es al revés, Liz: quita ese botón.'; if(rebajas.c2.t !== 'nada') return 'Solo un cartel, Liz.'; return 'El cartel dice ' + cartelDice(rebajas.c1) + '. Pedía el 20 % de rebaja.'; }},
+  /* 14 · las rebajas: encadenar */
+  {sala:'rebajas', pre(){ Object.assign(rebajas, {precio:10, reves:false}); rebajas.c1 = {t:'rebaja', p:20}; rebajas.c2 = {t:'subida', p:20}; },
+   t:'Bajó el 20 % y a la semana siguiente <b>subió el 20 %</b>. ¿Vuelve a valer diez?',
+   ops:[
+     {t:'Sí: veinte menos veinte es cero.', ok:false, r:'Los porcentajes no se restan así, Liz, porque son de cantidades distintas. El primer 20 % es de diez: dos, y queda ocho. El segundo 20 % es de <b>ocho</b>: uno con sesenta, y queda <b>nueve con sesenta</b>. Bajar y subir lo mismo no vuelve.'},
+     {t:'No: queda en nueve con sesenta, porque el segundo 20 % es de ocho.', ok:true, r:'Eso es, Liz: <b>nueve con sesenta</b>. Diez por 0,8 son ocho; ocho por 1,2 son nueve con sesenta. Los dos carteles seguidos son por 0,96, no por uno. El 20 % de una cosa más pequeña es menos, y por eso no vuelve. Migas lo dice siempre: el 20 % de qué.'},
+     {t:'No: queda en doce, porque suben más de lo que bajaron.', ok:false, r:'Sube menos de lo que bajó, Liz, no más: el 20 % de ocho es uno con sesenta, y el de diez era dos. Queda en <b>nueve con sesenta</b>. Por 0,8 y por 1,2 es por 0,96.'}
+   ]},
+  /* 15 · las rebajas: al revés */
+  {sala:'rebajas', pre(){ Object.assign(rebajas, {precio:10, reves:true}); rebajas.c1 = {t:'rebaja', p:20}; rebajas.c2 = {t:'nada', p:20}; },
+   t:'La última, para el pie de foto: una tarta vale <b>ocho pesetas</b> con el 20 % ya rebajado. ¿<b>Cuánto valía</b>?',
+   ops:[
+     {t:'Nueve con sesenta: ocho más su 20 %.', ok:false, r:'Ésa es la trampa, Liz: el 20 % de ocho no es el 20 % del precio de antes. Ocho es el 80 % de lo que valía, así que se divide: ocho entre 0,8, <b>diez</b>. Y se comprueba: el 20 % de diez son dos, diez menos dos, ocho.'},
+     {t:'Diez: ocho es el 80 %, y se divide entre 0,8.', ok:true, r:'<b>Diez pesetas</b>, Liz. Ocho es el 80 % del precio de antes, y para deshacer un «por 0,8» se divide entre 0,8. Sumarle el 20 % daría nueve con sesenta, que es el 20 % de la cosa equivocada. Y con esto, Liz, ya sabes todo lo que hay que saber en una pastelería: doblar es multiplicar, se pasa por la unidad, y siempre se pregunta de qué.'},
+     {t:'Seis con cuarenta: ocho menos su 20 %.', ok:false, r:'Eso sería rebajarla otra vez, Liz. Lo que se pide es <b>deshacer</b> la rebaja: ocho es el 80 % de antes, ocho entre 0,8, <b>diez</b>.'}
+   ]}
+];
+
+/* ── LOS OFICIOS DEL OBRADOR, de abajo arriba, hasta el rodillo de Nicoleta ── */
+const RANGOS = [
+  {n:'Pinche',                  s:'lava las tazas',              hasta:3,  fig:'cuchara'},
+  {n:'Aprendiz',                s:'ya bate',                     hasta:6,  fig:'batidor'},
+  {n:'Oficial',                 s:'lleva la manga',              hasta:9,  fig:'manga'},
+  {n:'Repostero',               s:'monta la tarta',              hasta:12, fig:'tarta'},
+  {n:'Maestro',                 s:'con el gorro',                hasta:15, fig:'gorro'},
+  {n:'Quien lleva el obrador',  s:'las quince cajas atadas',     hasta:99, fig:'rodillo', oro:true}
+];
+const NOTAS = {
+  Aprendiz:'NOTA DE NICOLETA · A partir de hoy, aprendiz. Ya sabe doblar una receta. Que no sume.',
+  Oficial:'NOTA DE NICOLETA · Oficial. Pasa por la unidad sin que se lo digan. La manga es suya.',
+  Repostero:'NOTA DE NICOLETA · Repostero. Distingue un horno de una receta. Puede montar la tarta.',
+  Maestro:'NOTA DE NICOLETA · Maestro. Pinta la tarta de cien sin mirar. El gorro, en el perchero.',
+  'Quien lleva el obrador':'NOTA DE NICOLETA · Le dejo el rodillo y las llaves. Pregunta siempre de qué. Firmado, N.'
+};
+function rangoDe(n){ return RANGOS.find(r => n < r.hasta) || RANGOS[RANGOS.length - 1]; }
+function pintaRango(){
+  const n = hechos.size, r = rangoDe(n), i = RANGOS.indexOf(r);
+  const desde = i ? RANGOS[i - 1].hasta : 0, tramo = Math.min(r.hasta, ENCARGOS.length) - desde;
+  $('rangoNom').textContent = r.n;
+  $('rangoSig').textContent = r.s;
+  $('rangoCuenta').textContent = n >= ENCARGOS.length ? 'persiana bajada · ' + n + ' de ' + ENCARGOS.length
+    : (n - desde) + ' de ' + tramo + ' para ' + (RANGOS[i + 1] ? RANGOS[i + 1].n.toLowerCase() : '');
+  $('rangoBarra').style.width = (n >= ENCARGOS.length ? 100 : Math.round((n - desde) / tramo * 100)) + '%';
+  $('cajasT').textContent = n;
+  const e = $('rangoEtiqueta'); e.innerHTML = '<svg viewBox="0 0 40 46" aria-hidden="true"></svg>';
+  etiqueta(e.firstChild, 0, 0, 40, r.fig, r.oro ? {oro:true, borde:'var(--caramelo)'} : {});
+}
+
+/* ── EL MOTOR DEL ENCARGO ─────────────────────────────────────────────── */
+let enc = 0, elegida = null;
+const hechos = new Set();
+const dichos = {};
+const huevos = new Set();
+const HUEVOS = ['grapadora', 'docena', 'nick', 'gratis', 'fibonacci', 'rodillo', 'persiana', 'migas'];
+const HUEVO_DICE = {
+  grapadora:'la grapadora de Nick', docena:'la docena del panadero', nick:'sumar como Nick', gratis:'el cartel de gratis',
+  fibonacci:'la regla de tres de Fibonacci', rodillo:'el rodillo cedido', persiana:'la persiana bajada', migas:'Migas, tocado'
+};
+let ultimoRango = 'Pinche';
+
+const GUARDADO = 'pasteleria.turno.v1';
+const CADUCA = 4*60*60*1000;
+let t0 = Date.now();
+function guardaTurno(){
+  try{
+    localStorage.setItem(GUARDADO, JSON.stringify({
+      v:1, ts:Date.now(), t0, enc, hechos:[...hechos], huevos:[...huevos], nombre:$('selloNombre').value || '',
+      taller:{ac:taller.ac, racha:taller.racha, mejor:taller.mejor}, aj:AJ
+    }));
+  }catch(e){}
+}
+function leeTurno(){
+  try{
+    const d = JSON.parse(localStorage.getItem(GUARDADO) || 'null');
+    if(!d || d.v !== 1 || !Array.isArray(d.hechos)) return null;
+    if(!(d.enc >= 0 && d.enc < ENCARGOS.length)) return null;
+    if(Date.now() - d.ts > CADUCA){ borraTurno(); return null; }
+    return d;
+  }catch(e){ return null; }
+}
+function borraTurno(){ try{ localStorage.removeItem(GUARDADO); }catch(e){} }
+const dicho = x => typeof x === 'function' ? x() : x;
+
+function pintaOpciones(){
+  const e = ENCARGOS[enc], caja = $('ops');
+  caja.innerHTML = ''; caja.hidden = !e.ops;
+  if(!e.ops) return;
+  e.ops.forEach((o, i) => {
+    const b = document.createElement('button');
+    b.className = 'op'; b.textContent = o.t;
+    b.setAttribute('aria-pressed', String(elegida === i));
+    b.addEventListener('click', () => { if(hechos.has(enc)) return; elegida = i; pintaOpciones(); });
+    caja.appendChild(b);
+  });
+}
+const CIERRE = '<b>Persiana bajada: quince cajas atadas, y el rodillo es tuyo.</b> Todo lo de esta pastelería era una sola cosa mirada de cinco maneras. Dos cantidades son proporcionales cuando al doblar una se dobla la otra, y lo que no cambia es la razón: huevo y medio por taza. '
+  + 'Para pasar de cinco a ocho se pasa por uno, y la regla de tres son esos dos pasos escritos seguidos. Si al doblar una la otra se parte por la mitad, es inversa, y lo que no cambia es el producto. Un tanto por ciento es de cada cien: la tarta de cien cuadraditos. '
+  + 'Y rebajar el 20 % es multiplicar por 0,8, encadenar es multiplicar dos veces, y para volver atrás se divide. Liz se lleva el reportaje y una caja de magdalenas. Migas se queda con las migas.';
+function pintaEncargo(){
+  const e = ENCARGOS[enc], ultimo = enc === ENCARGOS.length - 1, hecho = hechos.has(enc);
+  if(e.pre) e.pre();
+  muestraSala(e.sala);
+  elegida = hecho && e.ops ? e.ops.findIndex(o => o.ok) : null;
+  pintaOpciones();
+  $('encTxt').innerHTML = (ultimo && hecho) ? CIERRE : e.t;
+  $('cual').textContent = (ultimo && hecho) ? 'persiana bajada' : 'encargo ' + (enc + 1) + ' de ' + ENCARGOS.length;
+  $('atras').disabled = enc === 0;
+  $('comprobar').textContent = !hecho ? 'Comprobar' : (ultimo ? 'Empezar de nuevo' : 'Siguiente encargo →');
+  const inf = $('informe');
+  inf.hidden = !hecho;
+  if(hecho){ inf.className = 'panel informe encargo'; $('infTxt').innerHTML = dichos[enc] || (e.ops ? dicho(e.ops.find(o => o.ok).r) : dicho(e.bien)); }
+  pintaIndice(); pintaRango();
+}
+function revisa(){
+  const e = ENCARGOS[enc];
+  if(!e || e.ops || !hechos.has(enc)) return;
+  $('informe').hidden = false;
+}
+
+/* ═══ LOS ASOMOS ══════════════════════════════════════════════════════
+   Nicoleta asoma por encima de la nota (bien, se ajusta el nudo del
+   pañuelo y le brilla; mal, se le cae un mechón sobre el ojo). Nick por el
+   lado con la grapadora, tras un minuto quieto. Migas coge la miga con
+   cada acierto y salta si lo tocan. Nicoleta con el rodillo en alto al
+   ascender. A Liz le salta el flash de la cámara con cada acierto.      */
+const dentroDe = svg => svg.replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+const NUDO = '<path d="M30.6 11 Q34.4 10.4 35.4 13 Q33.2 14.4 30.2 13.6 Z" fill="#D98C9A" stroke="#3A2E22" stroke-width="1.1" stroke-linejoin="round"/>';
+const NICOLETA_BIEN = '<svg viewBox="0 -10 46 58" aria-hidden="true">' + dentroDe(CARA_NICOLETA).replace(NUDO, '<path d="M30.4 10.4 Q36.4 8.6 38 12.6 Q36 15.8 30 14 Z" fill="#D98C9A" stroke="#3A2E22" stroke-width="1.1" stroke-linejoin="round"/><path d="M33.2 9.2 Q35.6 6 38.2 8.6" fill="none" stroke="#D98C9A" stroke-width="1.8" stroke-linecap="round"/>')
+  + '<path d="M39 -1 l1.2 -3.4 l1.2 3.4 l3.4 1.2 l-3.4 1.2 l-1.2 3.4 l-1.2 -3.4 l-3.4 -1.2 Z" fill="#C98A3E"/><path d="M6 4 l.9 -2.6 l.9 2.6 l2.6 .9 l-2.6 .9 l-.9 2.6 l-.9 -2.6 l-2.6 -.9 Z" fill="#C98A3E"/></svg>';
+const NICOLETA_MAL = '<svg viewBox="0 -10 46 58" aria-hidden="true">' + dentroDe(CARA_NICOLETA)
+  + '<path d="M27.2 13.4 Q31.6 17.6 28.6 24.8 Q30 19 26 15 Z" fill="#B08A6A" stroke="#6B4A32" stroke-width="1" stroke-linejoin="round"/></svg>';
+const NICOLETA_RODILLO = '<svg viewBox="0 -14 46 62" aria-hidden="true">' + dentroDe(CARA_NICOLETA)
+  + '<path d="M36 34 Q43 26 40 12" fill="none" stroke="#3A2E22" stroke-width="5.2" stroke-linecap="round"/><path d="M36 34 Q43 26 40 12" fill="none" stroke="#F6EFE2" stroke-width="3.6" stroke-linecap="round"/>'
+  + '<g transform="translate(40 8) rotate(-25)"><rect x="-9" y="-5" width="18" height="9" rx="3.5" fill="#B08A6A" stroke="#3A2E22" stroke-width="1.1"/><path d="M-15 -.5 H-9 M9 -.5 H15" stroke="#3A2E22" stroke-width="2.6" stroke-linecap="round"/></g></svg>';
+const MIGAS_MIGA = CARA_MIGAS_MIGA.replace(COLA, '<g class="cola">$1</g>');
+$('asomoLado').innerHTML = CARA_NICK;
+$('asomoEntero').innerHTML = NICOLETA_RODILLO;
+
+const asomoReloj = {};
+function asoma(id, clase, contenido, ms){
+  const a = $(id); clearTimeout(asomoReloj[id]);
+  if(contenido) a.innerHTML = contenido;
+  const base = a.className.replace(/\s*\b(mira|falla)\b/g, '');
+  a.className = base; void a.offsetWidth;
+  a.className = base + ' ' + clase;
+  asomoReloj[id] = setTimeout(() => { a.className = base; }, ms);
+}
+function asomate(bien){ asoma('asomoArriba', bien ? 'mira' : 'mira falla', bien ? NICOLETA_BIEN : NICOLETA_MAL, 2400); }
+function asciende(){ asoma('asomoEntero', 'mira', NICOLETA_RODILLO, 2800); }
+/* el flash de Liz, y Migas con la miga */
+function flash(){ const p = $('pEncargo'), f = document.createElement('i'); f.className = 'flash'; p.appendChild(f); setTimeout(() => f.remove(), 600); }
+let migasReloj = null;
+function migasCome(){
+  const m = $('caraMigas'); clearTimeout(migasReloj);
+  m.innerHTML = MIGAS_MIGA; m.classList.add('salta');
+  migasReloj = setTimeout(() => { m.innerHTML = CARA_MIGAS; m.classList.remove('salta'); }, 1600);
+  const c = $('caraNicoleta'); c.classList.add('brilla'); setTimeout(() => c.classList.remove('brilla'), 1000);
+  const inf = $('informe');
+  for(let i = 0; i < 2; i++){ const s = document.createElement('i'); s.className = 'selloNota'; s.style.left = (56 + Math.random() * 30) + 'px'; s.style.top = (18 + Math.random() * 18) + 'px'; s.style.animationDelay = (i * .2) + 's'; inf.appendChild(s); setTimeout(() => s.remove(), 1200); }
+}
+/* la harina, al llegar al rodillo y al cerrar */
+function harina(){
+  const p = $('pEncargo'); $('cajas').classList.add('brilla'); setTimeout(() => $('cajas').classList.remove('brilla'), 2000);
+  for(let i = 0; i < 40; i++){
+    const g = document.createElement('i'); g.className = 'harina';
+    g.style.left = (Math.random() * 100) + '%'; g.style.top = '0'; g.style.animationDuration = (1.8 + Math.random() * 1.6) + 's'; g.style.animationDelay = (Math.random() * 1.1) + 's';
+    p.appendChild(g); setTimeout(() => g.remove(), 4200);
+  }
+  Ruido.timbre();
+}
+/* la grapadora: Nick, tras un minuto quieto */
+const NICK_DICE = [
+  'Vengo a grapar presupuestos. ¿Necesitáis que sume algo?',
+  'Para el doble de magdalenas yo pondría el doble de horno. Y el doble de mí.',
+  'Mi hermana dice que no se suma. Yo sumo. Por eso ella hace tartas y yo pizzas.',
+  'La grapadora también parte fracciones. Aquí no hace falta, pero la traigo.',
+  '¿Un 20 % de qué? De la pizza, siempre de la pizza.'
+];
+let quieto = null, ladoReloj = null;
+function ladoFuera(){ clearTimeout(ladoReloj); $('asomoLado').classList.remove('mira'); $('globoLado').classList.remove('mira'); }
+function nickAsoma(){
+  if(taller.enTaller || $('pEncargo').hidden || !$('tourCapa').hidden || !$('mAjustes').hidden || !$('mSello').hidden || document.hidden) return;
+  $('asomoLado').innerHTML = CARA_NICK;
+  $('globoLado').textContent = NICK_DICE[Math.floor(Math.random() * NICK_DICE.length)];
+  $('asomoLado').classList.add('mira'); $('globoLado').classList.add('mira');
+  Ruido.estraza(); huevo('grapadora');
+  ladoReloj = setTimeout(ladoFuera, 6500);
+}
+function armaQuieto(){ clearTimeout(quieto); ladoFuera(); quieto = setTimeout(nickAsoma, 60000); }
+['pointerdown', 'keydown', 'scroll'].forEach(ev => addEventListener(ev, armaQuieto, {passive:true}));
+/* Migas, por el lado, cuando tiene algo que decir */
+function migasDice(t){
+  if(taller.enTaller) return;
+  clearTimeout(quieto); clearTimeout(ladoReloj);
+  $('asomoLado').innerHTML = CARA_MIGAS;
+  $('globoLado').textContent = t;
+  $('asomoLado').classList.add('mira'); $('globoLado').classList.add('mira');
+  ladoReloj = setTimeout(ladoFuera, 5200);
+}
+/* NICOLETA: tocarla, y se ajusta el nudo */
+$('caraNicoleta').addEventListener('click', () => {
+  const c = $('caraNicoleta'); Ruido.despierta(); Ruido.batidor(2); c.classList.remove('ajusta'); void c.offsetWidth; c.classList.add('ajusta'); setTimeout(() => c.classList.remove('ajusta'), 1100);
+});
+/* LIZ: tocarla, y salta el flash */
+$('caraLiz').addEventListener('click', () => { Ruido.despierta(); Ruido.campanilla(); flash(); });
+/* MIGAS: tocarlo, y salta */
+const MIGAS_DICE = ['El 100 % de las migas son mías.', 'Media magdalena es el 50 %. Lo he comprobado.', 'Si Nick suma, yo resto.', 'De cada cien cuadraditos, me como el que sobra.', 'Fibonacci. Escríbelo. Yo no sé escribir.'];
+$('caraMigas').addEventListener('click', () => {
+  const m = $('caraMigas'); Ruido.despierta(); Ruido.batidor(1); m.classList.remove('tiembla'); void m.offsetWidth; m.classList.add('tiembla');
+  $('infTxt').innerHTML += '<span class="murmullo" style="display:block;margin-top:6px;font-family:\'Bree Serif\',serif;font-style:italic;color:var(--tenue)">Migas, desde el borde: «' + elige(MIGAS_DICE) + '»</span>';
+  huevo('migas');
+});
+/* la etiqueta: tres toques abren la sala de Fibonacci */
+{ let toques = 0, reloj = null;
+  $('franja').addEventListener('click', () => { Ruido.despierta(); Ruido.estraza(); toques++; clearTimeout(reloj); reloj = setTimeout(() => { toques = 0; }, 1800);
+    if(toques >= 3){ toques = 0; abreFibonacci('la etiqueta, tocada tres veces'); } }); }
+function huevo(nombre){
+  if(!HUEVO_DICE[nombre] || huevos.has(nombre)) return;
+  huevos.add(nombre); guardaTurno();
+}
+
+$('comprobar').addEventListener('click', () => {
+  const e = ENCARGOS[enc], inf = $('informe');
+  Ruido.despierta();
+  if(hechos.has(enc)){
+    if(enc < ENCARGOS.length - 1){ enc++; pintaEncargo(); }
+    else { hechos.clear(); enc = 0; ultimoRango = 'Pinche'; pintaEncargo(); }
+    guardaTurno(); return;
+  }
+  let bien, dice;
+  if(e.ops){
+    if(elegida === null){ bien = false; dice = 'Elige una, Liz. «Ninguna» no cabe en el pie de foto.'; }
+    else { const o = e.ops[elegida]; bien = o.ok; dice = dicho(o.r);
+           if(!bien){ document.querySelectorAll('.op')[elegida].classList.add('fallada'); } }
+  }else{ bien = e.ok(); dice = bien ? dicho(e.bien) : dicho(e.mal); }
+  inf.hidden = false;
+  inf.className = 'panel informe encargo' + (bien ? '' : ' mal');
+  $('infTxt').innerHTML = dice;
+  asomate(bien);
+  if(bien){
+    hechos.add(enc); dichos[enc] = dice;
+    const r = rangoDe(hechos.size).n, sube = r !== ultimoRango;
+    if(sube){ ultimoRango = r; Ruido.asciende(); asciende(); if(hechos.size >= 15) setTimeout(harina, 300); } else Ruido.bien();
+    flash(); migasCome();
+    pintaEncargo(); inf.hidden = false;
+    $('infTxt').innerHTML = dice + (sube ? '<span class="nota">' + (NOTAS[r] || 'NOTA DE NICOLETA · asciende.') + '</span>' : '');
+    if(hechos.size >= ENCARGOS.length){ huevo('persiana'); huevo('rodillo'); }
+    guardaTurno();
+  } else Ruido.mal();
+});
+$('atras').addEventListener('click', () => { if(enc > 0){ enc--; pintaEncargo(); guardaTurno(); } });
+
+/* ── EL ÍNDICE DE SALAS, EL GLOSARIO, LAS DEUDAS Y FIBONACCI ─────────── */
+function pintaIndice(){
+  const s = $('ixSalas');
+  if(!s.dataset.puesto){
+    s.dataset.puesto = '1';
+    Object.keys(SALAS).forEach(k => {
+      const b = document.createElement('button'); b.className = 'b'; b.textContent = LEMAS[k][0];
+      b.addEventListener('click', () => { muestraSala(k); cierraPaneles(); $(SALAS[k]).scrollIntoView({behavior:'smooth', block:'start'}); });
+      s.appendChild(b);
+    });
+  }
+  const l = $('ixLista'); l.innerHTML = '';
+  ENCARGOS.forEach((e, i) => {
+    const b = document.createElement('button');
+    b.className = (hechos.has(i) ? 'hecho ' : '') + (i === enc ? 'actual' : '');
+    b.innerHTML = '<b>' + String(i + 1).padStart(2, '0') + '</b>' + LEMAS[e.sala][0] + ' · ' + e.t.replace(/<[^>]*>/g, '').slice(0, 52) + '…';
+    b.addEventListener('click', () => { enc = i; pintaEncargo(); cierraPaneles(); guardaTurno(); scrollTo({top:0, behavior:'smooth'}); });
+    l.appendChild(b);
+  });
+}
+const PANELES = {bIndice:'pIndice', bGlosario:'pGlosario', bDeudas:'pDeudas'};
+function cierraPaneles(){
+  Object.entries(PANELES).forEach(([b, p]) => { $(p).hidden = true; $(b).setAttribute('aria-pressed', 'false'); });
+  $('pFibonacci').hidden = true;
+}
+Object.entries(PANELES).forEach(([b, p]) => $(b).addEventListener('click', () => {
+  const abre = $(p).hidden; cierraPaneles();
+  if(abre){ $(p).hidden = false; $(b).setAttribute('aria-pressed', 'true'); if(p === 'pIndice') pintaIndice();
+            $(p).scrollIntoView({behavior:'smooth', block:'start'}); }
+}));
+$('ixCerrar').addEventListener('click', () => { cierraPaneles(); pintaEncargo(); scrollTo({top:0, behavior:'smooth'}); });
+$('ixTodo').addEventListener('click', () => { ENCARGOS.forEach((_, i) => hechos.add(i)); enc = ENCARGOS.length - 1; ultimoRango = rangoDe(hechos.size).n; pintaEncargo(); guardaTurno(); });
+{
+  let armado = false, reloj = 0;
+  const desarma = () => { armado = false; clearTimeout(reloj); $('ixCero').classList.remove('armado'); $('ixCero').textContent = 'Empezar de cero'; };
+  $('ixCero').addEventListener('click', () => {
+    if(!armado){ armado = true; $('ixCero').classList.add('armado'); $('ixCero').textContent = 'Pulsa otra vez para borrarlo';
+      clearTimeout(reloj); reloj = setTimeout(desarma, 5000); return; }
+    desarma(); borraTurno(); hechos.clear(); huevos.clear(); enc = 0; taller.ac = 0; taller.racha = 0; taller.mejor = 0; ultimoRango = 'Pinche'; t0 = Date.now();
+    pintaEncargo();
+  });
+}
+
+const GLOSARIO = [
+  ['magnitud', 'lo que se puede medir o contar', 'Los huevos, las tazas, las pesetas, las horas, los hornos. Una cantidad de una magnitud es un número con su unidad: tres huevos.'],
+  ['razón', 'un cociente entre dos cantidades', 'Tres huevos entre dos tazas: uno y medio, huevo y medio por taza. Compara dos cosas distintas, y por eso no es una fracción de tarta.'],
+  ['proporción', 'dos razones iguales', 'Tres es a dos como seis es a cuatro: 3/2 = 6/4. Cuando dos razones son iguales, los cuatro números forman una proporción.'],
+  ['directamente proporcional', 'al doblar una, se dobla la otra', 'Magdalenas y huevos, pasteles y pesetas. El cociente entre las dos no cambia: es la constante.'],
+  ['inversamente proporcional', 'al doblar una, la otra se parte por la mitad', 'Hornos y horas, ayudantes y días. El producto de las dos no cambia.'],
+  ['constante de proporcionalidad', 'lo que no cambia', 'En la directa, el cociente: huevo y medio por taza. En la inversa, el producto: seis horas de horno.'],
+  ['tabla de proporcionalidad', 'la receta escrita en filas', 'Una fila por cantidad, y cada fila es la de arriba multiplicada por un número. En la receta, la fila de arriba es la receta.'],
+  ['reducción a la unidad', 'cuánto vale uno', 'El precio de la etiqueta entre los que van en ella: tres pesetas entre cinco pasteles, sesenta céntimos. Con la unidad se sabe cualquier cantidad.'],
+  ['regla de tres', 'tres que se conocen y uno que se busca', 'Dividir y multiplicar, seguidos: entre cinco y por ocho. La cruz es el atajo, y solo vale en la directa.'],
+  ['tanto por ciento', 'de cada cien', 'El 25 % es 25 de cada 100: la fracción 25/100, el decimal 0,25, un cuarto. Se escribe con el signo %.'],
+  ['porcentaje de una cantidad', 'la cantidad por el tanto entre cien', 'El 25 % de 8 es 8 × 25 ÷ 100 = 2. Es la fracción de cantidad de la ciudad de Liz con otro nombre.'],
+  ['qué tanto por ciento', 'la parte entre el total, por cien', 'Diez de cuarenta es 10 ÷ 40 = 0,25: el 25 %.'],
+  ['descuento', 'lo que se quita', 'Rebajar el 20 % es quedarse con el 80 %: multiplicar por 0,8.'],
+  ['aumento', 'lo que se añade', 'Subir el 20 % es llegar al 120 %: multiplicar por 1,2.'],
+  ['porcentajes encadenados', 'dos carteles seguidos', 'Se multiplica dos veces: por 0,8 y por 1,2 es por 0,96. No se suman, porque el segundo es del precio nuevo.'],
+  ['precio por unidad', 'la razón pesetas entre pasteles', 'Sesenta céntimos el pastel. A granel, el precio por kilo: la misma cuenta por mil.'],
+  ['a granel', 'sin envasar, al peso', 'Las galletas del saco: se pesan y se cobran por gramos. La etiqueta dice el kilo porque el gramo no vale nada.'],
+  ['peseta', 'la moneda de los años treinta', 'Cien céntimos. Un pastel de sesenta céntimos era un pastel caro; una tarta de diez pesetas, un lujo de boda.'],
+  ['docena', 'doce', 'Las magdalenas se venden por docenas. La docena del panadero son trece: una de más para que nadie diga que se quedaron cortos.'],
+  ['Fibonacci', 'Leonardo de Pisa, hacia 1170–1240', 'Trajo a Europa las cifras que usamos, en el Liber Abaci de 1202, y en él está la regla de tres con su nombre, para mercaderes.'],
+  ['Liber Abaci', 'el libro del ábaco, 1202', 'Un libro de cuentas para mercaderes: cambios de moneda, repartos, compras y ventas. La sala oculta hace una de sus cuentas.']
+];
+$('glosas').innerHTML = GLOSARIO.map(([p, s, d]) => '<div class="glosa" data-p="' + p + '"><div><b>' + p + '</b><i>' + s + '</i></div><p>' + d + '</p></div>').join('');
+
+function abreFibonacci(por){
+  huevo('fibonacci');
+  cierraPaneles(); entraTaller(false); $('mAjustes').hidden = true; $('mSello').hidden = true;
+  pintaFibonacci2();
+  const p = $('pFibonacci'); p.hidden = false;
+  p.querySelector('.aviso').textContent = 'Esta sala se ha abierto por ' + por + '. No sale en el índice.';
+  p.scrollIntoView({behavior:'smooth', block:'start'});
+}
+{
+  let tecleado = '';
+  addEventListener('keydown', e => {
+    if(/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName) || e.key.length !== 1) return;
+    tecleado = (tecleado + e.key.toLowerCase()).slice(-10);
+    if(/fibonacci/.test(tecleado)){ tecleado = ''; abreFibonacci('el nombre de Fibonacci, escrito'); }
+  });
+}
+
+/* ═══ EL TALLER DE PRÁCTICA ═══════════════════════════════════════════ */
+const numeroLibre = v => { let s = String(v).trim().toLowerCase().replace(/ptas|pesetas|pts|%|g\b|gramos|horas?|h\b/g, '').trim(); s = s.replace(/^(\d+) y medio$/, '$1.5').replace(/^medio$/, '0.5'); const n = parseFloat(s.includes(',') ? s.replace(/\./g, '').replace(',', '.') : s); return isNaN(n) ? null : n; };
+const casi = (v, sol, tol = 1e-6) => { const n = numeroLibre(v); return n !== null && Math.abs(n - sol) <= tol; };
+const solTxt = e => typeof e.sol === 'string' ? e.sol : (Number.isInteger(e.sol) ? cifra(e.sol, 0) : cifra(e.sol, 2));
+const palabra = v => String(v).trim().toLowerCase();
+const TIPOS = {
+  escalar: {n:'Escalar la receta', sala:'receta', gen(){
+    const k = elige(RECETA_ORDEN), R = RECETAS[k], f = elige([2, 3, .5, 1.5, 2.5]), n = R.base * f, i = al(0, 2), [nom, c] = R.ing[i], sol = c * f;
+    if(!Number.isInteger(n) || sol * 2 % 1) return this.gen();
+    return {t:'La receta de ' + R.n + ' es para <b>' + R.base + ' ' + R.uds + '</b>, con <b>' + cifra(c, 2) + ' ' + nom + '</b>. Para <b>' + n + '</b>, ¿cuántos ' + nom.split(' ')[0] + '?', sol, ok:v => casi(v, sol), exp:n + ' es ' + R.base + ' por ' + cifra(f, 2) + ', así que ' + cifra(c, 2) + ' por ' + cifra(f, 2) + ': ' + cifra(sol, 2) + '.', pon(){ Object.assign(receta, {cual:k, n, nick:false}); }}; }},
+  unidad: {n:'Pasar por la unidad', sala:'mostrador', gen(){
+    const k = elige(['pasteles', 'magdalenas', 'tartas']), E = ETIQUETAS[k], q = al(1, E.max), sol = redondo(E.p / E.q * q, 2);
+    return {t:'La etiqueta dice <b>' + E.n + '</b>. ¿Cuánto cuestan <b>' + q + ' ' + (q === 1 ? E.ud : E.uds) + '</b>? (en pesetas)', sol, ok:v => casi(v, sol, .006), exp:'Uno vale ' + ptas(E.p / E.q) + ' (' + ptas(E.p) + ' entre ' + E.q + '); por ' + q + ', ' + ptas(sol) + '.', pon(){ Object.assign(mostrador, {etq:k, quiero:q, camino:'unidad'}); }}; }},
+  tipo: {n:'Directa o inversa', bool:true, gen(){
+    const q = elige([
+      {t:'Magdalenas que se hacen y huevos que se gastan.', sol:'directa', exp:'Más magdalenas, más huevos: el cociente no cambia.', pon(){ Object.assign(receta, {cual:'magdalenas', n:24, nick:false}); }, sala:'receta'},
+      {t:'Hornos encendidos y horas que tarda el encargo.', sol:'inversa', exp:'Más hornos, menos horas: el producto no cambia.', pon(){ Object.assign(horno, {trabajo:6, hornos:2, comparar:false}); }, sala:'horno'},
+      {t:'Pasteles que se compran y pesetas que se pagan.', sol:'directa', exp:'Más pasteles, más pesetas: sesenta céntimos cada uno, siempre.', pon(){ Object.assign(mostrador, {etq:'pasteles', quiero:8, camino:'unidad'}); }, sala:'mostrador'},
+      {t:'Ayudantes que reparten las cajas y minutos que tardan.', sol:'inversa', exp:'Más manos, menos minutos, si el trabajo se reparte de verdad.', pon(){ Object.assign(horno, {trabajo:12, hornos:3, comparar:false}); }, sala:'horno'},
+      {t:'Gramos de galletas y pesetas que cuestan.', sol:'directa', exp:'Más gramos, más pesetas: seis pesetas el kilo.', pon(){ Object.assign(mostrador, {etq:'galletas', quiero:500, camino:'unidad'}); }, sala:'mostrador'},
+      {t:'Trozos en que se parte una tarta y tamaño de cada trozo.', sol:'inversa', exp:'Más trozos, más pequeños: la tarta es la misma.', pon:null},
+      {t:'Tazas de harina y cucharadas de azúcar de la misma receta.', sol:'directa', exp:'Las dos crecen con la receta, y su cociente no cambia.', pon(){ Object.assign(receta, {cual:'bizcocho', n:16, nick:false}); }, sala:'receta'},
+      {t:'La velocidad del repartidor y el tiempo que tarda en llegar.', sol:'inversa', exp:'El doble de deprisa, la mitad de tiempo: el camino es el mismo.', pon:null}
+    ]);
+    return {t:q.t + ' ¿Directa o inversa?', sol:q.sol, ok:v => palabra(v) === q.sol, exp:q.exp, pon:q.pon, sala:q.sala};
+  }},
+  porcentajeDe: {n:'El tanto por ciento de', sala:'escaparate', gen(){
+    const p = elige([5, 10, 20, 25, 30, 40, 50, 75]), v = elige([8, 12, 20, 40, 50, 60, 80, 120, 200, 250, 300]), sol = v * p / 100;
+    return {t:'¿Cuánto es el <b>' + p + ' %</b> de <b>' + v + '</b>?', sol, ok:x => casi(x, sol), exp:v + ' × ' + p + ' ÷ 100 = ' + cifra(sol, 2) + (p === 50 ? ' (la mitad)' : p === 25 ? ' (un cuarto)' : p === 10 ? ' (entre diez)' : '') + '.', pon(){ Object.assign(escaparate, {pct:p, de:'tarta'}); }}; }},
+  quePorcentaje: {n:'Qué tanto por ciento', sala:'escaparate', gen(){
+    const tot = elige([20, 25, 40, 50, 60, 80, 200]), p = elige([5, 10, 20, 25, 40, 50, 75].filter(x => (tot * x / 100) % 1 === 0)), parte = tot * p / 100;
+    return {t:'De <b>' + tot + '</b> magdalenas, <b>' + parte + '</b> son de chocolate. ¿Qué <b>tanto por ciento</b> es?', sol:p, ok:x => casi(x, p), exp:parte + ' ÷ ' + tot + ' = ' + cifra(parte / tot, 2) + ', y por cien, ' + p + ' %.', pon(){ Object.assign(escaparate, {pct:p, de:'magdalenas'}); }}; }},
+  rebaja: {n:'La rebaja', sala:'rebajas', gen(){
+    const p0 = elige(PRECIOS), t = elige(['rebaja', 'rebaja', 'subida']), p = elige([10, 20, 25, 50]), f = t === 'rebaja' ? 1 - p / 100 : 1 + p / 100, sol = redondo(p0 * f, 2);
+    return {t:'La tarta vale <b>' + ptas(p0) + '</b>. Con el cartel de <b>' + (t === 'rebaja' ? '−' : '+') + p + ' %</b>, ¿cuánto vale? (en pesetas)', sol, ok:x => casi(x, sol, .006), exp:(t === 'rebaja' ? 'Queda el ' + (100 - p) + ' %' : 'Llega al ' + (100 + p) + ' %') + ': ' + ptas(p0) + ' × ' + cifra(f, 2) + ' = ' + ptas(sol) + '.', pon(){ Object.assign(rebajas, {precio:p0, reves:false}); rebajas.c1 = {t, p}; rebajas.c2 = {t:'nada', p:20}; }}; }}
+};
+
+const taller = {tipo:'escalar', ej:null, ac:0, racha:0, mejor:0, enTaller:false, corregido:false};
+function pintaTipos(){
+  const c = $('tipos'); c.innerHTML = '';
+  Object.keys(TIPOS).forEach(k => {
+    const b = document.createElement('button'); b.className = 'b'; b.textContent = TIPOS[k].n;
+    b.setAttribute('aria-pressed', String(taller.tipo === k));
+    b.addEventListener('click', () => { taller.tipo = k; pintaTipos(); nuevoEjercicio(); });
+    c.appendChild(b);
+  });
+  $('tAc').textContent = taller.ac; $('tRacha').textContent = taller.racha; $('tMejor').textContent = taller.mejor;
+}
+function nuevoEjercicio(){
+  const T = TIPOS[taller.tipo];
+  taller.ej = T.gen(); taller.corregido = false;
+  $('ejer').innerHTML = taller.ej.t;
+  $('verTaller').hidden = true; $('verlo').hidden = true;
+  $('filaSiNo').hidden = !T.bool; $('filaResp').hidden = !!T.bool;
+  if(!T.bool){ const r = $('resp'); r.value = ''; r.focus(); }
+}
+function corrige(dado){
+  const v = dado !== undefined ? dado : $('resp').value;
+  if(!String(v).trim() || taller.corregido) return;
+  const bien = taller.ej.ok(v);
+  const ver = $('verTaller'); ver.hidden = false;
+  ver.className = 'veredicto' + (bien ? ' bien' : '');
+  if(bien){ taller.ac++; taller.racha++; taller.mejor = Math.max(taller.mejor, taller.racha); ver.innerHTML = '<b>Bien.</b> ' + taller.ej.exp; Ruido.bien();
+            if(taller.racha === 8){ Ruido.timbre(); ver.innerHTML += ' <i>Ocho seguidos. Nicoleta saca una bandeja del horno: «Ésta va para ti».</i>'; } }
+  else { taller.racha = 0; ver.innerHTML = 'No. La respuesta era <b>' + solTxt(taller.ej) + '</b>. ' + taller.ej.exp; Ruido.mal(); }
+  taller.corregido = true; $('verlo').hidden = !taller.ej.pon; pintaTipos(); guardaTurno();
+}
+function verEnSala(){ const e = taller.ej; if(!e || !e.pon) return; e.pon(); const s = e.sala || TIPOS[taller.tipo].sala; muestraSala(s); $(SALAS[s]).scrollIntoView({behavior:'smooth', block:'start'}); }
+function entraTaller(dentro){
+  taller.enTaller = dentro; $('bTaller').setAttribute('aria-pressed', String(dentro));
+  $('pTaller').hidden = !dentro; $('pEncargo').hidden = dentro; $('informe').hidden = dentro || !hechos.has(enc);
+  cierraPaneles();
+  if(dentro){ pintaTipos(); nuevoEjercicio(); for(const k in SALAS) $(SALAS[k]).hidden = true; } else pintaEncargo();
+}
+$('bTaller').addEventListener('click', () => entraTaller(!taller.enTaller));
+$('corrige').addEventListener('click', () => corrige());
+$('bSi').addEventListener('click', () => corrige('directa'));
+$('bNo').addEventListener('click', () => corrige('inversa'));
+$('resp').addEventListener('keydown', e => { if(e.key === 'Enter'){ taller.corregido ? nuevoEjercicio() : corrige(); } });
+$('otro').addEventListener('click', nuevoEjercicio);
+$('verlo').addEventListener('click', verEnSala);
+$('hojaDiez').addEventListener('click', () => {
+  const claves = Object.keys(TIPOS); const lista = [];
+  for(let i = 0; i < 10; i++) lista.push(TIPOS[claves[i % claves.length]].gen());
+  const limpia = h => h.replace(/<[^>]+>/g, '');
+  $('hoja').innerHTML = '<h2>La pastelería de Nicoleta · hoja de práctica</h2>'
+    + '<div class="cab">Proporcionalidad y porcentajes · Nombre: ____________________ · Fecha: __________</div>'
+    + '<ol>' + lista.map(e => '<li>' + limpia(e.t) + '</li>').join('') + '</ol>'
+    + '<div class="clave"><h2>Clave del profesor</h2><ol>' + lista.map(e => '<li><b>' + solTxt(e) + '</b> — ' + limpia(e.exp) + '</li>').join('') + '</ol></div>';
+  document.body.classList.add('imprimiendo');
+  const fuera = () => { document.body.classList.remove('imprimiendo'); removeEventListener('afterprint', fuera); };
+  addEventListener('afterprint', fuera);
+  setTimeout(() => { print(); setTimeout(fuera, 800); }, 60);
+});
+
+/* ═══ LOS AJUSTES Y LA NOTA DE ENCARGO ═══════════════════════════════ */
+$('bAjustes').addEventListener('click', () => { pintaAjustes(); $('mAjustes').hidden = false; });
+$('ajCerrar').addEventListener('click', () => { $('mAjustes').hidden = true; });
+$('mAjustes').addEventListener('click', e => { if(e.target.id === 'mAjustes') $('mAjustes').hidden = true; });
+
+function textoSello(){
+  const n = hechos.size, r = rangoDe(n), min = Math.max(1, Math.round((Date.now() - t0) / 60000));
+  const f = new Date(), fecha = f.toLocaleDateString('es-ES') + ' ' + f.toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit'});
+  const estado = {v:1, h:[...hechos], t:[taller.ac, taller.racha, taller.mejor], e:[...huevos], min};
+  const sello = 'PNC1.' + btoa(unescape(encodeURIComponent(JSON.stringify(estado)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const nombre = $('selloNombre').value.trim() || '(sin nombre)';
+  return 'LA PASTELERÍA DE NICOLETA · nota de encargo\n'
+    + 'Para ' + nombre + '\n'
+    + 'Fecha: ' + fecha + '\n'
+    + 'Oficio: ' + r.n + ' · ' + r.s + '\n'
+    + 'Cajas atadas: ' + n + ' de ' + ENCARGOS.length + (n ? ' · ' + [...hechos].sort((a, b) => a - b).map(i => i + 1).join(' ') : '') + '\n'
+    + 'Taller: ' + taller.ac + ' aciertos · racha ' + taller.racha + ' · mejor ' + taller.mejor + '\n'
+    + 'Hallazgos: ' + huevos.size + ' de ' + HUEVOS.length + (huevos.size ? ' · ' + [...huevos].map(h => HUEVO_DICE[h]).join(' · ') : '') + '\n'
+    + 'Tiempo en la pastelería: ' + min + ' min\n'
+    + 'Sello: ' + sello;
+}
+function pintaSello(){ $('selloTexto').innerHTML = textoSello().replace(/</g, '&lt;').replace(/(Sello: .*)/, '<span class="sello">$1</span>'); }
+$('bSello').addEventListener('click', () => { pintaSello(); $('mSello').hidden = false; $('selloAviso').textContent = ''; });
+$('selloCerrar').addEventListener('click', () => { $('mSello').hidden = true; });
+$('mSello').addEventListener('click', e => { if(e.target.id === 'mSello') $('mSello').hidden = true; });
+$('selloNombre').addEventListener('input', () => { pintaSello(); guardaTurno(); });
+$('selloCopiar').addEventListener('click', async () => {
+  const t = textoSello();
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){ await navigator.clipboard.writeText(t); $('selloAviso').textContent = 'copiado'; return; }
+  }catch(e){}
+  const r = document.createRange(); r.selectNodeContents($('selloTexto'));
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  $('selloAviso').textContent = 'seleccionado: copie con el sistema';
+});
+
+/* ═══ LA GUÍA VISUAL ═════════════════════════════════════════════════ */
+const PASOS = [
+  {id:'franja',   t:'Tu oficio', d:'Empiezas de pinche, lavando tazas. Cada tres encargos subes: aprendiz, oficial, repostero, maestro. Con las quince, Nicoleta te deja el rodillo y las llaves.'},
+  {id:'cajas',    t:'Las cajas', d:'Una caja atada con su cordel por encargo servido. Con las quince, la persiana baja.'},
+  {id:'pEncargo', t:'El encargo', d:'Liz pregunta, con la libreta abierta y la cámara al cuello. Se hace en la sala de abajo y se pulsa Comprobar. Contesta Nicoleta, con la receta. Migas comenta desde el borde.'},
+  {sel:'.fila',   t:'Los mandos', d:'Lo que se puede tocar: la receta y cuántas, la etiqueta y cuántos, los hornos, el tanto por ciento, los carteles.'},
+  {sel:'.escena', t:'La escena', d:'La ficha de la receta con su tabla, el mostrador con las monedas, los hornos y el reloj, la tarta de cien cuadraditos, el escaparate con las etiquetas.'},
+  {sel:'.lectura',t:'La lectura', d:'La definición primero, y luego lo que se ve, con la cuenta hecha al final. Lo que va en rojo es una trampa nombrada.'},
+  {id:'barra',    t:'La barra', d:'Taller para practicar libre, Salas para abrir cualquiera suelta, Glosario con las palabras del obrador, Deudas con lo que se demuestra, Aula para la pizarra, La nota para llevarse la sesión y Ajustes para el tema.'}
+];
+let paso = 0;
+function elDe(p){
+  if(p.id) return $(p.id);
+  const sala = document.querySelector(Object.values(SALAS).map(s => '#' + s + ':not([hidden])').join(', '));
+  return sala ? sala.querySelector(p.sel) : null;
+}
+function pintaPaso(){
+  const p = PASOS[paso], e = elDe(p);
+  if(!e){ paso++; if(paso >= PASOS.length){ cierraGuia(); return; } pintaPaso(); return; }
+  e.scrollIntoView({behavior:'smooth', block:'center'});
+  setTimeout(() => {
+    const r = e.getBoundingClientRect(), f = $('tourFoco');
+    f.style.top = (r.top - 6) + 'px'; f.style.left = (r.left - 6) + 'px'; f.style.width = (r.width + 12) + 'px'; f.style.height = (r.height + 12) + 'px';
+    const g = $('tourGlobo'); $('tourTit').textContent = p.t; $('tourTxt').textContent = p.d;
+    $('tourNum').textContent = (paso + 1) + ' de ' + PASOS.length;
+    $('tourSig').textContent = paso === PASOS.length - 1 ? 'Terminar' : 'Siguiente';
+    const abajo = r.bottom + 12, alto = g.offsetHeight || 140;
+    g.style.top = (abajo + alto < innerHeight - 8 ? abajo : Math.max(8, r.top - alto - 12)) + 'px';
+    g.style.left = Math.min(Math.max(12, r.left), innerWidth - (g.offsetWidth || 320) - 12) + 'px';
+    g.focus();
+  }, 320);
+}
+function abreGuia(){ entraTaller(false); cierraPaneles(); paso = 0; $('tourCapa').hidden = false; pintaPaso(); }
+function cierraGuia(){ $('tourCapa').hidden = true; }
+$('bGuia').addEventListener('click', abreGuia);
+$('tourSig').addEventListener('click', e => { e.stopPropagation(); paso++; if(paso >= PASOS.length) cierraGuia(); else pintaPaso(); });
+$('tourSalir').addEventListener('click', e => { e.stopPropagation(); cierraGuia(); });
+$('tourCapa').addEventListener('click', e => { if(e.target.id === 'tourCapa') cierraGuia(); });
+addEventListener('keydown', e => { if(e.key === 'Escape'){ cierraGuia(); $('mAjustes').hidden = true; $('mSello').hidden = true; } });
+
+/* ═══ EL ARRANQUE: la calle al amanecer ══════════════════════════════
+   La fachada con el escaparate. Sube la persiana, se despliega el toldo,
+   las tartas aparecen una a una y Nicoleta sale a la puerta.            */
+{
+  const g = $('bootCalle'), rapido = matchMedia('(prefers-reduced-motion: reduce)').matches, d = s => rapido ? 0 : s;
+  el(g, 'rect', {x:0, y:30, width:300, height:180, fill:'#E0BFA0'});
+  for(let f = 0; f < 3; f++) for(let c = 0; c < 8; c++) el(g, 'rect', {x:c * 40 + (f % 2 ? 20 : 0) - 20, y:36 + f * 10, width:38, height:9, fill:'#D9B48F', opacity:.5});
+  /* el rótulo */
+  el(g, 'rect', {x:30, y:60, width:240, height:26, rx:3, fill:'#5A3A28', stroke:'#3A2E22', 'stroke-width':1});
+  el(g, 'text', {x:150, y:79, 'text-anchor':'middle', 'font-family':"'Lobster',cursive", 'font-size':17, fill:'#F6EFE2', class:'rotulo', style:'animation-delay:' + d(.2) + 's'}, 'Pastelería Nicoleta');
+  /* el escaparate: cristal, baldas, tartas */
+  el(g, 'rect', {x:36, y:96, width:160, height:104, fill:'#2F6E8C', 'fill-opacity':.25, stroke:'#3A2E22', 'stroke-width':1.4});
+  el(g, 'path', {d:'M36 140 H196 M36 176 H196', stroke:'#8A5E3B', 'stroke-width':3});
+  const tartas = [[60, 134, '#C97E8C'], [100, 134, '#C98A3E'], [140, 134, '#7D8C3F'], [180, 134, '#B0392C'], [70, 170, '#E0BFA0'], [120, 170, '#C97E8C'], [170, 170, '#C98A3E']];
+  tartas.forEach(([x, y, c], i) => { const gg = el(g, 'g', {transform:'translate(' + x + ' ' + y + ')'}); const t = el(gg, 'g', {class:'tarta', style:'animation-delay:' + d(2 + i * .16) + 's'});
+    el(t, 'path', {d:'M-14 0 h28 v10 q-14 4 -28 0 z', fill:'#E0BFA0', stroke:'#3A2E22', 'stroke-width':1}); el(t, 'path', {d:'M-14 0 Q0 -8 14 0 Q0 5 -14 0 Z', fill:c, stroke:'#3A2E22', 'stroke-width':1}); el(t, 'circle', {cx:0, cy:-2, r:2, fill:'#B0392C'}); });
+  /* la persiana, que sube */
+  { const gg = el(g, 'g', {transform:'translate(0 96)'}); const p = el(gg, 'g', {class:'persiana', style:'animation-delay:' + d(.4) + 's'});
+    el(p, 'rect', {x:36, y:0, width:160, height:104, fill:'#9A8A80', stroke:'#3A2E22', 'stroke-width':1}); for(let i = 1; i < 13; i++) el(p, 'path', {d:'M36 ' + (i * 8) + ' H196', stroke:'#7A6A58', 'stroke-width':1}); }
+  /* el toldo, que se despliega */
+  { const gg = el(g, 'g', {transform:'translate(0 88)'}); const t = el(gg, 'g', {class:'toldoB', style:'animation-delay:' + d(1.5) + 's'});
+    for(let i = 0; i < 9; i++){ el(t, 'rect', {x:26 + i * 20, y:0, width:20, height:16, fill:i % 2 ? '#FFFDF6' : '#C97E8C'}); el(t, 'path', {d:'M' + (26 + i * 20) + ' 16 a10 7 0 0 0 20 0 Z', fill:i % 2 ? '#FFFDF6' : '#C97E8C', stroke:'#3A2E22', 'stroke-width':.8}); } }
+  /* la puerta y Nicoleta */
+  el(g, 'rect', {x:214, y:110, width:56, height:90, rx:3, fill:'#5A3A28', stroke:'#3A2E22', 'stroke-width':1.2});
+  el(g, 'rect', {x:222, y:118, width:40, height:40, fill:'#2F6E8C', 'fill-opacity':.3, stroke:'#3A2E22', 'stroke-width':.8});
+  { const pos = el(g, 'g', {transform:'translate(219 152)'}); const n = el(pos, 'g', {class:'llega', style:'animation-delay:' + d(3) + 's'}); n.innerHTML = dentroDe(CARA_NICOLETA_CRUDA); }
+  el(g, 'text', {x:150, y:22, 'text-anchor':'middle', 'font-family':"'Special Elite',monospace", 'font-size':9, 'letter-spacing':2, fill:'#C9B6A4', class:'rotulo', style:'animation-delay:' + d(3.3) + 's'}, 'AÑOS TREINTA · DOS PORTALES MÁS ALLÁ');
+  const lineas = ['receta', 'mostrador', 'horno', 'escaparate', 'rebajas'];
+  $('bootLista').innerHTML = lineas.map((l, i) => '<span style="animation-delay:' + d(.3 + i * .4) + 's">' + l + '</span>').join('');
+  const fuera = () => { const b = $('boot'); if(!b || b.classList.contains('fuera')) return; b.classList.add('fuera'); setTimeout(() => b.remove(), 600); };
+  $('boot').addEventListener('click', fuera);
+  setTimeout(fuera, rapido ? 300 : 4000);
+}
+
+/* ═══ EL AUTODIAGNÓSTICO ═════════════════════════════════════════════ */
+$('ixDiag').addEventListener('click', () => {
+  const d = $('diag'); d.hidden = false; const li = [];
+  const di = (t, ok) => li.push('<div class="' + (ok ? 'ok' : 'ko') + '">' + (ok ? '✓ ' : '✗ ') + t + '</div>');
+  // 1 · la receta
+  const R = RECETAS.magdalenas;
+  di('doce magdalenas por dos son seis huevos y cuatro tazas; por uno y medio, cuatro y medio y tres', cantidades(R, 24).join() === '6,4,12' && cantidades(R, 18).join() === '4.5,3,9');
+  di('la razón huevos entre tazas es 1,5 en cualquier múltiplo, y sumar como Nick la rompe', [6, 12, 18, 24, 60].every(n => Math.abs(razon(R, cantidades(R, n)) - 1.5) < 1e-9) && Math.abs(razon(R, cantidades(R, 18, true)) - 1.5) > .01);
+  di('las cuatro recetas escalan a cualquier n sin negativos ni ceros', RECETA_ORDEN.every(k => [1, 7, 13, 60].every(n => cantidades(RECETAS[k], n).every(v => v > 0))));
+  // 2 · el mostrador
+  { const g = {...mostrador}; Object.assign(mostrador, {etq:'pasteles', quiero:8}); const a = cuentaMostrador(); Object.assign(mostrador, {etq:'galletas', quiero:500}); const b = cuentaMostrador(); Object.assign(mostrador, g);
+    di('cinco pasteles a tres pesetas: uno, 0,60; ocho, 4,80', Math.abs(a.u - .6) < 1e-9 && Math.abs(a.total - 4.8) < 1e-9);
+    di('las galletas: 200 g a 1,20 son 6 pesetas el kilo', Math.abs(b.kilo - 6) < 1e-9); }
+  di('las pesetas se escriben con dos decimales: 4,80 ptas · 0,60 ptas · 3 ptas · 0,006 ptas', ptas(4.8) === '4,80 ptas' && ptas(.6) === '0,60 ptas' && ptas(3) === '3 ptas' && ptas(.006) === '0,006 ptas');
+  // 3 · el horno
+  di('seis horas de horno: con dos hornos tres, con tres dos, y el producto siempre seis', [1, 2, 3, 4, 6].every(h => Math.abs(h * horasDe(6, h) - 6) < 1e-9) && horasDe(6, 2) === 3 && horasDe(6, 3) === 2);
+  // 4 · el escaparate
+  di('el 25 % de 8 es 2, el 10 % de 250 es 25, el 50 % de 40 es 20', porcentajeDe(25, 8) === 2 && porcentajeDe(10, 250) === 25 && porcentajeDe(50, 40) === 20);
+  di('las fracciones del tanto por ciento salen simplificadas: 25 % → 1/4, 10 % → 1/10, 75 % → 3/4, 37 % → 37/100', fraccionDe(25).join('/') === '1/4' && fraccionDe(10).join('/') === '1/10' && fraccionDe(75).join('/') === '3/4' && fraccionDe(37).join('/') === '37/100');
+  di('diez de cuarenta es el 25 %', 10 / 40 * 100 === 25);
+  // 5 · las rebajas
+  { const g = {precio:rebajas.precio, c1:{...rebajas.c1}, c2:{...rebajas.c2}, reves:rebajas.reves};
+    Object.assign(rebajas, {precio:10}); rebajas.c1 = {t:'rebaja', p:20}; rebajas.c2 = {t:'nada', p:20}; const a = cadena();
+    rebajas.c2 = {t:'subida', p:20}; const b = cadena(); Object.assign(rebajas, g);
+    di('diez con el 20 % de rebaja son ocho; y con el 20 % de subida después, nueve con sesenta', Math.abs(a.p1 - 8) < 1e-9 && Math.abs(b.p2 - 9.6) < 1e-9);
+    di('ocho ya rebajados el 20 % valían diez: se divide entre 0,8', Math.abs(8 / factor({t:'rebaja', p:20}) - 10) < 1e-9); }
+  // 6 · el kit
+  di('la etiqueta dibuja sus seis figuras', ['cuchara', 'batidor', 'manga', 'tarta', 'gorro', 'rodillo'].every(f => { const s = document.createElementNS(NS, 'svg'); etiqueta(s, 0, 0, 40, f); return s.querySelectorAll('*').length > 4; }));
+  di('las cifras se escriben a la española: 1.024 · 7,5 · −3', cifra(1024, 0) === '1.024' && cifra(7.5, 1) === '7,5' && cifra(-3, 0) === '−3');
+  di('Nicoleta lleva párpados y Migas lleva cola, para la vida', CARA_NICOLETA.includes('class="parpados"') && CARA_MIGAS.includes('class="cola"') && MIGAS_MIGA.includes('class="cola"'));
+  di('el nudo del pañuelo cambia en el acierto y el mechón cae en el fallo', !NICOLETA_BIEN.includes(NUDO) && NICOLETA_MAL.includes('M27.2 13.4'));
+  di('«cuatro y medio», «4,5» y «4.5» se entienden igual', casi('cuatro y medio', 4.5) === false && casi('4 y medio', 4.5) && casi('4,5', 4.5) && casi('4.5', 4.5) && casi('4,80 ptas', 4.8));
+  // 7 · los generadores
+  let ok6 = true, n6 = 0; for(const k in TIPOS) for(let i = 0; i < 80; i++){ const e = TIPOS[k].gen(); n6++;
+    const sol = typeof e.sol === 'string' ? e.sol : String(e.sol).replace('.', ',');
+    if(!e.ok(sol) || e.ok('999999999') || e.ok('') || !e.t || !e.exp) ok6 = false; }
+  di('los ' + Object.keys(TIPOS).length + ' generadores del taller aceptan su solución y rechazan basura (' + n6 + ' pruebas)', ok6);
+  { let ok7 = true; const g = [{...receta}, {...mostrador}, {...horno}, {...escaparate}, {precio:rebajas.precio, c1:{...rebajas.c1}, c2:{...rebajas.c2}, reves:rebajas.reves}];
+    for(let i = 0; i < 30; i++) for(const k in TIPOS){ const e = TIPOS[k].gen(); if(e.pon) e.pon();
+      if(!RECETAS[receta.cual] || receta.n < 1 || receta.n > 60 || !ETIQUETAS[mostrador.etq] || mostrador.quiero > ETIQUETAS[mostrador.etq].max || !TRABAJOS.includes(horno.trabajo) || horno.hornos < 1 || horno.hornos > 6 || escaparate.pct < 1 || escaparate.pct > 100 || !DE[escaparate.de] || !PRECIOS.includes(rebajas.precio) || !PCTS.includes(rebajas.c1.p)) ok7 = false; }
+    Object.assign(receta, g[0]); Object.assign(mostrador, g[1]); Object.assign(horno, g[2]); Object.assign(escaparate, g[3]); Object.assign(rebajas, g[4]);
+    di('«verlo en la sala» deja los mandos en valores que existen (180 pruebas)', ok7); }
+  // 8 · los encargos
+  di('los ' + ENCARGOS.length + ' encargos apuntan a una sala que existe', ENCARGOS.every(e => SALAS[e.sala]));
+  di('cada encargo de opciones tiene UNA correcta, y todas explican', ENCARGOS.filter(e => e.ops).every(e => e.ops.filter(o => o.ok).length === 1 && e.ops.every(o => o.r && dicho(o.r).length > 20)));
+  di('cada encargo de manipulativo trae pre, bien y mal', ENCARGOS.filter(e => !e.ops).every(e => e.pre && e.bien && e.mal));
+  let ok8 = true; { const g = [{...receta}, {...mostrador}, {...horno}, {...escaparate}, {precio:rebajas.precio, c1:{...rebajas.c1}, c2:{...rebajas.c2}, reves:rebajas.reves}];
+    ENCARGOS.forEach(e => { if(e.ops) return; e.pre(); if(e.ok()) ok8 = false; });
+    Object.assign(receta, g[0]); Object.assign(mostrador, g[1]); Object.assign(horno, g[2]); Object.assign(escaparate, g[3]); Object.assign(rebajas, g[4]); }
+  di('ningún encargo de manipulativo está resuelto nada más abrirlo', ok8);
+  di('las ' + Object.keys(SALAS).length + ' salas tienen rótulo y pintor', Object.keys(SALAS).every(k => LEMAS[k] && PINTA[k]));
+  di('los oficios cubren los ' + ENCARGOS.length + ' encargos y acaban en el rodillo', rangoDe(0).n === 'Pinche' && rangoDe(ENCARGOS.length).n === 'Quien lleva el obrador' && rangoDe(7).n === 'Oficial' && rangoDe(12).n === 'Maestro');
+  di('los ' + HUEVOS.length + ' hallazgos tienen su frase, y los ascensos su nota', HUEVOS.every(h => HUEVO_DICE[h]) && RANGOS.slice(1).every(r => NOTAS[r.n]));
+  d.innerHTML = li.join('');
+  pintaEncargo();
+});
+
+/* ── EL VESTIDO DE LAS SALAS y LA APERTURA ────────────────────────────── */
+Object.keys(SALAS).forEach(k => {
+  const pan = $(SALAS[k]), [nom, lema] = LEMAS[k];
+  const rot = document.createElement('div'); rot.className = 'salaRot';
+  rot.innerHTML = '<b>' + nom + '</b><span>' + lema + '</span>'; pan.insertBefore(rot, pan.firstChild);
+});
+{
+  const d = leeTurno();
+  if(d){
+    enc = d.enc; d.hechos.forEach(i => { if(i >= 0 && i < ENCARGOS.length) hechos.add(i); });
+    (d.huevos || []).forEach(h => { if(HUEVO_DICE[h]) huevos.add(h); });
+    const t = d.taller || {}; taller.ac = t.ac|0; taller.racha = t.racha|0; taller.mejor = t.mejor|0;
+    if(d.aj) Object.keys(AJ).forEach(k => { if(d.aj[k] !== undefined) AJ[k] = d.aj[k]; });
+    if(d.nombre) $('selloNombre').value = d.nombre;
+    t0 = d.t0 || Date.now();
+    ultimoRango = rangoDe(hechos.size).n;
+  }
+  aplicaAjustes();
+  pintaEncargo();
+  armaQuieto();
+  document.addEventListener('pointerdown', () => Ruido.despierta(), {once:true});
+}
+
+/* ── EL MODO AULA ─────────────────────────────────────────────────────── */
+{
+  const rej = document.createElement('div'); rej.className = 'aulaRejilla';
+  const izq = document.createElement('div'); izq.className = 'colIzq';
+  const der = document.createElement('div'); der.className = 'colDer';
+  const enc = $('pEncargo');
+  enc.parentNode.insertBefore(rej, enc);
+  rej.appendChild(izq); rej.appendChild(der);
+  izq.appendChild(enc);
+  const inf = $('informe'); if(inf) izq.appendChild(inf);
+  Object.values(SALAS).forEach(id => { const p = $(id); if(p) der.appendChild(p); });
+  const pie = document.querySelector('footer.pie'), marca = document.createComment('pie');
+  if(pie) pie.before(marca);
+  const muda = si => { if(!pie) return; if(si) izq.appendChild(pie); else marca.after(pie); };
+  const pinta = () => {
+    const si = document.body.dataset.aula === 'si';
+    muda(si && innerWidth >= 1100);
+    const b = $('bAula');
+    if(b){ b.setAttribute('aria-pressed', String(si)); b.textContent = si ? 'Salir del aula' : 'Aula'; }
+  };
+  window.pintaAula = pinta;
+  addEventListener('resize', pinta);
+  $('bAula').addEventListener('click', () => { AJ.vista = AJ.vista === 'aula' ? 'normal' : 'aula'; aplicaAjustes(); guardaTurno(); });
+  pinta();
+}
+
+</script>
+</body></html>
