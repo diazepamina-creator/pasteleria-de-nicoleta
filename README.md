@@ -85,8 +85,11 @@ ciudad de Liz y de Jeff, y se nota:
   llega con una nota suya, a máquina.
 - **Los sonidos**: la campanilla de la puerta, el batidor, el timbre del
   horno, el papel de estraza.
-- **La vida**: los personajes respiran, Nicoleta parpadea, Migas menea la
-  cola, y a Liz le salta el flash de la cámara con cada acierto.
+- **La vida**: Nicoleta, Migas y Nick son los de *La grapadora de Nick*,
+  articulados —brazos con hombro y codo, posturas y párpados que parpadean
+  solos—. Respiran; Nicoleta celebra al acertar y se sorprende al fallar;
+  Migas celebra con la miga; Nick asoma por el lado señalando con la
+  grapadora; y a Liz le salta el flash de la cámara con cada acierto.
 
 ## Para el aula
 
